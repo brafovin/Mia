@@ -9,6 +9,13 @@ let currentSort = 'default';
 let visibleCount = 12;
 let filteredList = [];
 
+// ===== COUPON STATE =====
+let activeCoupons = {};       // code → value (€)
+let appliedCoupon = null;     // { code, value }
+let currentPopupCoupon = null;
+let couponTimerInterval = null;
+let couponTimerSeconds = 600; // 10 min
+
 const catTitles = {
   all: 'Alle Produkte',
   damen: 'Damen',
@@ -23,6 +30,9 @@ const catTitles = {
 function init() {
   applyCategory('all');
   window.addEventListener('scroll', onScroll);
+  // First coupon after 5 seconds, then every 45 seconds
+  setTimeout(spawnCoupon, 5000);
+  setInterval(spawnCoupon, 45000);
 }
 
 function onScroll() {
@@ -250,11 +260,21 @@ function updateCart() {
   }).join('');
 
   const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
-  const shipping = subtotal >= 49 ? 'Gratis' : '3,99 €';
-  const shippingNum = subtotal >= 49 ? 0 : 3.99;
+  const couponDiscount = appliedCoupon ? Math.min(appliedCoupon.value, subtotal) : 0;
+  const afterCoupon = subtotal - couponDiscount;
+  const shipping = afterCoupon >= 49 ? 'Gratis' : '3,99 €';
+  const shippingNum = afterCoupon >= 49 ? 0 : 3.99;
   document.getElementById('cartSubtotal').textContent = fmtPrice(subtotal);
   document.getElementById('cartShipping').textContent = shipping;
-  document.getElementById('cartTotal').textContent = fmtPrice(subtotal + shippingNum);
+  document.getElementById('cartTotal').textContent = fmtPrice(afterCoupon + shippingNum);
+  const savingRow = document.getElementById('couponSavingRow');
+  const savingLbl = document.getElementById('couponSavingLabel');
+  if (appliedCoupon && couponDiscount > 0) {
+    savingRow.style.display = 'flex';
+    savingLbl.textContent = `−${fmtPrice(couponDiscount)}`;
+  } else {
+    savingRow.style.display = 'none';
+  }
   foot.style.display = 'block';
 }
 
@@ -265,11 +285,18 @@ function toggleCart() {
 
 function checkout() {
   if (cart.length === 0) return;
-  const total = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const subtotal = cart.reduce((s, i) => s + i.price * i.qty, 0);
+  const discount = appliedCoupon ? Math.min(appliedCoupon.value, subtotal) : 0;
+  const total = subtotal - discount + (subtotal - discount >= 49 ? 0 : 3.99);
   cart = [];
+  appliedCoupon = null;
+  document.getElementById('couponApplied').style.display = 'none';
   updateCart();
   toggleCart();
-  toast(`🎉 Vielen Dank für deine Bestellung! Gesamt: ${fmtPrice(total)}`, 'success');
+  const msg = discount > 0
+    ? `🎉 Bestellung aufgegeben! Du hast ${fmtPrice(discount)} gespart. Gesamt: ${fmtPrice(total)}`
+    : `🎉 Vielen Dank für deine Bestellung! Gesamt: ${fmtPrice(total)}`;
+  toast(msg, 'success');
 }
 
 /* ===== WISHLIST ===== */
@@ -353,6 +380,143 @@ function modalAddToCart(id) {
   addToCart(id, activeSize);
   closeModal();
   toggleCart();
+}
+
+/* ===================================================
+   COUPON SYSTEM
+   =================================================== */
+
+const COUPON_PREFIXES = ['MIA','STYLE','SAVE','DEAL','VIP','HOT','TOP','WIN'];
+const COUPON_REASONS = [
+  'Treue-Bonus', 'Willkommensrabatt', 'Flash-Sale', 'Tages-Deal',
+  'Überraschungsbonus', 'Sonder-Aktion', 'Exklusiv-Rabatt', 'VIP-Angebot'
+];
+
+function genCouponCode() {
+  const prefix = COUPON_PREFIXES[Math.floor(Math.random() * COUPON_PREFIXES.length)];
+  const num = Math.floor(Math.random() * 900 + 100);
+  return `${prefix}${num}`;
+}
+
+function genCouponValue() {
+  // Random value between 5 and 100, multiples of 5
+  return (Math.floor(Math.random() * 20) + 1) * 5;
+}
+
+function spawnCoupon() {
+  const code = genCouponCode();
+  const value = genCouponValue();
+  const reason = COUPON_REASONS[Math.floor(Math.random() * COUPON_REASONS.length)];
+  activeCoupons[code] = value;
+  currentPopupCoupon = { code, value, reason };
+  // Show as ticker first, then popup after 2s
+  showTicker(code, value);
+  setTimeout(() => openCouponPopup(code, value), 2000);
+}
+
+function showTicker(code, value) {
+  const ticker = document.getElementById('couponTicker');
+  document.getElementById('tickerText').textContent =
+    `🎉 Neuer ${value} € Gutschein freigeschaltet! Code: ${code}`;
+  ticker.style.display = 'flex';
+}
+
+function closeTicker() {
+  document.getElementById('couponTicker').style.display = 'none';
+}
+
+function openCouponFromTicker() {
+  closeTicker();
+  if (currentPopupCoupon) openCouponPopup(currentPopupCoupon.code, currentPopupCoupon.value);
+}
+
+function openCouponPopup(code, value) {
+  document.getElementById('couponCodeText').textContent = code;
+  document.getElementById('couponValueBadge').textContent = `−${value} €`;
+  document.getElementById('couponCopyBtn').textContent = 'Kopieren';
+  document.getElementById('couponCopyBtn').classList.remove('copied');
+  document.getElementById('couponOverlay').classList.add('open');
+  document.getElementById('couponPopup').classList.add('open');
+  closeTicker();
+  startCouponTimer();
+}
+
+function closeCouponPopup() {
+  document.getElementById('couponOverlay').classList.remove('open');
+  document.getElementById('couponPopup').classList.remove('open');
+  clearInterval(couponTimerInterval);
+}
+
+function startCouponTimer() {
+  clearInterval(couponTimerInterval);
+  couponTimerSeconds = 600;
+  updateTimerDisplay();
+  couponTimerInterval = setInterval(() => {
+    couponTimerSeconds--;
+    updateTimerDisplay();
+    if (couponTimerSeconds <= 0) {
+      clearInterval(couponTimerInterval);
+      // remove from active coupons
+      if (currentPopupCoupon) delete activeCoupons[currentPopupCoupon.code];
+      closeCouponPopup();
+      toast('⏰ Gutschein abgelaufen', 'error');
+    }
+  }, 1000);
+}
+
+function updateTimerDisplay() {
+  const m = String(Math.floor(couponTimerSeconds / 60)).padStart(2, '0');
+  const s = String(couponTimerSeconds % 60).padStart(2, '0');
+  const el = document.getElementById('couponTimer');
+  if (el) el.textContent = `${m}:${s}`;
+  // Turn red when under 60s
+  if (el) el.style.color = couponTimerSeconds < 60 ? '#e74c3c' : '#e74c3c';
+}
+
+function copyCode() {
+  const code = document.getElementById('couponCodeText').textContent;
+  navigator.clipboard.writeText(code).catch(() => {});
+  const btn = document.getElementById('couponCopyBtn');
+  btn.textContent = '✓ Kopiert!';
+  btn.classList.add('copied');
+  toast(`Code ${code} in die Zwischenablage kopiert`, 'success');
+}
+
+function useCouponNow() {
+  const code = document.getElementById('couponCodeText').textContent;
+  document.getElementById('couponInput').value = code;
+  closeCouponPopup();
+  // Open cart and apply
+  if (!document.getElementById('cartSidebar').classList.contains('open')) toggleCart();
+  setTimeout(() => applyCoupon(), 300);
+}
+
+/* ===== COUPON APPLY ===== */
+function applyCoupon() {
+  const raw = document.getElementById('couponInput').value.trim().toUpperCase();
+  if (!raw) { toast('Bitte einen Gutscheincode eingeben', 'error'); return; }
+  if (appliedCoupon) { toast('Es ist bereits ein Gutschein aktiv', 'error'); return; }
+  if (activeCoupons[raw] !== undefined) {
+    appliedCoupon = { code: raw, value: activeCoupons[raw] };
+    document.getElementById('couponInput').value = '';
+    document.getElementById('appliedCodeLabel').textContent = `${raw} (−${appliedCoupon.value} €)`;
+    document.getElementById('couponApplied').style.display = 'flex';
+    updateCart();
+    toast(`🏷️ Gutschein ${raw} eingelöst! Du sparst ${appliedCoupon.value} €`, 'success');
+  } else {
+    toast(`Code „${raw}" ist ungültig oder abgelaufen`, 'error');
+    document.getElementById('couponInput').style.borderColor = '#c0392b';
+    setTimeout(() => document.getElementById('couponInput').style.borderColor = '', 1500);
+  }
+}
+
+function removeCoupon() {
+  appliedCoupon = null;
+  document.getElementById('couponApplied').style.display = 'none';
+  document.getElementById('couponInput').value = '';
+  document.getElementById('couponSavingRow').style.display = 'none';
+  updateCart();
+  toast('Gutschein entfernt', 'info');
 }
 
 /* ===== NEWSLETTER ===== */
