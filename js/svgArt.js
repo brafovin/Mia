@@ -409,86 +409,258 @@ function bodysuitOffShoulder(c, bg) {
   `);
 }
 
+/* ── HANGER HELPER ── */
+function _figHanger() {
+  const metal = '#8a8a8a';
+  const wood  = '#1e1810';
+  const whl   = 'rgba(255,255,255,0.13)';
+  return `
+  <!-- Hook (metal) -->
+  <path d="M 140 30 C 140 18 148 8 158 6 C 170 4 178 12 176 22 C 174 30 166 34 158 34 C 152 34 146 32 140 30"
+    fill="none" stroke="${metal}" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Hook shadow -->
+  <path d="M 141 32 C 141 20 149 10 159 8 C 171 6 179 14 177 24"
+    fill="none" stroke="rgba(0,0,0,0.12)" stroke-width="3" stroke-linecap="round"/>
+  <!-- Hanger bar left arm -->
+  <path d="M 140 30 C 128 30 108 34 86 44 C 66 52 50 60 46 66"
+    fill="none" stroke="${wood}" stroke-width="11" stroke-linecap="round"/>
+  <!-- Hanger bar right arm -->
+  <path d="M 140 30 C 152 30 172 34 194 44 C 214 52 230 60 234 66"
+    fill="none" stroke="${wood}" stroke-width="11" stroke-linecap="round"/>
+  <!-- Sheen on left arm -->
+  <path d="M 138 27 C 126 27 106 31 84 41 C 68 48 54 56 50 62"
+    fill="none" stroke="${whl}" stroke-width="3" stroke-linecap="round"/>
+  <!-- Sheen on right arm -->
+  <path d="M 142 27 C 154 27 174 31 196 41 C 212 48 226 56 230 62"
+    fill="none" stroke="${whl}" stroke-width="3" stroke-linecap="round"/>
+  <!-- Center hub (where hook meets bar) -->
+  <ellipse cx="140" cy="30" rx="10" ry="7" fill="${wood}"/>
+  <ellipse cx="139" cy="28" rx="4" ry="2.5" fill="${whl}"/>`;
+}
+
 /* ══════════════════════════════════════════════
-   DRESSES
+   DRESSES  (hanger / product-photo style)
    ══════════════════════════════════════════════ */
 
 function dressMidi(c, bg) {
   const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
-  const fc = _figColors();
-  return _wrap('0 0 280 490', b1, b2, `
+  return _wrap('0 0 280 425', b1, b2, `
   ${_defs(id, c)}
-  <ellipse cx="140" cy="482" rx="70" ry="7" fill="rgba(0,0,0,0.07)"/>
-  ${_figArmsBare(fc.skin, 145)}
-  <g transform="translate(0,40)">
-    <rect x="120" y="26" width="10" height="42" rx="5" fill="url(#fab${id})"/>
-    <rect x="150" y="26" width="10" height="42" rx="5" fill="url(#fab${id})"/>
-    <path d="M 122 64 Q 140 92 158 64 C 174 64 198 76 209 94 C 218 110 216 132 212 150
-      L 207 185 L 202 220 L 198 240 L 82 240 L 78 220 L 73 185 L 68 150
-      C 64 132 62 110 71 94 C 82 76 106 64 122 64 Z" fill="url(#fab${id})" filter="url(#drp${id})"/>
-    <path d="M 82 238 L 78 220 L 200 220 L 198 238
-      C 196 260 192 290 186 320 C 180 350 174 375 170 400 L 110 400
-      C 106 375 100 350 94 320 C 88 290 84 260 82 238 Z" fill="url(#fab${id})"/>
-    <path d="M 95 350 C 92 365 92 380 94 400 L 110 400 C 108 382 108 366 110 350 Z" fill="rgba(255,255,255,0.08)"/>
-    <path d="M 185 350 C 188 365 188 380 186 400 L 170 400 C 172 382 172 366 170 350 Z" fill="rgba(255,255,255,0.08)"/>
-    <path d="M 122 66 C 130 86 128 215 130 395 L 125 398 C 123 215 124 86 118 86 Z" fill="rgba(255,255,255,0.10)"/>
-    <line x1="82" y1="238" x2="198" y2="238" stroke="rgba(0,0,0,0.07)" stroke-width="1.5"/>
-  </g>
-  <!-- Bare legs below midi hem -->
-  ${_figLegs(fc.skin, 435, 478)}
-  ${_figHead(fc.skin, fc.hair, 'long')}
+  <!-- Drop shadow under dress hem -->
+  <ellipse cx="140" cy="418" rx="70" ry="7" fill="rgba(0,0,0,0.09)"/>
+  ${_figHanger()}
+  <!-- Dress: straps -->
+  <rect x="120" y="26" width="10" height="42" rx="5" fill="url(#fab${id})"/>
+  <rect x="150" y="26" width="10" height="42" rx="5" fill="url(#fab${id})"/>
+  <!-- Bodice -->
+  <path d="M 122 64 Q 140 92 158 64 C 174 64 198 76 209 94 C 218 110 216 132 212 150
+    L 207 185 L 202 220 L 198 240 L 82 240 L 78 220 L 73 185 L 68 150
+    C 64 132 62 110 71 94 C 82 76 106 64 122 64 Z"
+    fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Skirt -->
+  <path d="M 82 238 L 78 220 L 200 220 L 198 238
+    C 196 260 192 290 186 320 C 180 350 174 375 170 400 L 110 400
+    C 106 375 100 350 94 320 C 88 290 84 260 82 238 Z" fill="url(#fab${id})"/>
+  <!-- Skirt sheen sides -->
+  <path d="M 95 350 C 92 365 92 380 94 400 L 110 400 C 108 382 108 366 110 350 Z" fill="rgba(255,255,255,0.08)"/>
+  <path d="M 185 350 C 188 365 188 380 186 400 L 170 400 C 172 382 172 366 170 350 Z" fill="rgba(255,255,255,0.08)"/>
+  <!-- Sheen -->
+  <path d="M 122 66 C 130 86 128 215 130 395 L 125 398 C 123 215 124 86 118 86 Z" fill="rgba(255,255,255,0.11)"/>
+  <!-- Waist seam -->
+  <line x1="82" y1="238" x2="198" y2="238" stroke="rgba(0,0,0,0.07)" stroke-width="1.5"/>
   `);
 }
 
 function dressMaxi(c, bg) {
   const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
-  const fc = _figColors();
-  return _wrap('0 0 280 500', b1, b2, `
+  return _wrap('0 0 280 492', b1, b2, `
   ${_defs(id, c)}
-  <ellipse cx="140" cy="493" rx="80" ry="7" fill="rgba(0,0,0,0.08)"/>
-  ${_figArmsBare(fc.skin, 145)}
-  <g transform="translate(0,40)">
+  <ellipse cx="140" cy="485" rx="80" ry="7" fill="rgba(0,0,0,0.09)"/>
+  ${_figHanger()}
+  <!-- Straps -->
   <rect x="121" y="27" width="11" height="43" rx="5.5" fill="url(#fab${id})"/>
   <rect x="148" y="27" width="11" height="43" rx="5.5" fill="url(#fab${id})"/>
+  <!-- Bodice -->
   <path d="M 122 66 Q 140 94 158 66 C 175 66 198 77 209 95 C 218 111 216 133 212 151
-    L 207 186 L 202 222 L 198 242
-    L 82 242 L 78 222 L 73 186 L 68 151
+    L 207 186 L 202 222 L 198 242 L 82 242 L 78 222 L 73 186 L 68 151
     C 64 133 62 111 71 95 C 82 77 105 66 122 66 Z"
     fill="url(#fab${id})" filter="url(#drp${id})"/>
-  <path d="M 80 240 L 200 240 L 205 285 C 208 315 210 350 208 420 L 208 440
-    L 72 440 L 72 420 C 70 350 72 315 75 285 Z"
-    fill="url(#fab${id})"/>
-  <path d="M 80 310 C 78 340 76 390 74 430 L 80 435 C 82 394 84 344 86 313 Z" fill="rgba(0,0,0,0.04)"/>
-  <path d="M 200 310 C 202 340 204 390 206 430 L 200 435 C 198 394 196 344 194 313 Z" fill="rgba(0,0,0,0.04)"/>
-  <path d="M 122 68 C 130 90 128 220 130 428 L 125 436 C 123 220 124 90 118 88 Z" fill="rgba(255,255,255,0.10)"/>
+  <!-- Long flowing skirt -->
+  <path d="M 80 240 L 200 240 L 206 288 C 210 320 212 358 210 418 L 210 438
+    L 70 438 L 70 418 C 68 358 70 320 74 288 Z" fill="url(#fab${id})"/>
+  <!-- Skirt volume -->
+  <path d="M 80 320 C 78 352 76 395 74 430 L 82 435 C 84 398 86 355 88 322 Z" fill="rgba(0,0,0,0.04)"/>
+  <path d="M 200 320 C 202 352 204 395 206 430 L 198 435 C 196 398 194 355 192 322 Z" fill="rgba(0,0,0,0.04)"/>
+  <!-- Sheen -->
+  <path d="M 122 68 C 130 90 128 225 130 430 L 125 436 C 123 225 124 90 118 88 Z" fill="rgba(255,255,255,0.10)"/>
+  <!-- Waist seam -->
   <line x1="82" y1="240" x2="198" y2="240" stroke="rgba(0,0,0,0.07)" stroke-width="1.5"/>
-  </g>
-  ${_figHead(fc.skin, fc.hair, 'long')}
   `);
 }
 
 function dressShort(c, bg) {
   const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
-  const fc = _figColors();
-  return _wrap('0 0 280 490', b1, b2, `
+  return _wrap('0 0 280 382', b1, b2, `
   ${_defs(id, c)}
-  <ellipse cx="140" cy="483" rx="65" ry="7" fill="rgba(0,0,0,0.07)"/>
-  ${_figArmsBare(fc.skin, 145)}
-  <g transform="translate(0,40)">
+  <ellipse cx="140" cy="375" rx="65" ry="7" fill="rgba(0,0,0,0.09)"/>
+  ${_figHanger()}
+  <!-- Straps -->
   <rect x="122" y="28" width="11" height="40" rx="5.5" fill="url(#fab${id})"/>
   <rect x="147" y="28" width="11" height="40" rx="5.5" fill="url(#fab${id})"/>
+  <!-- Bodice + A-line skirt -->
   <path d="M 122 64 Q 140 92 158 64 C 175 64 198 75 209 93 C 218 109 216 131 212 149
     L 207 180 L 202 210 L 200 230
-    C 200 255 195 290 188 340 L 188 360 L 92 360 L 92 340
+    C 200 255 195 290 188 345 L 188 362 L 92 362 L 92 345
     C 85 290 80 255 80 230 L 78 210 L 73 180 L 68 149
     C 64 131 62 109 71 93 C 82 75 105 64 122 64 Z"
     fill="url(#fab${id})" filter="url(#drp${id})"/>
-  <path d="M 82 230 C 80 255 78 280 82 340 L 92 360 C 90 338 88 312 90 282 C 92 262 90 246 84 230 Z" fill="rgba(255,255,255,0.08)"/>
+  <!-- Skirt volume sheen -->
+  <path d="M 82 232 C 80 258 78 285 82 345 L 92 362 C 90 340 88 312 90 282 C 92 260 90 246 84 232 Z" fill="rgba(255,255,255,0.08)"/>
+  <!-- Waist seam -->
   <line x1="82" y1="230" x2="198" y2="230" stroke="rgba(0,0,0,0.07)" stroke-width="1.5"/>
-  <path d="M 122 66 C 130 86 129 210 130 352 L 125 358 C 123 210 124 86 118 84 Z" fill="rgba(255,255,255,0.10)"/>
+  <!-- Sheen -->
+  <path d="M 122 66 C 130 86 129 210 130 355 L 125 360 C 123 210 124 86 118 84 Z" fill="rgba(255,255,255,0.11)"/>
+  `);
+}
+
+// Sequin / Paillettenkleid (inspired by photo – sheer top, sparkle body, satin hem, bow belt)
+function dressSequin(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  // Generate many glitter sparkle dots
+  const sparkles = Array.from({length:120}, () => {
+    const sx = 72 + Math.random()*136;
+    const sy = 90 + Math.random()*210;
+    const sr = 0.8 + Math.random()*2.2;
+    const op = 0.3 + Math.random()*0.7;
+    return `<circle cx="${sx.toFixed(1)}" cy="${sy.toFixed(1)}" r="${sr.toFixed(1)}" fill="rgba(255,255,255,${op.toFixed(2)})"/>`;
+  }).join('');
+  const crossSparkles = Array.from({length:30}, () => {
+    const sx = 75 + Math.random()*130;
+    const sy = 92 + Math.random()*205;
+    return `<path d="M ${(sx-3).toFixed(0)} ${sy.toFixed(0)} L ${(sx+3).toFixed(0)} ${sy.toFixed(0)} M ${sx.toFixed(0)} ${(sy-3).toFixed(0)} L ${sx.toFixed(0)} ${(sy+3).toFixed(0)}" stroke="rgba(255,255,255,0.8)" stroke-width="1" stroke-linecap="round"/>`;
+  }).join('');
+  return _wrap('0 0 280 382', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="375" rx="62" ry="7" fill="rgba(0,0,0,0.10)"/>
+  ${_figHanger()}
+  <!-- Sheer / mesh neckline area (semi-transparent) -->
+  <path d="M 106 66 C 100 66 88 72 80 82 L 80 96 L 200 96 L 200 82 C 192 72 180 66 174 66 L 140 68 Z"
+    fill="${h}" opacity="0.38"/>
+  <!-- Sheer mesh texture dots -->
+  ${Array.from({length:24},(_,i)=>{const mx=88+Math.floor(i%8)*14; const my=70+(Math.floor(i/8))*10; return `<circle cx="${mx}" cy="${my}" r="1.2" fill="rgba(255,255,255,0.18)"/>`;}).join('')}
+  <!-- Main sequin bodice -->
+  <path d="M 80 94 C 72 108 68 124 68 142 L 70 180 L 72 220 L 80 240 L 200 240 L 208 220 L 210 180 L 212 142 C 212 124 208 108 200 94 Z"
+    fill="${_adj(h,-15)}" filter="url(#drp${id})"/>
+  <!-- Sequin sparkle layer on bodice -->
+  ${sparkles}
+  ${crossSparkles}
+  <!-- Satin belt / bow -->
+  <rect x="78" y="235" width="124" height="12" rx="3" fill="${_adj(h,-30)}" opacity="0.95"/>
+  <!-- Bow left loop -->
+  <path d="M 120 241 C 112 232 104 232 106 238 C 108 244 118 246 120 241 Z" fill="${_adj(h,-25)}"/>
+  <!-- Bow right loop -->
+  <path d="M 160 241 C 168 232 176 232 174 238 C 172 244 162 246 160 241 Z" fill="${_adj(h,-25)}"/>
+  <!-- Bow center knot -->
+  <ellipse cx="140" cy="241" rx="8" ry="6" fill="${_adj(h,-20)}"/>
+  <!-- Bow tails -->
+  <path d="M 136 244 C 130 252 126 260 124 268" fill="none" stroke="${_adj(h,-28)}" stroke-width="4" stroke-linecap="round"/>
+  <path d="M 144 244 C 150 252 154 260 156 268" fill="none" stroke="${_adj(h,-28)}" stroke-width="4" stroke-linecap="round"/>
+  <!-- Satin hem panel -->
+  <path d="M 80 248 L 200 248 C 200 255 195 290 188 340 L 188 360 L 92 360 L 92 340 C 85 290 80 255 80 248 Z"
+    fill="${_adj(h,-10)}" opacity="0.88"/>
+  <!-- Satin hem sheen -->
+  <path d="M 84 250 C 82 272 80 305 82 345 L 92 360 C 90 338 89 308 90 278 C 90 262 88 254 84 250 Z" fill="rgba(255,255,255,0.12)"/>
+  <!-- Hem sparkle line -->
+  ${Array.from({length:15},(_,i)=>`<circle cx="${92+i*8}" cy="250" r="1.8" fill="rgba(255,255,255,0.55)"/>`).join('')}
+  `);
+}
+
+// Cocktail wrap dress (elegant)
+function dressCocktail(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  return _wrap('0 0 280 400', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="393" rx="68" ry="7" fill="rgba(0,0,0,0.09)"/>
+  ${_figHanger()}
+  <!-- V-neck wrap bodice left panel -->
+  <path d="M 80 72 C 72 82 68 96 66 112 L 68 155 L 72 195 L 78 230 L 140 230 L 140 90 Z"
+    fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- V-neck wrap bodice right panel -->
+  <path d="M 200 72 C 208 82 212 96 214 112 L 212 155 L 208 195 L 202 230 L 140 230 L 140 90 Z"
+    fill="url(#fab2${id})"/>
+  <!-- V-neck cutout shadow -->
+  <path d="M 120 74 L 140 110 L 160 74 C 155 68 148 64 140 64 C 132 64 125 68 120 74 Z" fill="rgba(0,0,0,0.15)"/>
+  <!-- Belt / sash tie -->
+  <rect x="68" y="224" width="144" height="14" rx="4" fill="${_adj(h,-22)}" opacity="0.9"/>
+  <!-- Sash knot left -->
+  <path d="M 82 231 C 74 224 66 224 68 230 C 70 236 80 238 82 231 Z" fill="${_adj(h,-18)}"/>
+  <!-- Sash tail -->
+  <path d="M 78 236 C 72 246 68 260 66 276" fill="none" stroke="${_adj(h,-22)}" stroke-width="10" stroke-linecap="round" opacity="0.85"/>
+  <!-- A-line skirt -->
+  <path d="M 78 236 L 80 270 C 78 295 74 325 70 372 L 70 382 L 210 382 L 210 372 C 206 325 202 295 200 270 L 202 236 Z"
+    fill="url(#fab${id})"/>
+  <!-- Skirt left sheen -->
+  <path d="M 78 242 C 76 270 74 320 72 372 L 80 380 C 82 330 84 282 84 255 C 84 248 82 244 78 242 Z" fill="rgba(255,255,255,0.10)"/>
+  <!-- Skirt right shadow -->
+  <path d="M 202 242 C 204 270 206 320 208 372 L 200 380 C 198 330 196 282 196 255 C 196 248 198 244 202 242 Z" fill="rgba(0,0,0,0.04)"/>
+  <!-- Sheen on bodice -->
+  <path d="M 74 80 C 72 105 70 150 72 222 L 68 224 C 66 150 68 104 72 78 Z" fill="rgba(255,255,255,0.10)"/>
+  `);
+}
+
+// Bodycon Ruched Long-Sleeve Dress (high mock neck, side ruching, midi length)
+function dressBodycon(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  const fc = _figColors();
+  // Side ruching – horizontal curved folds on both sides
+  let ruching = '';
+  for (let i = 0; i < 18; i++) {
+    const ry = 155 + i * 16;
+    const depth = 4 + (i % 3) * 2;
+    ruching += `<path d="M 82 ${ry} C 78 ${ry + depth} 76 ${ry + depth + 4} 80 ${ry + 8}" fill="none" stroke="rgba(0,0,0,0.09)" stroke-width="1.2" stroke-linecap="round"/>`;
+    ruching += `<path d="M 198 ${ry} C 202 ${ry + depth} 204 ${ry + depth + 4} 200 ${ry + 8}" fill="none" stroke="rgba(0,0,0,0.09)" stroke-width="1.2" stroke-linecap="round"/>`;
+    ruching += `<path d="M 85 ${ry + 4} C 82 ${ry + 8} 81 ${ry + 12} 84 ${ry + 14}" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.9" stroke-linecap="round"/>`;
+    ruching += `<path d="M 195 ${ry + 4} C 198 ${ry + 8} 199 ${ry + 12} 196 ${ry + 14}" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="0.9" stroke-linecap="round"/>`;
+  }
+  return _wrap('0 0 280 520', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="513" rx="55" ry="7" fill="rgba(0,0,0,0.09)"/>
+  <!-- Long sleeves (drawn behind body) -->
+  ${_figArmsLong(fc.skin, h, 133)}
+  <g transform="translate(0,40)">
+    <!-- Mock / high turtle neck -->
+    <path d="M 118 36 C 118 26 126 20 140 20 C 154 20 162 26 162 36 L 162 58 L 118 58 Z"
+      fill="url(#fab${id})"/>
+    <path d="M 120 38 C 120 30 127 25 140 25 C 153 25 160 30 160 38 L 160 56 L 120 56 Z"
+      fill="${_adj(h, -8)}" opacity="0.7"/>
+    <!-- Neck seam line -->
+    <line x1="118" y1="56" x2="162" y2="56" stroke="${_adj(h,-18)}" stroke-width="1.2" opacity="0.6"/>
+    <!-- Fitted bodice (hugs the curves) -->
+    <path d="M 118 56 C 104 58 88 68 80 84 C 74 96 72 112 72 130 L 74 160 L 78 200 L 80 240
+      L 200 240 L 202 200 L 206 160 L 208 130 C 208 112 206 96 200 84
+      C 192 68 176 58 162 56 Z"
+      fill="url(#fab${id})" filter="url(#drp${id})"/>
+    <!-- Hourglass waist tuck -->
+    <path d="M 74 165 C 76 172 80 178 84 180 L 80 200" fill="none" stroke="${_adj(h,-12)}" stroke-width="2" opacity="0.4"/>
+    <path d="M 206 165 C 204 172 200 178 196 180 L 200 200" fill="none" stroke="${_adj(h,-12)}" stroke-width="2" opacity="0.4"/>
+    <!-- Bodycon skirt (fitted, follows hip/thigh curve) -->
+    <path d="M 80 238 C 78 258 76 282 76 308 C 76 338 80 368 84 400 C 88 428 90 450 90 470
+      L 190 470 C 190 450 192 428 196 400 C 200 368 204 338 204 308
+      C 204 282 202 258 200 238 Z"
+      fill="url(#fab${id})"/>
+    <!-- Hip curve accent (dress fits body) -->
+    <path d="M 76 268 C 72 280 72 298 76 316" fill="none" stroke="${_adj(h,-15)}" stroke-width="2.5" opacity="0.3"/>
+    <path d="M 204 268 C 208 280 208 298 204 316" fill="none" stroke="${_adj(h,-15)}" stroke-width="2.5" opacity="0.3"/>
+    <!-- Side ruching texture -->
+    ${ruching}
+    <!-- Center front sheen (vertical) -->
+    <path d="M 138 60 C 136 100 135 200 136 465 L 140 468 C 141 200 142 100 142 60 Z"
+      fill="rgba(255,255,255,0.07)"/>
+    <!-- Highlight on fitted shoulder/chest area -->
+    <path d="M 118 60 C 110 68 104 80 102 96 L 100 120 C 100 106 104 90 112 78 C 116 72 118 68 122 64 Z"
+      fill="rgba(255,255,255,0.10)"/>
   </g>
-  ${_figLegs(fc.skin, 398, 478)}
-  ${_figHead(fc.skin, fc.hair, 'bob')}
+  ${_figHead(fc.skin, fc.hair, 'bun')}
   `);
 }
 
@@ -1657,6 +1829,9 @@ function getProductSVG(p) {
     case 'dress-midi':           return dressMidi(c, bg);
     case 'dress-maxi':           return dressMaxi(c, bg);
     case 'dress-short':          return dressShort(c, bg);
+    case 'dress-sequin':         return dressSequin(c, bg);
+    case 'dress-cocktail':       return dressCocktail(c, bg);
+    case 'dress-bodycon':        return dressBodycon(c, bg);
     case 'top-crop':             return topCrop(c, bg);
     case 'top-shirt':            return topShirt(c, bg);
     case 'pants':                return pants(c, bg);

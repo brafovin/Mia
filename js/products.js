@@ -277,6 +277,47 @@ const products = [
      DAMEN
      ================================================================ */
   {
+    /* --- NEUE KLEIDER TYPEN --- */
+    id: 700, cat: 'damen', brand: 'MIA LABEL',
+    name: 'Bodycon Maxi Kleid Langarm',
+    svgType: 'dress-bodycon',
+    price: 27.99, oldPrice: 54.99, badge: 'hot',
+    desc: 'Figurbetontes Bodycon-Kleid mit langen Ärmeln, hohem Mock-Neck und ausgeprägter Seitenraffung. Formt eine Sanduhr-Silhouette. Midi-Länge, leicht elastischer Jersey.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('schwarz','anthrazit','weiss','creme','navy','burgund','olivgruen','dunkelbraun','grau','weinrot','camel','dunkelblau','taubenblau','smaragd','rost'),
+    rating: 4.9, reviews: 4821
+  },
+  {
+    id: 701, cat: 'damen', brand: 'THE DAILY EDIT',
+    name: 'Bodycon Kleid Turtleneck',
+    svgType: 'dress-bodycon',
+    price: 24.99, badge: 'new',
+    desc: 'Sexy Bodycon-Kleid mit Turtleneck und aufwendiger Raffung an den Seiten. Enganliegend und trotzdem bequem dank Stretch-Mix. Perfekt für den Ausgehnight.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('schwarz','burgundrot','weinrot','navy','smaragd','anthrazit','dunkelbraun','lila','rot','olivgruen','grau','taubenblau','creme','weiss'),
+    rating: 4.8, reviews: 3210
+  },
+  {
+    id: 702, cat: 'damen', brand: 'NOVA STYLE',
+    name: 'Pailletten-Kleid Festlich',
+    svgType: 'dress-sequin',
+    price: 34.99, oldPrice: 69.99, badge: 'hot',
+    desc: 'Atemberaubendes Paillettenkleid mit schimmernden Glitzersteinen, Satin-Saum und zartem Satinband in der Taille. Für unvergessliche Abende.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('schwarz','navy','burgund','weinrot','smaragd','olivgruen','anthrazit','lila','dunkelblau','gold','rosegold','silber'),
+    rating: 4.9, reviews: 2876
+  },
+  {
+    id: 703, cat: 'damen', brand: 'MIA LABEL',
+    name: 'Cocktailkleid Wickel-Stil',
+    svgType: 'dress-cocktail',
+    price: 29.99, oldPrice: 59.99, badge: 'sale',
+    desc: 'Elegantes Wickel-Cocktailkleid mit tiefem V-Ausschnitt und fließendem Rock. Asymmetrischer Gürtel mit Schleife betont die Taille perfekt.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('burgund','navy','schwarz','smaragd','weinrot','dunkelblau','taubenblau','olivgruen','anthrazit','lila','rot','creme','camel','altrosa'),
+    rating: 4.8, reviews: 1987
+  },
+  {
     id: 1, cat: 'damen', brand: 'NOVA STYLE',
     name: 'Sommer Wickelkleid',
     svgType: 'dress-midi',
