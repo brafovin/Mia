@@ -18,12 +18,13 @@ let couponTimerSeconds = 600; // 10 min
 
 const catTitles = {
   all: 'Alle Produkte',
+  bodys: 'Bodys & Bodies',
   damen: 'Damen',
   herren: 'Herren',
   schuhe: 'Schuhe',
   taschen: 'Taschen',
   accessoires: 'Accessoires',
-  sale: 'SALE – Bis zu 60% Rabatt'
+  sale: 'SALE – Bis zu 70% Rabatt'
 };
 
 /* ===== INIT ===== */
@@ -125,11 +126,12 @@ function cardHTML(p) {
     `<button class="size-pill" onclick="event.stopPropagation();quickAddToCart(${p.id},'${s}')">${s}</button>`
   ).join('');
 
+  const svgImg = (typeof getProductSVG === 'function') ? getProductSVG(p) : `<span style="font-size:5rem">${p.emoji||'👗'}</span>`;
+
   return `
     <div class="product-card" onclick="openModal(${p.id})">
       <div class="p-img-wrap">
-        <div class="p-bg" style="--bg:${p.bg}"></div>
-        <span class="p-emoji">${p.emoji}</span>
+        <div class="p-svg-wrap">${svgImg}</div>
         ${p.badge ? `<span class="p-badge ${badgeMap[p.badge]}">${badgeLbl[p.badge]}</span>` : ''}
         <button class="p-wishlist ${isWished ? 'active' : ''}" onclick="event.stopPropagation();toggleWishlist(${p.id},this)" title="Wunschliste">
           ${isWished ? '❤️' : '🤍'}
@@ -328,11 +330,10 @@ function openModal(id) {
     `<button class="modal-color${i === 0 ? ' active' : ''}" onclick="selectColor(this)">${c}</button>`
   ).join('');
 
+  const modalSvg = (typeof getProductSVG === 'function') ? getProductSVG(p) : `<span style="font-size:8rem">${p.emoji||'👗'}</span>`;
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-layout">
-      <div class="modal-img" style="background:${p.bg}">
-        <span style="font-size:8rem;filter:drop-shadow(0 12px 24px rgba(0,0,0,0.12))">${p.emoji}</span>
-      </div>
+      <div class="modal-img" style="padding:0;overflow:hidden">${modalSvg}</div>
       <div class="modal-details">
         <div class="modal-brand">${p.brand}</div>
         <h2 class="modal-name">${p.name}</h2>

@@ -19,6 +19,7 @@
     <div class="header-inner">
       <!-- LEFT NAV -->
       <nav class="header-nav">
+        <a href="#" class="nav-item" onclick="showCategory('bodys')">Bodys</a>
         <a href="#" class="nav-item" onclick="showCategory('damen')">Damen</a>
         <a href="#" class="nav-item" onclick="showCategory('herren')">Herren</a>
         <a href="#" class="nav-item" onclick="showCategory('schuhe')">Schuhe</a>
@@ -105,6 +106,10 @@
   <section class="cat-tiles-section" id="catTilesSection">
     <div class="section-wrap">
       <div class="cat-tiles">
+        <div class="cat-tile" onclick="showCategory('bodys')">
+          <div class="cat-tile-img" style="background:linear-gradient(135deg,#fde8f4,#f8d0ec)"><span>🩱</span></div>
+          <div class="cat-tile-info"><strong>Bodys</strong><small>Tank, Langarm, Spitze & mehr</small></div>
+        </div>
         <div class="cat-tile" onclick="showCategory('damen')">
           <div class="cat-tile-img" style="background:linear-gradient(135deg,#f8e1e8,#f2c5d0)"><span>👗</span></div>
           <div class="cat-tile-info"><strong>Damen</strong><small>Kleider, Tops, Hosen & mehr</small></div>
@@ -127,7 +132,7 @@
         </div>
         <div class="cat-tile sale-tile" onclick="showCategory('sale')">
           <div class="cat-tile-img" style="background:linear-gradient(135deg,#fde8e8,#f8c5c5)"><span>🏷️</span></div>
-          <div class="cat-tile-info"><strong style="color:#c0392b">SALE</strong><small>Bis zu 60% Rabatt</small></div>
+          <div class="cat-tile-info"><strong style="color:#c0392b">SALE</strong><small>Bis zu 70% Rabatt</small></div>
         </div>
       </div>
     </div>
@@ -204,6 +209,7 @@
         <div class="footer-col">
           <h5>Kategorien</h5>
           <ul>
+            <li><a href="#" onclick="showCategory('bodys')">Bodys & Bodies</a></li>
             <li><a href="#" onclick="showCategory('damen')">Damen</a></li>
             <li><a href="#" onclick="showCategory('herren')">Herren</a></li>
             <li><a href="#" onclick="showCategory('schuhe')">Schuhe</a></li>
@@ -334,6 +340,7 @@
   <!-- TOAST -->
   <div class="toast-container" id="toastContainer"></div>
 
+  <script src="js/svgArt.js"></script>
   <script src="js/products.js"></script>
   <script src="js/shop.js"></script>
 </body>
