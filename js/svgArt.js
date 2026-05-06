@@ -695,6 +695,81 @@ function topCrop(c, bg) {
   `);
 }
 
+// Off-Shoulder Maxi Dress – draped satin collar, fitted column silhouette, side slit
+function dressOffShoulder(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c);
+  const sheen = 'rgba(255,255,255,0.16)';
+  const dark  = 'rgba(0,0,0,0.26)';
+  return _svg('0 0 280 490', b1, b2, `
+    ${_figHanger()}
+
+    <!-- Main dress body: off-shoulder neckline to floor -->
+    <path d="M 56 80 C 70 70 102 64 140 64 C 178 64 210 70 224 80
+             L 228 132 L 230 188 C 230 218 220 242 200 254
+             C 184 263 163 268 140 268
+             C 117 268 96 263 80 254
+             C 60 242 50 218 50 188
+             L 52 132 Z" fill="${h}"/>
+
+    <!-- Skirt: fitted column to floor -->
+    <path d="M 80 254 C 72 268 65 294 62 328 L 59 378 L 58 462
+             L 140 464 L 222 462 L 221 378 L 218 328
+             C 215 294 208 268 200 254
+             C 183 266 163 272 140 272
+             C 117 272 97 266 80 254 Z" fill="${h}"/>
+
+    <!-- Side slit (right) – cut opening from knee to hem -->
+    <path d="M 220 372 L 220 462 L 207 462 L 203 372 Z" fill="${b1}" opacity="0.92"/>
+    <path d="M 203 370 Q 212 366 220 370" fill="none" stroke="${h}" stroke-width="1.5" stroke-linecap="round"/>
+
+    <!-- Draped off-shoulder collar: sweeps from right shoulder across chest -->
+    <path d="M 220 70 C 212 62 197 57 179 57
+             C 163 57 146 61 131 68
+             C 114 75 99 84 89 91
+             C 83 95 79 99 81 104
+             C 84 109 93 110 106 108
+             C 120 105 134 97 147 92
+             C 160 87 174 84 190 85
+             C 206 86 218 91 224 97
+             L 228 87 C 228 79 225 73 220 70 Z" fill="${h}"/>
+
+    <!-- Satin sheen highlight on collar fold -->
+    <path d="M 216 72 C 206 65 192 61 176 62
+             C 160 63 143 68 128 76
+             C 115 83 103 92 95 96
+             C 108 92 123 84 138 78
+             C 153 72 169 69 185 69
+             C 200 69 212 74 218 80 Z" fill="${sheen}" opacity="0.75"/>
+
+    <!-- Collar fold underside shadow -->
+    <path d="M 83 102 C 91 104 102 104 114 102
+             C 127 100 140 93 153 88
+             C 167 83 181 80 195 81
+             C 209 82 220 88 226 94
+             L 227 89 C 219 83 207 79 193 78
+             C 178 77 163 80 149 86
+             C 135 92 121 99 107 101
+             C 96 103 87 101 82 97 Z" fill="${dark}" opacity="0.5"/>
+
+    <!-- Left bodice vertical sheen -->
+    <path d="M 62 86 L 66 90 L 69 262 L 63 260 Z" fill="${sheen}" opacity="0.32"/>
+
+    <!-- Right bodice shadow -->
+    <path d="M 218 86 L 214 90 L 211 262 L 217 260 Z" fill="${dark}" opacity="0.28"/>
+
+    <!-- Center skirt highlight -->
+    <path d="M 127 272 C 125 342 124 402 125 462 L 155 462 C 154 402 153 342 151 272 Z" fill="${sheen}" opacity="0.22"/>
+
+    <!-- Waist–hip contour shadow left -->
+    <path d="M 52 192 C 51 212 51 228 52 244 C 54 254 58 262 62 268
+             L 67 259 C 62 252 59 244 58 233 C 57 220 57 206 58 190 Z" fill="${dark}" opacity="0.32"/>
+
+    <!-- Waist–hip contour shadow right -->
+    <path d="M 228 192 C 229 212 229 228 228 244 C 226 254 222 262 218 268
+             L 213 259 C 218 252 221 244 222 233 C 223 220 223 206 222 190 Z" fill="${dark}" opacity="0.32"/>
+  `);
+}
+
 function topShirt(c, bg) {
   const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
   const fc = _figColors();
@@ -1832,6 +1907,7 @@ function getProductSVG(p) {
     case 'dress-sequin':         return dressSequin(c, bg);
     case 'dress-cocktail':       return dressCocktail(c, bg);
     case 'dress-bodycon':        return dressBodycon(c, bg);
+    case 'dress-off-shoulder':   return dressOffShoulder(c, bg);
     case 'top-crop':             return topCrop(c, bg);
     case 'top-shirt':            return topShirt(c, bg);
     case 'pants':                return pants(c, bg);

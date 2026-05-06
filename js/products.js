@@ -93,6 +93,16 @@ const products = [
      TOP PRODUKT – Ganz oben im Shop
      ================================================================ */
   {
+    id: 1000, cat: 'damen', brand: 'MIA LABEL',
+    name: 'Off-Shoulder Maxi Kleid Satin-Kragen',
+    svgType: 'dress-off-shoulder',
+    price: 34.99, oldPrice: 69.99, badge: 'hot',
+    desc: 'Elegantes Off-Shoulder Maxi Kleid mit raffiniertem Satin-Drapéekragen, tief fallender Schulterpartie und seitlichem Schlitz. Figurbetonter Schnitt, bodenlanges Silhouette.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('schwarz','anthrazit','navy','burgund','weinrot','dunkelbraun','olivgruen','smaragd','lila','rot','weiss','creme','camel','taubenblau','grau','blush','dustyrose','sage'),
+    rating: 5.0, reviews: 12043
+  },
+  {
     id: 999, cat: 'damen', brand: 'MIA LABEL',
     name: 'Bodycon Maxi Kleid – Langarm Raffung',
     svgType: 'dress-bodycon',
