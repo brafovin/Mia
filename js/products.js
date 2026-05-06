@@ -322,6 +322,36 @@ const products = [
     rating: 4.8, reviews: 3210
   },
   {
+    id: 870, cat: 'damen', brand: 'MIA LABEL',
+    name: 'Fitted V-Neck T-Shirt Eng',
+    svgType: 'top-fitted-vneck',
+    price: 14.99, oldPrice: 24.99, badge: 'hot',
+    desc: 'Eng anliegendes Damen T-Shirt mit tiefem V-Ausschnitt. Sehr figurbetont – betont Taille und Kurven. Kurze Ärmel, weicher Stretch-Stoff, Rippbund am Saum.',
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
+    variants: v('schwarz','weiss','grau','anthrazit','navy','burgund','rot','rosa','blush','camel','olivgruen','mint','weinrot','creme','lavendel','lila','himmelblau','taubenblau','dustyrose','koralle'),
+    rating: 4.9, reviews: 11240
+  },
+  {
+    id: 871, cat: 'damen', brand: 'URBAN BASICS',
+    name: 'Basic V-Neck Tee Slim Fit',
+    svgType: 'top-fitted-vneck',
+    price: 12.99, badge: 'new',
+    desc: 'Klassisches Slim-Fit Damen-T-Shirt mit V-Ausschnitt. Hochwertige Baumwolle, körpernah ohne einzuengen. Alltagsbasic für jede Garderobe.',
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
+    variants: v('weiss','schwarz','grau','graumel','creme','navy','hellblau','rosa','blush','mintgruen','sage','lavendel','dustyrose','anthrazit','burgund','camel','sand','terracotta'),
+    rating: 4.7, reviews: 8530
+  },
+  {
+    id: 872, cat: 'damen', brand: 'THE DAILY EDIT',
+    name: 'Premium Stretch V-Neck Top',
+    svgType: 'top-fitted-vneck',
+    price: 19.99, oldPrice: 34.99, badge: 'sale',
+    desc: 'Premium Damen-Shirt aus elastischem Mikrofaser-Mix. Extrem eng und trotzdem flexibel. Tiefer V-Ausschnitt, kurze Ärmel – perfekt zu Jeans, Rock oder Blazer.',
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
+    variants: v('schwarz','anthrazit','weinrot','burgund','navy','dunkelblau','smaragd','waldgruen','lila','schokobraun','dunkelbraun','olivgruen','rot','korallrot','beerenpink','plumrot'),
+    rating: 4.8, reviews: 5670
+  },
+  {
     id: 860, cat: 'damen', brand: 'URBAN BASICS',
     name: 'Baggy Jeans Low-Rise – Hellblau',
     svgType: 'jeans-baggy-women',

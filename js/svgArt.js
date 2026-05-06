@@ -797,6 +797,89 @@ function topShirt(c, bg) {
   `);
 }
 
+// Women's Fitted V-Neck T-Shirt – tight hourglass fit, short sleeves, deep V
+function topFittedVneck(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  const fc = _figColors();
+  const jeans = '#2a4a7a';
+  return _wrap('0 0 280 470', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="463" rx="60" ry="7" fill="rgba(0,0,0,0.07)"/>
+
+  <!-- Bare arms (sleeves will cover upper arm portion) -->
+  ${_figArmsBare(fc.skin, 128)}
+
+  <!-- Jeans below shirt hem -->
+  <path d="M 90 372 L 90 450 C 92 456 98 462 106 463 L 134 464 L 134 372 Z" fill="${jeans}"/>
+  <path d="M 190 372 L 190 450 C 188 456 182 462 174 463 L 146 464 L 146 372 Z" fill="${_adj(jeans,-12)}"/>
+  <line x1="140" y1="372" x2="140" y2="464" stroke="rgba(0,0,0,0.12)" stroke-width="1.5"/>
+  <rect x="88" y="340" width="104" height="24" rx="4" fill="${_adj(jeans,-20)}"/>
+
+  <g transform="translate(0,40)">
+
+  <!-- Left short sleeve cap -->
+  <path d="M 92 68 C 80 62 63 66 55 80 C 51 91 49 106 51 118
+           L 56 122 L 76 124
+           C 78 114 82 106 88 100 C 91 95 92 84 92 74 Z"
+        fill="url(#fab${id})" filter="url(#drp${id})"/>
+
+  <!-- Right short sleeve cap -->
+  <path d="M 188 68 C 200 62 217 66 225 80 C 229 91 231 106 229 118
+           L 224 122 L 204 124
+           C 202 114 198 106 192 100 C 189 95 188 84 188 74 Z"
+        fill="url(#fab${id})"/>
+
+  <!-- Main fitted bodice (very tight hourglass – V-neck cutout in outline) -->
+  <path d="M 92 68
+           C 84 72 76 86 74 104
+           C 71 126 78 152 88 174
+           C 92 196 88 232 88 262 L 88 298
+           L 192 298 L 192 262
+           C 192 232 188 196 192 174
+           C 202 152 209 126 206 104
+           C 204 86 196 72 188 68
+           C 183 70 173 67 162 68
+           L 140 113
+           L 118 68
+           C 107 67 97 70 92 68 Z"
+        fill="url(#fab${id})" filter="url(#drp${id})"/>
+
+  <!-- V-neck skin triangle (chest visible through V) -->
+  <path d="M 119 68 L 140 112 L 161 68 Z" fill="${fc.skin}" opacity="0.94"/>
+
+  <!-- V-neck inner shadow for depth/fold -->
+  <path d="M 119 68 L 121 72 L 140 112 Z" fill="rgba(0,0,0,0.09)"/>
+  <path d="M 161 68 L 159 72 L 140 112 Z" fill="rgba(0,0,0,0.09)"/>
+
+  <!-- Sleeve seam stitching -->
+  <line x1="92"  y1="70" x2="76"  y2="123" stroke="rgba(0,0,0,0.09)" stroke-width="1.5"/>
+  <line x1="188" y1="70" x2="204" y2="123" stroke="rgba(0,0,0,0.09)" stroke-width="1.5"/>
+
+  <!-- Neckline rib edge -->
+  <path d="M 119 68 C 126 66 133 65 140 65 C 147 65 154 66 161 68
+           L 162 72 C 154 70 147 69 140 69 C 133 69 126 70 119 72 Z"
+        fill="${_adj(h,-28)}" opacity="0.55"/>
+
+  <!-- Hem rib band -->
+  <rect x="87" y="292" width="106" height="7" rx="3" fill="${_adj(h,-22)}" opacity="0.5"/>
+
+  <!-- Sheen highlight (left side) -->
+  <path d="M 84 80 C 81 140 80 225 81 285 L 88 283 C 87 222 88 138 91 78 Z"
+        fill="rgba(255,255,255,0.12)"/>
+
+  <!-- Bust/waist contour shadow (right side) -->
+  <path d="M 196 80 C 199 140 200 225 199 285 L 192 283 C 193 222 192 138 189 78 Z"
+        fill="rgba(0,0,0,0.09)"/>
+
+  <!-- Waist pinch shadow lines (shows tightness) -->
+  <path d="M 79 160 C 82 152 86 148 90 148" fill="none" stroke="rgba(0,0,0,0.07)" stroke-width="1.5"/>
+  <path d="M 201 160 C 198 152 194 148 190 148" fill="none" stroke="rgba(0,0,0,0.07)" stroke-width="1.5"/>
+
+  </g>
+  ${_figHead(fc.skin, fc.hair, 'long')}
+  `);
+}
+
 /* ══════════════════════════════════════════════
    PANTS / JEANS
    ══════════════════════════════════════════════ */
@@ -2084,6 +2167,7 @@ function getProductSVG(p) {
     case 'dress-off-shoulder':   return dressOffShoulder(c, bg);
     case 'top-crop':             return topCrop(c, bg);
     case 'top-shirt':            return topShirt(c, bg);
+    case 'top-fitted-vneck':     return topFittedVneck(c, bg);
     case 'pants':                return pants(c, bg);
     case 'jeans-baggy':          return jeansBaggy(c, bg);
     case 'jeans-baggy-women':    return jeansBaggyWomen(c, bg);
