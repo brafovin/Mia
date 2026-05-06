@@ -90,6 +90,20 @@ function v(...keys) {
 const products = [
 
   /* ================================================================
+     TOP PRODUKT – Ganz oben im Shop
+     ================================================================ */
+  {
+    id: 999, cat: 'damen', brand: 'MIA LABEL',
+    name: 'Bodycon Maxi Kleid – Langarm Raffung',
+    svgType: 'dress-bodycon',
+    price: 29.99, oldPrice: 59.99, badge: 'hot',
+    desc: 'Das Signature-Kleid von MIA LABEL: langer Ärmel, hoher Mock-Neck und üppige Seitenraffung für eine perfekte Sanduhr-Silhouette. Bodenlang, super elastischer Stretch-Jersey.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('schwarz','anthrazit','weiss','navy','burgund','olivgruen','dunkelbraun','grau','weinrot','camel','taubenblau','smaragd','rost','creme','lila','rot','blush','sage'),
+    rating: 5.0, reviews: 9821
+  },
+
+  /* ================================================================
      BODYS
      ================================================================ */
   {
