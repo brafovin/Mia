@@ -25,6 +25,7 @@
         <a href="#" class="nav-item" onclick="showCategory('schuhe')">Schuhe</a>
         <a href="#" class="nav-item" onclick="showCategory('taschen')">Taschen</a>
         <a href="#" class="nav-item" onclick="showCategory('accessoires')">Accessoires</a>
+        <a href="#" class="nav-item" onclick="showCategory('beauty')">Beauty & Haare</a>
         <a href="#" class="nav-item sale-link" onclick="showCategory('sale')">SALE</a>
       </nav>
 
@@ -130,6 +131,10 @@
           <div class="cat-tile-img" style="background:linear-gradient(135deg,#ede1f5,#d9c0f0)"><span>💍</span></div>
           <div class="cat-tile-info"><strong>Accessoires</strong><small>Schmuck, Sonnenbrillen & mehr</small></div>
         </div>
+        <div class="cat-tile beauty-tile" onclick="showCategory('beauty')">
+          <div class="cat-tile-img" style="background:linear-gradient(135deg,#fde8f4,#f8c0e8)"><span>💄</span></div>
+          <div class="cat-tile-info"><strong>Beauty & Haare</strong><small>Make-up, Wimpern, Haarpflege</small></div>
+        </div>
         <div class="cat-tile sale-tile" onclick="showCategory('sale')">
           <div class="cat-tile-img" style="background:linear-gradient(135deg,#fde8e8,#f8c5c5)"><span>🏷️</span></div>
           <div class="cat-tile-info"><strong style="color:#c0392b">SALE</strong><small>Bis zu 70% Rabatt</small></div>
@@ -215,6 +220,7 @@
             <li><a href="#" onclick="showCategory('schuhe')">Schuhe</a></li>
             <li><a href="#" onclick="showCategory('taschen')">Taschen</a></li>
             <li><a href="#" onclick="showCategory('accessoires')">Accessoires</a></li>
+            <li><a href="#" onclick="showCategory('beauty')">Beauty & Haare</a></li>
             <li><a href="#" onclick="showCategory('sale')" style="color:#c0392b;font-weight:600">SALE</a></li>
           </ul>
         </div>
@@ -258,6 +264,34 @@
       </div>
     </div>
   </footer>
+
+  <!-- WHEEL FLOAT BUTTON -->
+  <button class="wheel-float-btn" onclick="openWheelModal()" title="Glücksrad drehen">
+    🎡 Glücksrad
+  </button>
+
+  <!-- WHEEL MODAL -->
+  <div class="wheel-overlay" id="wheelOverlay" onclick="closeWheelModal()"></div>
+  <div class="wheel-modal" id="wheelModal">
+    <button class="wheel-modal-close" onclick="closeWheelModal()">✕</button>
+    <h2 class="wheel-modal-title">🎡 Glücksrad</h2>
+    <p class="wheel-modal-sub">Dreh das Rad und gewinne einen Gutschein bis zu 100 €!</p>
+    <div class="wheel-wrap">
+      <div class="wheel-pointer"></div>
+      <canvas id="wheelCanvas" width="280" height="280"></canvas>
+    </div>
+    <button class="wheel-spin-btn" id="wheelSpinBtn" onclick="spinWheel()">🎡 Jetzt Drehen!</button>
+    <p class="wheel-note">Einmal pro Sitzung – Viel Glück! 🍀</p>
+    <div class="wheel-win-box" id="wheelWinBox">
+      <div class="wheel-win-value" id="wheelWinValue">🎉 Du hast gewonnen!</div>
+      <p style="font-size:0.84rem;color:#666;margin:0">Dein Gutschein-Code:</p>
+      <div class="wheel-win-code-wrap">
+        <span class="wheel-win-code" id="wheelWinCode">–</span>
+        <button class="wheel-copy-btn" id="wheelCopyBtn" onclick="copyWheelCode()">Kopieren</button>
+      </div>
+      <button class="wheel-use-btn" onclick="useWheelCoupon()">Jetzt einlösen →</button>
+    </div>
+  </div>
 
   <!-- COUPON POPUP -->
   <div class="coupon-overlay" id="couponOverlay" onclick="closeCouponPopup()"></div>
@@ -343,5 +377,6 @@
   <script src="js/svgArt.js"></script>
   <script src="js/products.js"></script>
   <script src="js/shop.js"></script>
+  <script src="js/wheel.js"></script>
 </body>
 </html>

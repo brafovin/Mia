@@ -26,6 +26,7 @@ const catTitles = {
   schuhe: 'Schuhe',
   taschen: 'Taschen',
   accessoires: 'Accessoires',
+  beauty: 'Beauty & Haare',
   sale: 'SALE – Bis zu 70% Rabatt'
 };
 
@@ -219,7 +220,7 @@ function addToCart(id, size) {
   if (ex) { ex.qty++; }
   else { cart.push({ ...p, key, selectedSize: size || (p.sizes?.[0] || ''), qty: 1 }); }
   updateCart();
-  toast(`${p.emoji} ${p.name} wurde hinzugefügt`, 'success');
+  toast(`🛒 ${p.name} wurde hinzugefügt`, 'success');
 }
 
 function quickAddToCart(id, size) {
@@ -261,7 +262,7 @@ function updateCart() {
     const lineTotal = item.price * item.qty;
     return `
       <div class="cart-item">
-        <div class="cart-item-visual" style="background:${item.bg}">${item.emoji}</div>
+        <div class="cart-item-visual" style="background:${(item.variants?.[0]?.hex)||'#f0f0f0'}">&nbsp;</div>
         <div class="cart-item-details">
           <div class="cart-item-brand">${item.brand}</div>
           <div class="cart-item-name">${item.name}</div>
@@ -370,7 +371,7 @@ function toggleWishlist(id, btn) {
     wishlist.add(id);
     btn.textContent = '❤️';
     btn.classList.add('active');
-    toast(`${p.emoji} ${p.name} zur Wunschliste hinzugefügt`, 'info');
+    toast(`❤️ ${p.name} zur Wunschliste hinzugefügt`, 'info');
   }
   const countEl = document.getElementById('wishlistCount');
   countEl.textContent = wishlist.size;

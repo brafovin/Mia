@@ -710,6 +710,318 @@ function bagCrossbody(c, bg) {
 }
 
 /* ══════════════════════════════════════════════
+   BEAUTY & HAIR PRODUCTS
+   ══════════════════════════════════════════════ */
+
+function beautyLipstick(c, bg) {
+  const [b1,b2] = bg || ['#fde8f0','#fcd0e4']; const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  return _wrap('0 0 280 380', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="373" rx="32" ry="5" fill="rgba(0,0,0,0.07)"/>
+  <!-- Base tube -->
+  <rect x="104" y="245" width="72" height="120" rx="8" fill="${_adj(h,-55)}" filter="url(#drp${id})"/>
+  <rect x="104" y="245" width="72" height="22" rx="5" fill="${_adj(h,-35)}"/>
+  <line x1="140" y1="248" x2="140" y2="362" stroke="rgba(255,255,255,0.13)" stroke-width="1.5"/>
+  <path d="M 108 252 L 108 360 L 113 360 L 113 252 Z" fill="rgba(255,255,255,0.10)" rx="3"/>
+  <!-- Bullet sleeve -->
+  <rect x="112" y="148" width="56" height="108" rx="5" fill="${_adj(h,-22)}" filter="url(#drp${id})"/>
+  <!-- Bullet -->
+  <path d="M 112 195 L 112 250 L 168 250 L 168 195 Q 168 162 152 144 Q 140 133 128 144 Q 112 162 112 195 Z"
+    fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Bullet sheen -->
+  <path d="M 116 196 L 116 248 L 121 248 L 121 196 Q 121 166 131 148 L 128 144 Q 113 162 116 196 Z" fill="rgba(255,255,255,0.2)"/>
+  <!-- Bullet top highlight -->
+  <ellipse cx="135" cy="170" rx="9" ry="5" fill="rgba(255,255,255,0.25)" transform="rotate(-15,135,170)"/>
+  <!-- Gold band -->
+  <rect x="108" y="240" width="64" height="8" rx="4" fill="#c8a030" opacity="0.8"/>
+  `);
+}
+
+function beautyPalette(c, bg) {
+  const [b1,b2] = bg || ['#f5e8f8','#ead0f0']; const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  const sw = [_adj(h,60),_adj(h,40),_adj(h,20),h,_adj(h,-20),_adj(h,-40),'#f5c0c0','#c0a0e0','#e0c060','#a0d0c0','#e08090','#909090'];
+  return _wrap('0 0 280 230', b1, b2, `
+  ${_defs(id, c)}
+  <!-- Compact body -->
+  <rect x="24" y="42" width="232" height="162" rx="14" fill="${_adj(h,-50)}" filter="url(#drp${id})"/>
+  <!-- Lid strip -->
+  <rect x="24" y="42" width="232" height="28" rx="14" fill="${_adj(h,-35)}" opacity="0.9"/>
+  <!-- Mirror on lid -->
+  <rect x="55" y="48" width="170" height="16" rx="5" fill="rgba(200,225,245,0.35)"/>
+  <rect x="60" y="51" width="160" height="10" rx="3" fill="rgba(180,215,240,0.22)"/>
+  <!-- Inner tray -->
+  <rect x="33" y="75" width="214" height="122" rx="9" fill="#faf7f7"/>
+  <!-- 12 swatches 3×4 -->
+  ${[0,1,2,3].map(col => [0,1,2].map(row => {
+    const x = 42 + col * 52; const y = 82 + row * 36;
+    return `<rect x="${x}" y="${y}" width="44" height="27" rx="6" fill="${sw[row*4+col]||'#ccc'}"/>
+    <ellipse cx="${x+22}" cy="${y+7}" rx="11" ry="4" fill="rgba(255,255,255,0.2)"/>`;
+  }).join('')).join('')}
+  `);
+}
+
+function beautyMascara(c, bg) {
+  const [b1,b2] = bg || ['#f0f0f0','#e0e0e0']; const id = Math.random().toString(36).slice(2,7);
+  const accent = c && c !== '#555555' ? _hex(c) : '#c8a030';
+  return _wrap('0 0 280 380', b1, b2, `
+  ${_defs(id, '#1a1a1a')}
+  <ellipse cx="140" cy="372" rx="28" ry="5" fill="rgba(0,0,0,0.08)"/>
+  <!-- Tube -->
+  <rect x="112" y="145" width="56" height="210" rx="28" fill="url(#fab1a1a1a)" filter="url(#drp1a1a1a)"/>
+  <rect x="112" y="145" width="56" height="210" rx="28" fill="#1a1a1a" filter="url(#drp1a1a1a)"/>
+  <path d="M 118 150 L 118 350 L 123 350 L 123 150 Z" fill="rgba(255,255,255,0.12)" rx="4"/>
+  <!-- Cap -->
+  <rect x="108" y="130" width="64" height="28" rx="14" fill="#2a2a2a"/>
+  <!-- Accent band -->
+  <rect x="110" y="150" width="60" height="7" rx="3.5" fill="${accent}" opacity="0.85"/>
+  <!-- Wand handle -->
+  <rect x="135" y="26" width="10" height="118" rx="5" fill="#2a2a2a"/>
+  <!-- Brush head -->
+  <ellipse cx="140" cy="24" rx="18" ry="9" fill="#333"/>
+  <!-- Bristles -->
+  ${[-16,-11,-6,-1,4,9,14,19].map((x,i) =>
+    `<path d="M ${140+x} ${20} Q ${140+x+(i%2?2:-2)} ${14} ${140+x+(i%2?4:-4)} ${8}" fill="none" stroke="#111" stroke-width="2" stroke-linecap="round"/>`
+  ).join('')}
+  `);
+}
+
+function beautyBottle(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  return _wrap('0 0 280 380', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="373" rx="52" ry="7" fill="rgba(0,0,0,0.07)"/>
+  <!-- Cap -->
+  <path d="M 124 52 C 124 38 130 28 140 26 C 150 28 156 38 156 52 L 156 76 L 124 76 Z" fill="${_adj(h,-30)}" filter="url(#drp${id})"/>
+  <!-- Pump -->
+  <rect x="136" y="8" width="8" height="24" rx="4" fill="${_adj(h,-40)}"/>
+  <ellipse cx="140" cy="8" rx="10" ry="5" fill="${_adj(h,-28)}"/>
+  <!-- Neck -->
+  <rect x="122" y="68" width="36" height="28" rx="5" fill="${_adj(h,-18)}"/>
+  <!-- Bottle body -->
+  <path d="M 76 96 C 68 110 64 132 64 158 L 64 302 C 64 322 78 338 100 340 L 140 342 L 180 340 C 202 338 216 322 216 302 L 216 158 C 216 132 212 110 204 96 Q 178 88 140 86 Q 102 88 76 96 Z"
+    fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Label -->
+  <rect x="80" y="152" width="120" height="115" rx="7" fill="rgba(255,255,255,0.2)"/>
+  <rect x="88" y="165" width="104" height="7" rx="3" fill="rgba(255,255,255,0.38)"/>
+  <rect x="93" y="179" width="94" height="5" rx="2.5" fill="rgba(255,255,255,0.25)"/>
+  <rect x="88" y="190" width="104" height="5" rx="2.5" fill="rgba(255,255,255,0.22)"/>
+  <rect x="93" y="230" width="78" height="4" rx="2" fill="rgba(255,255,255,0.18)"/>
+  <!-- Sheen -->
+  <path d="M 70 104 C 68 164 68 248 70 334 L 66 337 C 64 248 64 162 68 102 Z" fill="rgba(255,255,255,0.09)"/>
+  `);
+}
+
+function beautyLashes(c, bg) {
+  const [b1,b2] = bg || ['#fdf0f8','#f8e0f4']; const id = Math.random().toString(36).slice(2,7);
+  const accent = c && c !== '#555555' ? _hex(c) : '#d4609a';
+  return _wrap('0 0 280 250', b1, b2, `
+  ${_defs(id, accent)}
+  <!-- Upper lash set 1 band -->
+  <path d="M 28 130 Q 85 116 140 114 Q 195 116 252 130" fill="none" stroke="#0d0d0d" stroke-width="4.5" stroke-linecap="round"/>
+  <!-- Upper fibers -->
+  ${[28,40,52,62,72,81,90,99,108,117,126,135,144,153,162,171,181,192,204,216,228,240,252].map((x,i) => {
+    const yb = 130 - Math.abs(x-140)*0.07;
+    const len = 24 + Math.sin(i*0.7)*8;
+    const tilt = (x-140)*0.015;
+    return `<path d="M ${x} ${yb} C ${x+tilt*len*3} ${yb-len*0.55} ${x+tilt*len*5} ${yb-len*0.85} ${x+tilt*len*6} ${yb-len}" fill="none" stroke="#0d0d0d" stroke-width="2" stroke-linecap="round"/>`;
+  }).join('')}
+  <!-- Lower lash set 2 band -->
+  <path d="M 28 158 Q 85 172 140 174 Q 195 172 252 158" fill="none" stroke="#1a1a1a" stroke-width="3.5" stroke-linecap="round"/>
+  ${[28,44,62,80,100,119,138,158,176,196,216,236,252].map((x,i) => {
+    const yb = 158 + Math.abs(x-140)*0.05;
+    const len = 18 + Math.sin(i*0.85)*6;
+    return `<path d="M ${x} ${yb} Q ${x+1} ${yb+len*0.55} ${x+2} ${yb+len}" fill="none" stroke="#1a1a1a" stroke-width="1.8" stroke-linecap="round"/>`;
+  }).join('')}
+  <!-- Packaging box -->
+  <rect x="32" y="196" width="216" height="38" rx="9" fill="${accent}" opacity="0.12"/>
+  <rect x="32" y="196" width="216" height="38" rx="9" fill="none" stroke="${accent}" stroke-width="1.8"/>
+  <text x="140" y="220" text-anchor="middle" fill="${accent}" font-size="11" font-weight="700" font-family="Inter,sans-serif">MIA LASHES – PREMIUM</text>
+  `);
+}
+
+function beautyNailPolish(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  return _wrap('0 0 280 380', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="373" rx="36" ry="5" fill="rgba(0,0,0,0.07)"/>
+  <!-- Cap -->
+  <rect x="116" y="36" width="48" height="52" rx="11" fill="${_adj(h,-22)}" filter="url(#drp${id})"/>
+  <!-- Brush handle -->
+  <rect x="136" y="14" width="8" height="28" rx="4" fill="${_adj(h,-38)}"/>
+  <!-- Neck -->
+  <rect x="126" y="82" width="28" height="24" rx="5" fill="${_adj(h,-12)}"/>
+  <!-- Hexagonal bottle body -->
+  <path d="M 98 104 C 86 109 78 122 78 138 L 78 314 C 78 332 94 346 114 346 L 140 348 L 166 346 C 186 346 202 332 202 314 L 202 138 C 202 122 194 109 182 104 Z"
+    fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <path d="M 86 114 C 82 148 82 248 86 336 L 82 338 C 78 248 78 146 84 112 Z" fill="rgba(255,255,255,0.12)"/>
+  <ellipse cx="128" cy="190" rx="11" ry="28" fill="rgba(255,255,255,0.16)" transform="rotate(-8,128,190)"/>
+  <!-- Label -->
+  <rect x="84" y="200" width="112" height="82" rx="6" fill="rgba(255,255,255,0.14)"/>
+  `);
+}
+
+function beautyHairOil(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  return _wrap('0 0 280 380', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="373" rx="38" ry="5" fill="rgba(0,0,0,0.07)"/>
+  <!-- Dropper cap -->
+  <rect x="128" y="12" width="24" height="36" rx="12" fill="${_adj(h,-15)}" filter="url(#drp${id})"/>
+  <rect x="133" y="44" width="14" height="20" rx="4" fill="${_adj(h,-22)}"/>
+  <!-- Neck -->
+  <rect x="124" y="60" width="32" height="26" rx="5" fill="${_adj(h,-10)}"/>
+  <!-- Elegant bottle (tapered) -->
+  <path d="M 88 84 C 76 92 70 112 70 136 L 70 308 C 70 328 86 342 108 344 L 140 346 L 172 344 C 194 342 210 328 210 308 L 210 136 C 210 112 204 92 192 84 Q 168 78 140 76 Q 112 78 88 84 Z"
+    fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Elegant label -->
+  <rect x="82" y="142" width="116" height="120" rx="8" fill="rgba(255,255,255,0.18)"/>
+  <!-- Leaf / botanical motif lines -->
+  <path d="M 140 162 Q 128 178 122 194 Q 128 190 140 185 Q 152 190 158 194 Q 152 178 140 162 Z" fill="rgba(255,255,255,0.28)"/>
+  <rect x="90" y="218" width="100" height="5" rx="2.5" fill="rgba(255,255,255,0.28)"/>
+  <rect x="95" y="230" width="90" height="3.5" rx="1.75" fill="rgba(255,255,255,0.2)"/>
+  <path d="M 76 96 C 74 148 74 238 76 334 L 72 337 C 70 238 70 146 74 94 Z" fill="rgba(255,255,255,0.09)"/>
+  `);
+}
+
+function beautyHairSpray(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  return _wrap('0 0 280 380', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="373" rx="50" ry="7" fill="rgba(0,0,0,0.07)"/>
+  <!-- Can body (cylindrical aerosol) -->
+  <rect x="76" y="68" width="128" height="286" rx="20" fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Top dome -->
+  <path d="M 76 88 C 76 68 96 55 140 54 C 184 55 204 68 204 88 Z" fill="${_adj(h,-18)}"/>
+  <!-- Nozzle cap area -->
+  <rect x="104" y="38" width="72" height="28" rx="10" fill="${_adj(h,-25)}" filter="url(#drp${id})"/>
+  <!-- Spray nozzle -->
+  <rect x="132" y="18" width="16" height="26" rx="8" fill="${_adj(h,-35)}"/>
+  <!-- Spray mist dots -->
+  ${[0,1,2,3,4,5,6,7,8].map(i => {
+    const angle = (i/8)*Math.PI*0.8 - 0.4;
+    const dist = 38 + (i%3)*10;
+    const px = 140 + Math.cos(angle - Math.PI/2) * dist;
+    const py = 18 + Math.sin(angle - Math.PI/2) * dist;
+    return `<circle cx="${px}" cy="${py}" r="${1.5 - i*0.1}" fill="${_adj(h,30)}" opacity="${0.5 - i*0.04}"/>`;
+  }).join('')}
+  <!-- Label -->
+  <rect x="84" y="120" width="112" height="140" rx="7" fill="rgba(255,255,255,0.18)"/>
+  <rect x="92" y="135" width="96" height="7" rx="3.5" fill="rgba(255,255,255,0.38)"/>
+  <rect x="96" y="150" width="88" height="5" rx="2.5" fill="rgba(255,255,255,0.24)"/>
+  <rect x="92" y="162" width="96" height="5" rx="2.5" fill="rgba(255,255,255,0.22)"/>
+  <!-- Bottom label line -->
+  <path d="M 76 352 L 204 352" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+  <!-- Sheen -->
+  <path d="M 82 75 C 80 165 80 262 82 348 L 78 352 C 76 262 76 163 80 73 Z" fill="rgba(255,255,255,0.09)"/>
+  `);
+}
+
+function beautyHairBrush(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  return _wrap('0 0 280 380', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="373" rx="44" ry="6" fill="rgba(0,0,0,0.07)"/>
+  <!-- Handle -->
+  <path d="M 122 220 C 118 250 116 290 117 330 C 118 350 126 362 140 364 C 154 362 162 350 163 330 C 164 290 162 250 158 220 Z"
+    fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Handle sheen -->
+  <path d="M 126 225 C 124 268 123 312 124 350 L 120 352 C 119 312 120 265 122 223 Z" fill="rgba(255,255,255,0.13)"/>
+  <!-- Pad -->
+  <rect x="86" y="74" width="108" height="155" rx="14" fill="${_adj(h,-18)}" filter="url(#drp${id})"/>
+  <!-- Cushion pad -->
+  <rect x="93" y="82" width="94" height="139" rx="10" fill="${_adj(h,25)}" opacity="0.7"/>
+  <!-- Bristles grid -->
+  ${[0,1,2,3,4,5,6].map(col => [0,1,2,3,4,5].map(row => {
+    const x = 100 + col * 12;
+    const y = 90 + row * 20;
+    return `<line x1="${x}" y1="${y}" x2="${x+1}" y2="${y-18}" stroke="${_adj(h,-50)}" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="${x}" cy="${y-19}" r="2.5" fill="${_adj(h,-40)}"/>`;
+  }).join('')).join('')}
+  `);
+}
+
+function beautyHairClip(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  return _wrap('0 0 280 260', b1, b2, `
+  ${_defs(id, c)}
+  <!-- Claw clip body - top jaw -->
+  <path d="M 48 90 C 48 72 62 60 80 58 L 200 58 C 218 60 232 72 232 90 L 228 116 C 200 108 170 105 140 105 C 110 105 80 108 52 116 Z"
+    fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Teeth on top jaw -->
+  ${[70,90,110,130,150,170,190,210].map(x =>
+    `<rect x="${x-4}" y="112" width="8" height="16" rx="4" fill="${_adj(h,-20)}"/>`
+  ).join('')}
+  <!-- Bottom jaw -->
+  <path d="M 52 128 C 80 120 110 117 140 117 C 170 117 200 120 228 128 L 228 152 C 200 162 170 165 140 165 C 110 165 80 162 52 152 Z"
+    fill="${_adj(h,-15)}" opacity="0.85"/>
+  <!-- Hinge spring center -->
+  <ellipse cx="140" cy="90" rx="16" ry="28" fill="${_adj(h,-30)}" opacity="0.6"/>
+  <rect x="134" y="70" width="12" height="42" rx="6" fill="${_adj(h,-40)}" opacity="0.8"/>
+  <!-- Sheen -->
+  <path d="M 54 66 C 52 90 52 108 54 148 L 50 148 C 48 108 48 88 52 64 Z" fill="rgba(255,255,255,0.12)"/>
+  <!-- Extra decorative pearl dots -->
+  <circle cx="88" cy="80" r="5" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="140" cy="76" r="5" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="192" cy="80" r="5" fill="rgba(255,255,255,0.4)"/>
+  `);
+}
+
+function beautyScrunchie(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  return _wrap('0 0 280 280', b1, b2, `
+  ${_defs(id, c)}
+  <!-- Scrunchie base ring -->
+  <circle cx="140" cy="140" r="80" fill="none" stroke="${_adj(h,-10)}" stroke-width="40" filter="url(#drp${id})"/>
+  <!-- Fabric ruffles - multiple lobes -->
+  ${[0,1,2,3,4,5,6,7,8,9].map(i => {
+    const angle = (i/10)*2*Math.PI;
+    const ox = 140 + Math.cos(angle)*80;
+    const oy = 140 + Math.sin(angle)*80;
+    const ix = 140 + Math.cos(angle)*48;
+    const iy = 140 + Math.sin(angle)*48;
+    const cx1 = ox + Math.cos(angle+0.6)*28;
+    const cy1 = oy + Math.sin(angle+0.6)*28;
+    return `<path d="M ${ix} ${iy} Q ${cx1} ${cy1} ${ox} ${oy}" fill="none" stroke="${_adj(h, i%2===0 ? 30 : -20)}" stroke-width="24" stroke-linecap="round" opacity="0.85"/>`;
+  }).join('')}
+  <!-- Shine highlights on lobes -->
+  ${[0,2,4,6,8].map(i => {
+    const angle = (i/10)*2*Math.PI + 0.1;
+    const hx = 140 + Math.cos(angle)*76;
+    const hy = 140 + Math.sin(angle)*76;
+    return `<circle cx="${hx}" cy="${hy}" r="6" fill="rgba(255,255,255,0.28)"/>`;
+  }).join('')}
+  <!-- Elastic knot -->
+  <circle cx="140" cy="60" r="10" fill="${_adj(h,-35)}" filter="url(#drp${id})"/>
+  <ellipse cx="140" cy="60" rx="5" ry="8" fill="${_adj(h,-25)}" opacity="0.7"/>
+  `);
+}
+
+function beautyHairMask(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  return _wrap('0 0 280 300', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="293" rx="72" ry="7" fill="rgba(0,0,0,0.06)"/>
+  <!-- Wide jar body -->
+  <rect x="52" y="100" width="176" height="178" rx="16" fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Lid -->
+  <rect x="44" y="68" width="192" height="42" rx="14" fill="${_adj(h,-20)}" filter="url(#drp${id})"/>
+  <!-- Lid sheen -->
+  <path d="M 52 74 C 50 92 50 100 52 106 L 48 108 C 46 100 46 90 50 72 Z" fill="rgba(255,255,255,0.12)"/>
+  <!-- Lid grip lines -->
+  ${[70,92,114,136,158,180,202,224].map(x =>
+    `<line x1="${x}" y1="72" x2="${x}" y2="105" stroke="rgba(0,0,0,0.06)" stroke-width="2"/>`
+  ).join('')}
+  <!-- Label on body -->
+  <rect x="62" y="135" width="156" height="108" rx="9" fill="rgba(255,255,255,0.2)"/>
+  <rect x="70" y="150" width="140" height="8" rx="4" fill="rgba(255,255,255,0.38)"/>
+  <rect x="75" y="166" width="130" height="5" rx="2.5" fill="rgba(255,255,255,0.26)"/>
+  <rect x="70" y="178" width="140" height="5" rx="2.5" fill="rgba(255,255,255,0.22)"/>
+  <!-- Leaf/floral accent in label -->
+  <path d="M 140 200 Q 130 212 124 220 Q 132 218 140 214 Q 148 218 156 220 Q 150 212 140 200 Z" fill="rgba(255,255,255,0.3)"/>
+  `);
+}
+
+/* ══════════════════════════════════════════════
    MAIN DISPATCHER
    ══════════════════════════════════════════════ */
 
@@ -738,6 +1050,18 @@ function getProductSVG(p) {
     case 'shoe-boots':           return shoeBoots(c, bg);
     case 'bag-tote':             return bagTote(c, bg);
     case 'bag-crossbody':        return bagCrossbody(c, bg);
+    case 'beauty-lipstick':      return beautyLipstick(c, bg);
+    case 'beauty-palette':       return beautyPalette(c, bg);
+    case 'beauty-mascara':       return beautyMascara(c, bg);
+    case 'beauty-bottle':        return beautyBottle(c, bg);
+    case 'beauty-lashes':        return beautyLashes(c, bg);
+    case 'beauty-nail':          return beautyNailPolish(c, bg);
+    case 'beauty-hairoil':       return beautyHairOil(c, bg);
+    case 'beauty-hairspray':     return beautyHairSpray(c, bg);
+    case 'beauty-hairbrush':     return beautyHairBrush(c, bg);
+    case 'beauty-hairclip':      return beautyHairClip(c, bg);
+    case 'beauty-scrunchie':     return beautyScrunchie(c, bg);
+    case 'beauty-hairmask':      return beautyHairMask(c, bg);
     default:                     return bodysuitTank(c, bg);
   }
 }

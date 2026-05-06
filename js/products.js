@@ -70,6 +70,16 @@ const PALETTE = {
   mustard:      { name: 'Mustard',       hex: '#c8900a' },
   // Türkis
   turkis:       { name: 'Türkis',        hex: '#30a8b8' },
+  // Metallic
+  silber:       { name: 'Silber',        hex: '#b0b8c8' },
+  bronze:       { name: 'Bronze',        hex: '#b08050' },
+  kupfer:       { name: 'Kupfer',        hex: '#c86830' },
+  // Beauty specials
+  korallrot:    { name: 'Korallrot',     hex: '#e84040' },
+  beerenpink:   { name: 'Beerenpink',   hex: '#d0306a' },
+  nudenude:     { name: 'Nude',          hex: '#d4a880' },
+  plumrot:      { name: 'Pflaumrot',     hex: '#8a1848' },
+  mintfrisch:   { name: 'Mintfrisch',    hex: '#3ab8a0' },
 };
 
 // Shortcut: holt Hex-Farben für colorDots (rückwärtskompatibel)
@@ -88,7 +98,7 @@ const products = [
     svgType: 'bodysuit-tank',
     price: 12.99, oldPrice: 24.99, badge: 'hot',
     desc: 'Klassischer Spaghetti-Träger-Body aus weichem Viskose-Mix. Formschön, körpernah, mit Druckknöpfen am Schritt. Perfekt unter Blazer, Jeans oder solo.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('schwarz','anthrazit','grau','weiss','creme','navy','burgund','terracotta','olivgruen','mintgruen','flieder','rosa','babyrose','camel','dustyrose','lila'),
     rating: 4.8, reviews: 1203
   },
@@ -98,7 +108,7 @@ const products = [
     svgType: 'bodysuit-ribbed',
     price: 10.99, oldPrice: 19.99, badge: 'new',
     desc: 'Zeitloser Ripp-Body aus elastischem Baumwoll-Ripp. Angenehm dehnbar, atmungsaktiv. Das must-have Basics für jeden Kleiderschrank.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('weiss','schwarz','grau','graumel','creme','ivory','navy','taubenblau','mintgruen','sage','altrosa','rosa','camel','latte','dunkelbraun','mustard'),
     rating: 4.9, reviews: 2145
   },
@@ -118,7 +128,7 @@ const products = [
     svgType: 'bodysuit-long',
     price: 17.99, oldPrice: 34.99, badge: 'sale',
     desc: 'Schicker Langarm-Body mit hohem Turtleneck-Kragen. Weicher Viskose-Stoff für den Herbst. Trägt sich wie ein zweites Hautbild.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('camel','creme','schokobraun','cognac','schwarz','anthrazit','grau','navy','olivgruen','waldgruen','burgund','weinrot','taubenblau','lila','pflaume','mustard','rost'),
     rating: 4.8, reviews: 654
   },
@@ -138,7 +148,7 @@ const products = [
     svgType: 'bodysuit-lace',
     price: 18.99, oldPrice: 34.99, badge: 'sale',
     desc: 'Romantischer Spitzen-Body mit feinem All-over-Spitzenmuster. Gefüttertes Brustteil, Spaghetti-Träger. Zarter Look für besondere Anlässe.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('altrosa','weiss','schwarz','creme','ivory','babyrose','dustyrose','lavendel','mintgruen','navy','champagne','rosegold','burgund','mauve','taubenblau'),
     rating: 4.9, reviews: 789
   },
@@ -148,7 +158,7 @@ const products = [
     svgType: 'bodysuit-square',
     price: 11.99, badge: 'new',
     desc: 'Trendiger Body mit breitem quadratischen Ausschnitt und Schulterträgern. Aus straffem Jersey, formend.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('navy','dunkelblau','schwarz','weiss','creme','burgund','olivgruen','waldgruen','taubenblau','himmelblau','babyblau','lila','flieder','rosa','terracotta','mustard','grau'),
     rating: 4.7, reviews: 534
   },
@@ -158,7 +168,7 @@ const products = [
     svgType: 'bodysuit-offshoulder',
     price: 16.99, oldPrice: 29.99, badge: 'sale',
     desc: 'Verführerischer Off-Shoulder-Body mit elastischem Schulterband. Mit Jeans oder Shorts für den perfekten Sommeroutfit.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('mintgruen','smaragd','sage','schwarz','weiss','rosa','babyrose','koralle','lachs','himmelblau','hellblau','lila','lavendel','gelb','buttercup','turkis','flieder','altrosa'),
     rating: 4.8, reviews: 347
   },
@@ -168,7 +178,7 @@ const products = [
     svgType: 'bodysuit-wrap',
     price: 19.99, badge: 'hot',
     desc: 'Schöner Wrap-Body mit Raffung vorne für einen figurbetonenden V-Effekt. Spaghetti-Träger, angenehm weich.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('flieder','lila','lavendel','pflaume','schwarz','weiss','grau','rosa','altrosa','navy','olivgruen','sage','terracotta','camel','burgund','himmelblau','turkis','mustard'),
     rating: 4.7, reviews: 489
   },
@@ -188,7 +198,7 @@ const products = [
     svgType: 'bodysuit-tank',
     price: 22.99, oldPrice: 39.99, badge: 'sale',
     desc: 'Luxuriöser Satin-Body in vielen festlichen Farben. Fließendes Material, einstellbare Träger. Für festliche Anlässe und elegante Abende.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('champagne','ivory','weiss','rosegold','gold','schwarz','navy','burgundrot','mintgruen','himmelblau','lavendel','lila','babyrose','dustyrose','creme','taubenblau'),
     rating: 4.9, reviews: 312
   },
@@ -198,7 +208,7 @@ const products = [
     svgType: 'bodysuit-ribbed',
     price: 24.99, oldPrice: 44.99, badge: 'hot',
     desc: 'Vorteilspack: 3 Basic-Bodies aus Ripp-Jersey. Perfekte Layering-Pieces für jeden Look. Zeitloser Style, alltagstauglich.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('schwarz','weiss','grau','navy','creme','camel','rosa','mintgruen','lila','terracotta','burgund','taubenblau'),
     rating: 4.9, reviews: 1876
   },
@@ -208,7 +218,7 @@ const products = [
     svgType: 'bodysuit-vneck',
     price: 13.99, badge: 'new',
     desc: 'Figurbetonter Deep-V-Body in vielen intensiven Farben. Weiches Interlock, Spaghetti-Träger, elastischer Bund.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('burgund','weinrot','schwarz','navy','rot','terracotta','koralle','olivgruen','waldgruen','lila','pflaume','taubenblau','grau','anthrazit','camel','mustard','pink'),
     rating: 4.7, reviews: 645
   },
@@ -228,7 +238,7 @@ const products = [
     svgType: 'bodysuit-offshoulder',
     price: 15.99, badge: 'new',
     desc: 'Romantischer schulterfreier Body. Breites elastisches Band, körpernah. Kombiniert mit Mom-Jeans für lässige Summer-Vibes.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('dustyrose','mauve','blush','schwarz','weiss','creme','lavendel','flieder','mintgruen','sage','babyblau','turkis','koralle','lachs','gelb','grau','navy','olivgruen'),
     rating: 4.8, reviews: 567
   },
@@ -238,7 +248,7 @@ const products = [
     svgType: 'bodysuit-square',
     price: 14.99, badge: 'hot',
     desc: 'Weicher Ripp-Strick-Body mit quadratischem Ausschnitt. Herbstlich, warm, fashionable. Dazu ein langer Rock oder weite Jeans.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('olivgruen','waldgruen','sage','schwarz','camel','creme','dunkelbraun','rost','terracotta','navy','grau','lila','burgund','mustard','weinrot','salbei','mintgruen'),
     rating: 4.7, reviews: 423
   },
@@ -248,7 +258,7 @@ const products = [
     svgType: 'bodysuit-wrap',
     price: 16.99, oldPrice: 29.99, badge: 'sale',
     desc: 'Verspielter geraffter Body in leuchtenden Sommerfarben. Spaghetti-Träger, angenehm weicher Stoff.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('himmelblau','turkis','mintgruen','koralle','lachs','gelb','buttercup','rosa','pink','weiss','schwarz','lavendel','babyblau','sage','navy','creme','babyrose'),
     rating: 4.6, reviews: 378
   },
@@ -272,7 +282,7 @@ const products = [
     svgType: 'dress-midi',
     price: 22.99, oldPrice: 44.99, badge: 'sale',
     desc: 'Wunderschönes Midi-Kleid im Wickelstil mit romantischem Blumenprint. Fließender Chiffon für leichten Tragekomfort.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('rosa','altrosa','dustyrose','himmelblau','mintgruen','gelb','koralle','lavendel','weiss','creme','schwarz','navy','turkis','babyrose','lachs','salbei'),
     rating: 4.8, reviews: 634
   },
@@ -292,7 +302,7 @@ const products = [
     svgType: 'top-crop',
     price: 9.99, badge: 'new',
     desc: 'Zwei hochwertige Ripp-Crop-Tops im Set. Körpernahes Material mit angenehmer Stretchqualität.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('weiss','schwarz','grau','creme','rosa','mintgruen','himmelblau','lavendel','camel','navy','koralle','lachs','gelb','turkis','altrosa','babyblau','sage','mustard'),
     rating: 4.7, reviews: 892
   },
@@ -302,7 +312,7 @@ const products = [
     svgType: 'dress-maxi',
     price: 39.99, oldPrice: 79.99, badge: 'sale',
     desc: 'Luxuriöses Maxi-Kleid aus satinartigem Viskose-Mix. Fließende Silhouette mit elegantem Ausschnitt.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('navy','champagne','burgund','schwarz','olivgruen','mintgruen','himmelblau','rosa','lila','taubenblau','creme','ivory','smaragd','weinrot','camel','pflaume'),
     rating: 4.9, reviews: 287
   },
@@ -332,7 +342,7 @@ const products = [
     svgType: 'top-shirt',
     price: 15.99, oldPrice: 29.99, badge: 'sale',
     desc: 'Romantische Bluse mit Rüschenkragen aus leichtem Viskose-Crêpe. Für Büro und Freizeit.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('weiss','creme','schwarz','altrosa','mintgruen','himmelblau','lavendel','navy','gelb','koralle','sage','taubenblau','ivory','rosa','babyblau','mustard'),
     rating: 4.5, reviews: 267
   },
@@ -342,7 +352,7 @@ const products = [
     svgType: 'blazer',
     price: 49.99, oldPrice: 99.99, badge: 'sale',
     desc: 'Zeitloser Trenchcoat. Doppelreiher mit Gürtel und Schulterklappen. Das Must-Have für den Übergang.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('camel','schwarz','beige','creme','olivgruen','grau','dunkelbraun','navy','rost','anthrazit'),
     rating: 4.8, reviews: 312
   },
@@ -352,7 +362,7 @@ const products = [
     svgType: 'dress-short',
     price: 17.99, badge: 'new',
     desc: 'Niedliches A-Linien Mini-Kleid in fröhlichen Farben. Leichter Jerseytsoff, bequem für den Sommer.',
-    sizes: ['XS','S','M','L','XL'],
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
     variants: v('rosa','babyrose','altrosa','koralle','lachs','gelb','mintgruen','himmelblau','lavendel','weiss','schwarz','turkis','creme','orange','flieder','babyblau'),
     rating: 4.7, reviews: 412
   },
@@ -675,5 +685,307 @@ const products = [
     sizes: ['36','37','38','39','40','41','42'],
     variants: v('schwarz','dunkelbraun','grau','camel','olivgruen','navy','cognac','burgund','sand','anthrazit'),
     rating: 4.8, reviews: 534
+  },
+
+  /* ================================================================
+     BEAUTY & HAARE
+     ================================================================ */
+
+  /* --- WIMPERN (LASHES) --- */
+  {
+    id: 201, cat: 'beauty', brand: 'MIA LASHES',
+    name: 'Drama Lashes – Volumen',
+    svgType: 'beauty-lashes',
+    price: 4.99, oldPrice: 9.99, badge: 'hot',
+    desc: 'Dramatische Wimpern für maximales Volumen. Handgefertigt, wiederverwendbar bis zu 20x. Inklusive Kleber. Für unvergessliche Abendlooks.',
+    sizes: ['One Size'],
+    variants: v('schwarz','anthrazit','dunkelbraun'),
+    rating: 4.9, reviews: 2341
+  },
+  {
+    id: 202, cat: 'beauty', brand: 'MIA LASHES',
+    name: 'Natural Lashes – Alltag',
+    svgType: 'beauty-lashes',
+    price: 3.99, badge: 'new',
+    desc: 'Natürliche Wimpern für den täglichen Look. Ultra-leicht, kaum spürbar, voller Effekt. Perfekt für Anfänger.',
+    sizes: ['One Size'],
+    variants: v('schwarz','dunkelbraun'),
+    rating: 4.8, reviews: 1876
+  },
+  {
+    id: 203, cat: 'beauty', brand: 'MIA LASHES',
+    name: 'Cat-Eye Lashes – Verführerisch',
+    svgType: 'beauty-lashes',
+    price: 4.49, badge: 'hot',
+    desc: 'Verführerische Cat-Eye-Wimpern mit verlängertem Äußeren Ende. Für den perfekten Augen-Auftritt.',
+    sizes: ['One Size'],
+    variants: v('schwarz','anthrazit'),
+    rating: 4.9, reviews: 987
+  },
+
+  /* --- MAKE-UP --- */
+  {
+    id: 210, cat: 'beauty', brand: 'MIA BEAUTY',
+    name: 'Lippenstift Satin Finish',
+    svgType: 'beauty-lipstick',
+    price: 5.99, oldPrice: 12.99, badge: 'sale',
+    desc: 'Cremiger Lippenstift mit sattem Farbpigment. Hält 8 Stunden. Keine Austrocknung, kein Ausbluten. In 15+ Farben.',
+    sizes: ['One Size'],
+    variants: v('rot','korallrot','beerenpink','rosa','plumrot','burgund','nudenude','lachs','koralle','camel','altrosa','pink','weinrot','champagne','mauve'),
+    rating: 4.8, reviews: 3421
+  },
+  {
+    id: 211, cat: 'beauty', brand: 'MIA BEAUTY',
+    name: 'Lidschatten Palette 12-Farben',
+    svgType: 'beauty-palette',
+    price: 9.99, oldPrice: 24.99, badge: 'sale',
+    desc: '12 perfekt aufeinander abgestimmte Lidschattenfarben. Mattes, schimmerndes und glitzerndes Finish. Hochpigmentiert und langanhaltend.',
+    sizes: ['One Size'],
+    variants: v('lila','rosa','burgund','camel','olivgruen','navy','mintgruen','schwarz','champagne','rosegold','taubenblau','terracotta'),
+    rating: 4.9, reviews: 2876
+  },
+  {
+    id: 212, cat: 'beauty', brand: 'MIA BEAUTY',
+    name: 'Mascara Mega Volume',
+    svgType: 'beauty-mascara',
+    price: 6.99, badge: 'hot',
+    desc: 'Mega-Volumen-Mascara mit XXL-Bürste. Streckt, trennt und verdickt jede Wimper. Wasserfest, hält 24 Stunden.',
+    sizes: ['One Size'],
+    variants: v('schwarz','anthrazit','dunkelbraun'),
+    rating: 4.8, reviews: 4123
+  },
+  {
+    id: 213, cat: 'beauty', brand: 'MIA BEAUTY',
+    name: 'Foundation Fluid LSF 20',
+    svgType: 'beauty-bottle',
+    price: 8.99, oldPrice: 18.99, badge: 'sale',
+    desc: 'Leichte Fluid-Foundation mit LSF 20. Deckend, aber natürlich. 24h-Halt, dermatologisch getestet. In 20 Nuancen.',
+    sizes: ['One Size'],
+    variants: v('nudenude','beige','sand','camel','latte','creme','ivory','dunkelbraun','schokobraun','cognac'),
+    rating: 4.7, reviews: 2156
+  },
+  {
+    id: 214, cat: 'beauty', brand: 'MIA BEAUTY',
+    name: 'Highlighter Glow Palette',
+    svgType: 'beauty-palette',
+    price: 7.99, badge: 'new',
+    desc: 'Strahlender Highlighter in 4 Shades: Gold, Rosé, Bronze und Pearl. Für ein strahlendes Glow-Finish.',
+    sizes: ['One Size'],
+    variants: v('champagne','rosegold','gold','bronze','silber','ivory','rosa'),
+    rating: 4.9, reviews: 1654
+  },
+  {
+    id: 215, cat: 'beauty', brand: 'MIA BEAUTY',
+    name: 'Nagellack Kollektion',
+    svgType: 'beauty-nail',
+    price: 3.49, badge: 'new',
+    desc: 'Langanhaltender Nagellack in über 40 Farben. 3-free Formel, kein Schälen. Trocknet in 60 Sekunden.',
+    sizes: ['One Size'],
+    variants: v('rot','korallrot','beerenpink','rosa','plumrot','burgund','navy','schwarz','weiss','nudenude','mintfrisch','himmelblau','lila','gold','rosegold','koralle','lachs','gelb','olivgruen','champagne'),
+    rating: 4.7, reviews: 5678
+  },
+  {
+    id: 216, cat: 'beauty', brand: 'MIA BEAUTY',
+    name: 'Lip Gloss Set 6-teilig',
+    svgType: 'beauty-lipstick',
+    price: 12.99, oldPrice: 24.99, badge: 'hot',
+    desc: '6 Lip Gloss in einem Set. Pflegend durch Vitamin E und Hyaluron. Nicht klebrig, satt glänzend.',
+    sizes: ['One Size'],
+    variants: v('rosa','koralle','nudenude','beerenpink','champagne','babyrose','altrosa','lachs','pink','mauve'),
+    rating: 4.8, reviews: 1432
+  },
+
+  /* --- HAARPFLEGE (HAIRCARE) --- */
+  {
+    id: 220, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Argan-Shampoo Reparatur',
+    svgType: 'beauty-bottle',
+    price: 7.99, badge: 'new',
+    desc: 'Reparierendes Argan-Öl-Shampoo für strapaziertes Haar. Glättet die Schuppenschicht, verleiht Glanz und Geschmeidigkeit. Sulfatfrei.',
+    sizes: ['One Size'],
+    variants: v('camel','cognac','gold','caramel','champagne'),
+    rating: 4.8, reviews: 3245
+  },
+  {
+    id: 221, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Feuchtigkeits-Conditioner',
+    svgType: 'beauty-bottle',
+    price: 7.49, badge: 'new',
+    desc: 'Intensiv-Conditioner mit Kokosmilch und Sheabutter. Entwirrt, glättet und pflegt. Für alle Haartypen, besonders für trockenes Haar.',
+    sizes: ['One Size'],
+    variants: v('weiss','creme','ivory','babyrose','hellblau','mintgruen'),
+    rating: 4.7, reviews: 2876
+  },
+  {
+    id: 222, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Haarmaske Keratin Tiefenpflege',
+    svgType: 'beauty-hairmask',
+    price: 9.99, oldPrice: 19.99, badge: 'sale',
+    desc: 'Intensive Keratin-Haarmaske für 10 Minuten. Repariert Haarschäden, glättet Spliss, verleiht Spiegelglanz. 300ml Tiegel.',
+    sizes: ['One Size'],
+    variants: v('weiss','creme','ivory','champagne','sand','latte'),
+    rating: 4.9, reviews: 4521
+  },
+  {
+    id: 223, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Argan Haaröl Premium',
+    svgType: 'beauty-hairoil',
+    price: 11.99, oldPrice: 22.99, badge: 'hot',
+    desc: 'Luxuriöses Argan-Haaröl aus Marokko. Verleiht seidigen Glanz, bändigt Frizz und schützt vor Wärme. Für alle Haartypen.',
+    sizes: ['One Size'],
+    variants: v('camel','gold','cognac','caramel','champagne','creme'),
+    rating: 4.9, reviews: 5678
+  },
+  {
+    id: 224, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Kokos Leave-in Conditioner',
+    svgType: 'beauty-bottle',
+    price: 6.99, badge: 'new',
+    desc: 'Ausspülfreier Conditioner mit reinem Kokosöl. Sprühen, verteilen, fertig. Kein Ausspülen nötig. Ideal für unterwegs.',
+    sizes: ['One Size'],
+    variants: v('weiss','creme','mintgruen','babyblau','hellblau','ivory'),
+    rating: 4.7, reviews: 1987
+  },
+  {
+    id: 225, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Trocken-Shampoo Frische Brise',
+    svgType: 'beauty-hairspray',
+    price: 5.99, badge: 'hot',
+    desc: 'Trockenshampoo für fettiges Haar. Erfrischt in 30 Sekunden, gibt Volumen, duftet nach frischen Blumen.',
+    sizes: ['One Size'],
+    variants: v('weiss','hellblau','mintfrisch','lavendel','babyrose','creme'),
+    rating: 4.8, reviews: 3412
+  },
+  {
+    id: 226, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Heat Protect Spray',
+    svgType: 'beauty-hairspray',
+    price: 8.49, oldPrice: 15.99, badge: 'sale',
+    desc: 'Hitze-Schutz-Spray bis 230°C. Schützt vor Fön, Glätteisen und Lockenstab. Mit feuchtigkeitsspendender Formel.',
+    sizes: ['One Size'],
+    variants: v('lavendel','flieder','babyblau','weiss','mintgruen','silber'),
+    rating: 4.8, reviews: 2765
+  },
+  {
+    id: 227, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Keratin Glättungs-Serum',
+    svgType: 'beauty-hairoil',
+    price: 13.99, oldPrice: 28.99, badge: 'hot',
+    desc: 'Professionelles Keratin-Serum für Heimanwendung. Glättet krauses Haar, hält bis zu 3 Monate. Für seidig-glattes Haar wie vom Salon.',
+    sizes: ['One Size'],
+    variants: v('champagne','ivory','creme','weiss','gold','silber'),
+    rating: 4.9, reviews: 1876
+  },
+  {
+    id: 228, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Anti-Frizz Haar-Serum',
+    svgType: 'beauty-hairoil',
+    price: 9.49, badge: 'new',
+    desc: 'Leichtes Anti-Frizz-Serum mit Argan- und Jojobaöl. Bändigt widerspenstiges Haar, verleiht Glanz ohne zu beschweren.',
+    sizes: ['One Size'],
+    variants: v('mintfrisch','sage','olivgruen','mintgruen','salbei','weiss'),
+    rating: 4.7, reviews: 2134
+  },
+
+  /* --- HAAR-STYLING & ACCESSOIRES --- */
+  {
+    id: 230, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Satin-Scrunchie Set 10er',
+    svgType: 'beauty-scrunchie',
+    price: 5.99, badge: 'hot',
+    desc: '10 Satin-Scrunchies in verschiedenen Farben. Schonend für das Haar, kein Ziehen oder Brechen. Auch als Armband tragbar.',
+    sizes: ['One Size'],
+    variants: v('schwarz','weiss','rosa','mintgruen','lavendel','camel','himmelblau','burgund','creme','champagne','koralle','navy','lila','gelb','altrosa','sage','dustyrose','babyblau'),
+    rating: 4.9, reviews: 6543
+  },
+  {
+    id: 231, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Krallen-Clip Set 5er – Groß',
+    svgType: 'beauty-hairclip',
+    price: 6.99, badge: 'new',
+    desc: '5 große Krallen-Clips in Trendfarben. Extra starker Halt, kein Rutschen. Für dickes und feines Haar geeignet.',
+    sizes: ['One Size'],
+    variants: v('schwarz','weiss','creme','rosa','mintgruen','lavendel','camel','navy','burgund','champagne','koralle','himmelblau','lila','altrosa','olivgruen','taubenblau'),
+    rating: 4.8, reviews: 3876
+  },
+  {
+    id: 232, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Satin Haarband Breit',
+    svgType: 'beauty-scrunchie',
+    price: 4.49, badge: 'new',
+    desc: 'Breites Satin-Haarband für elegante Looks. Perfekt für Alltag und besondere Anlässe. Schützt das Haar, kein Bruch.',
+    sizes: ['One Size'],
+    variants: v('schwarz','weiss','rosa','navy','burgund','camel','mintgruen','lavendel','champagne','altrosa','lila','creme','babyrose','himmelblau','olivgruen','gelb'),
+    rating: 4.7, reviews: 2134
+  },
+  {
+    id: 233, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Entwirr-Bürste Profi',
+    svgType: 'beauty-hairbrush',
+    price: 8.99, oldPrice: 17.99, badge: 'sale',
+    desc: 'Professionelle Entwirr-Bürste mit flexiblen Borsten. Schmerzfreies Entwirren von nassem und trockenem Haar. Auch für Locken.',
+    sizes: ['One Size'],
+    variants: v('schwarz','weiss','rosa','mintgruen','lavendel','camel','navy','koralle','lila','champagne','himmelblau','olivgruen'),
+    rating: 4.8, reviews: 4321
+  },
+  {
+    id: 234, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Haargummi-Set Elastic 30er',
+    svgType: 'beauty-scrunchie',
+    price: 3.99, badge: 'hot',
+    desc: '30 hochwertige Haargummis in verschiedenen Farben und Stärken. Keine Knicke, kein Brechen. Das Basics-Must-have.',
+    sizes: ['One Size'],
+    variants: v('schwarz','weiss','braun','rosa','blau','grau','mintgruen','bunt','gelb','lila'),
+    rating: 4.7, reviews: 8765
+  },
+  {
+    id: 235, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Haarklammern-Set Bobby Pins 50er',
+    svgType: 'beauty-hairclip',
+    price: 2.99, badge: 'new',
+    desc: '50 rutschfeste Bobby Pins in mattem Schwarz. Speziell gebogen für optimalen Halt. Das unverzichtbare Haar-Werkzeug.',
+    sizes: ['One Size'],
+    variants: v('schwarz','anthrazit','dunkelbraun','gold','silber','rosegold'),
+    rating: 4.6, reviews: 7654
+  },
+  {
+    id: 236, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Satin-Schlafmaske + Haarbond-Set',
+    svgType: 'beauty-scrunchie',
+    price: 9.99, oldPrice: 18.99, badge: 'sale',
+    desc: 'Satin-Schlafmaske und passendes Haarband im Set. Schützt Haare und Haut beim Schlafen. Verhindert Frizz und Falten.',
+    sizes: ['One Size'],
+    variants: v('schwarz','weiss','rosa','lavendel','champagne','navy','altrosa','mintgruen','creme','lila','babyrose','taubenblau'),
+    rating: 4.8, reviews: 2345
+  },
+  {
+    id: 237, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Hydro Hair Mask – Avocado',
+    svgType: 'beauty-hairmask',
+    price: 8.99, badge: 'new',
+    desc: 'Intensive Avocado-Feuchtigkeitsmaske für sehr trockenes Haar. Nährt in der Tiefe, kämmbar bereits nach 5 Minuten.',
+    sizes: ['One Size'],
+    variants: v('olivgruen','waldgruen','sage','mintgruen','salbei','smaragd'),
+    rating: 4.9, reviews: 3210
+  },
+  {
+    id: 238, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Locken-Creme Define & Hold',
+    svgType: 'beauty-bottle',
+    price: 6.49, badge: 'new',
+    desc: 'Lockenpflege-Creme für definierte Locken ohne Frizz. Hält die Form, kein Verkleben. Für alle Lockenmuster.',
+    sizes: ['One Size'],
+    variants: v('weiss','creme','ivory','babyblau','hellblau','mintgruen'),
+    rating: 4.8, reviews: 1876
+  },
+  {
+    id: 239, cat: 'beauty', brand: 'MIA HAIR',
+    name: 'Haar-Volumenpuder',
+    svgType: 'beauty-hairspray',
+    price: 7.49, badge: 'hot',
+    desc: 'Unsichtbares Volumenpuder für feines und flaches Haar. Gibt sofort Fülle und Textur. Ideal für Hochfrisuren.',
+    sizes: ['One Size'],
+    variants: v('weiss','creme','sand','graumel','ivory'),
+    rating: 4.7, reviews: 1543
   },
 ];
