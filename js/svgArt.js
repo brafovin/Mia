@@ -700,7 +700,7 @@ function dressOffShoulder(c, bg) {
   const [b1,b2] = bg || _bg(c); const h = _hex(c);
   const sheen = 'rgba(255,255,255,0.16)';
   const dark  = 'rgba(0,0,0,0.26)';
-  return _svg('0 0 280 490', b1, b2, `
+  return _wrap('0 0 280 490', b1, b2, `
     ${_figHanger()}
 
     <!-- Main dress body: off-shoulder neckline to floor -->
