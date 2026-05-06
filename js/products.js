@@ -1,281 +1,536 @@
 const products = [
-  // ===== KLEIDUNG =====
+
+  /* ============================================================
+     DAMEN
+  ============================================================ */
   {
-    id: 1, category: 'kleidung', name: 'Oversized Hoodie', emoji: '🧥',
-    price: 34.99, oldPrice: 59.99, badge: 'sale',
-    desc: 'Mega comfy Hoodie im Oversized-Fit. Perfekt für entspannte Tage.',
-    rating: 4.8, reviews: 312, colors: ['Schwarz', 'Weiß', 'Grau', 'Rosa']
+    id: 1, cat: 'damen', brand: 'NOVA STYLE',
+    name: 'Sommer Wickelkleid mit Blumenprint',
+    emoji: '👗', bg: 'linear-gradient(145deg,#fce8f0,#f9d4e5)',
+    price: 39.95, oldPrice: 69.95, badge: 'sale',
+    desc: 'Wunderschönes Midi-Kleid im Wickelstil mit romantischem Blumenprint. Fließender Chiffon-Stoff für leichten Tragekomfort. Perfekt für Sommerfeste, Dates oder Spaziergänge.',
+    sizes: ['XS','S','M','L','XL'], colors: ['Rosé/Floral','Blau/Floral','Weiß/Floral'],
+    colorDots: ['#f8b4c8','#a8c8f0','#f5f5f5'],
+    rating: 4.8, reviews: 634, age: 'damen'
   },
   {
-    id: 2, category: 'kleidung', name: 'Cargo Hose', emoji: '👖',
-    price: 44.99, oldPrice: 69.99, badge: 'hot',
-    desc: 'Stylische Cargo Pants mit vielen Taschen. Streetwear-Must-Have.',
-    rating: 4.7, reviews: 189, colors: ['Khaki', 'Schwarz', 'Navy']
+    id: 2, cat: 'damen', brand: 'URBAN BASICS',
+    name: 'Oversized Blazer Damen',
+    emoji: '🧥', bg: 'linear-gradient(145deg,#e8e0f0,#d5c8e8)',
+    price: 79.95, oldPrice: 129.95, badge: 'hot',
+    desc: 'Klassischer Oversized-Blazer in zeitlosem Design. Hochwertige Webqualität mit strukturierter Schulterpartie. Kombinierbar zu Jeans oder Hosen – vom Office bis zum Abendausgang.',
+    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Camel','Schwarz','Creme','Navy'],
+    colorDots: ['#c8a87a','#222','#f5f0e8','#1a2e5e'],
+    rating: 4.9, reviews: 421, age: 'damen'
   },
   {
-    id: 3, category: 'kleidung', name: 'Crop Top Set', emoji: '👚',
-    price: 22.99, badge: 'new',
-    desc: '2-teiliges Crop-Top Set aus softem Jersey. Perfekt für den Sommer.',
-    rating: 4.9, reviews: 445, colors: ['Weiß', 'Beige', 'Schwarz']
+    id: 3, cat: 'damen', brand: 'THE DAILY EDIT',
+    name: 'Ripp-Crop-Top 2er Set',
+    emoji: '👚', bg: 'linear-gradient(145deg,#fef0e0,#fde0c0)',
+    price: 19.95, badge: 'new',
+    desc: 'Zwei hochwertige Ripp-Crop-Tops im Set. Körpernahes Material mit angenehmer Stretchqualität. Ideal für layered Looks, unter Jacken oder solo im Sommer.',
+    sizes: ['XS','S','M','L','XL'], colors: ['Weiß+Schwarz','Beige+Braun','Rosa+Lila'],
+    colorDots: ['#f5f5f5','#d4b896','#f0c0d8'],
+    rating: 4.7, reviews: 892, age: 'damen'
   },
   {
-    id: 4, category: 'kleidung', name: 'Denim Jacke', emoji: '🧣',
-    price: 55.99, oldPrice: 89.99, badge: 'sale',
-    desc: 'Klassische Jeansjacke im Vintage-Wash. Zeitloser Streetstyle.',
-    rating: 4.6, reviews: 227, colors: ['Hellblau', 'Dunkelblau']
+    id: 4, cat: 'damen', brand: 'MIA LABEL',
+    name: 'Elegant Maxi-Kleid Satin',
+    emoji: '👘', bg: 'linear-gradient(145deg,#e8f0f8,#c8d8f0)',
+    price: 89.95, oldPrice: 149.95, badge: 'sale',
+    desc: 'Luxuriöses Maxi-Kleid aus satinartigem Viskose-Mix. Fließende Silhouette mit elegantem Trägertop-Ausschnitt. Für Hochzeiten, Galas oder besondere Abende.',
+    sizes: ['XS','S','M','L','XL'], colors: ['Champagne','Mitternachtsblau','Bordeaux'],
+    colorDots: ['#e8d5a0','#1a2a4a','#7a1a2a'],
+    rating: 4.9, reviews: 287, age: 'damen'
   },
   {
-    id: 5, category: 'kleidung', name: 'Basic T-Shirt 3er Pack', emoji: '👕',
-    price: 19.99, oldPrice: 29.99, badge: 'sale',
-    desc: '3 hochwertige Baumwoll-T-Shirts im Set. Für jeden Tag.',
-    rating: 4.5, reviews: 631, colors: ['Weiß/Schwarz/Grau']
+    id: 5, cat: 'damen', brand: 'PURE & CO',
+    name: 'Highwaist Jeans Wide Leg',
+    emoji: '👖', bg: 'linear-gradient(145deg,#e0e8f5,#c8d4e8)',
+    price: 59.95, oldPrice: 89.95, badge: 'sale',
+    desc: 'Trendige Wide-Leg-Jeans mit hohem Bund. Klassische Waschung in Blau. Der perfekte Denim für einen modernen, lässigen Look.',
+    sizes: ['34','36','38','40','42','44'], colors: ['Hellblau','Dunkelblau','Black Wash'],
+    colorDots: ['#a0c0e8','#2a4a7a','#1a1a1a'],
+    rating: 4.6, reviews: 543, age: 'damen'
   },
   {
-    id: 6, category: 'kleidung', name: 'Puffer Jacke', emoji: '🧤',
-    price: 79.99, oldPrice: 129.99, badge: 'hot',
-    desc: 'Wärme trifft Style. Ultra-leichte Daunenjacke für den Winter.',
-    rating: 4.8, reviews: 298, colors: ['Schwarz', 'Olive', 'Burgund']
+    id: 6, cat: 'damen', brand: 'NOVA STYLE',
+    name: 'Strickcardigan Oversized',
+    emoji: '🧶', bg: 'linear-gradient(145deg,#f0ede8,#e5dfd5)',
+    price: 54.95, oldPrice: 79.95, badge: 'hot',
+    desc: 'Kuscheliger Grobstrick-Cardigan mit Reverskragen und Taschen. Perfekt für Herbst und Winter. Kombinierbar mit Kleidern oder Jeans.',
+    sizes: ['XS/S','M/L','XL/XXL'], colors: ['Camel','Grau','Creme','Schokobraun'],
+    colorDots: ['#c8a878','#a8a8a8','#f5f0e0','#5a3a20'],
+    rating: 4.8, reviews: 378, age: 'damen'
   },
   {
-    id: 7, category: 'kleidung', name: 'Mini Kleid', emoji: '👗',
-    price: 37.99, badge: 'new',
-    desc: 'Trendy Mini-Kleid mit Blumenprint. Ideal für besondere Anlässe.',
-    rating: 4.7, reviews: 175, colors: ['Rosa', 'Blau', 'Gelb']
+    id: 7, cat: 'damen', brand: 'THE DAILY EDIT',
+    name: 'Midi Rock Plissee',
+    emoji: '🩱', bg: 'linear-gradient(145deg,#f8ece0,#f0d8c0)',
+    price: 34.95, badge: 'new',
+    desc: 'Eleganter Midi-Rock im zeitlosen Plissee-Stil. Leichter, fließender Stoff. Passt zu Blusen, Tops und Pulloverн – von casual bis festlich.',
+    sizes: ['XS','S','M','L','XL'], colors: ['Beige','Schwarz','Mintgrün','Rostrot'],
+    colorDots: ['#d4c0a0','#222','#a0d0c0','#b84a20'],
+    rating: 4.7, reviews: 234, age: 'damen'
   },
   {
-    id: 8, category: 'kleidung', name: 'Jogger Set', emoji: '🩳',
-    price: 42.99, oldPrice: 64.99, badge: 'sale',
-    desc: 'Matching-Set aus Jogger und Hoodie. Bequem und stylisch.',
-    rating: 4.6, reviews: 382, colors: ['Grau', 'Schwarz', 'Braun']
+    id: 8, cat: 'damen', brand: 'MIA LABEL',
+    name: 'Seidenpyjama Set',
+    emoji: '🩴', bg: 'linear-gradient(145deg,#fce8f4,#f8d0ec)',
+    price: 64.95, oldPrice: 99.95, badge: 'sale',
+    desc: 'Luxuriöses Pyjama-Set aus 100% Seidensatin. Klassisches Streifenmuster mit Paspelierung. Für erholsame Nächte und entspannte Morgen.',
+    sizes: ['XS','S','M','L','XL'], colors: ['Rosa/Creme','Navy/Weiß','Sage/Weiß'],
+    colorDots: ['#f4b8d8','#1a3a5a','#a0c8a0'],
+    rating: 4.9, reviews: 189, age: 'damen'
   },
   {
-    id: 9, category: 'kleidung', name: 'Satin Bluse', emoji: '🎽',
-    price: 29.99, badge: 'new',
-    desc: 'Elegante Satin-Bluse für Business und Freizeit.',
-    rating: 4.4, reviews: 143, colors: ['Champagne', 'Schwarz', 'Navy']
+    id: 9, cat: 'damen', brand: 'URBAN BASICS',
+    name: 'Trenchcoat Classic Damen',
+    emoji: '🧣', bg: 'linear-gradient(145deg,#f0e8d8,#e8d8c0)',
+    price: 119.95, oldPrice: 189.95, badge: 'sale',
+    desc: 'Zeitloser Trenchcoat in Klassisch-Beige. Doppelreiher mit Gürtel und Schulterklappen. Das Must-Have für den Übergang und kühle Sommertage.',
+    sizes: ['XS','S','M','L','XL'], colors: ['Classic Beige','Schwarz','Kamel'],
+    colorDots: ['#c8a87a','#222','#d4944a'],
+    rating: 4.8, reviews: 312, age: 'damen'
   },
   {
-    id: 10, category: 'kleidung', name: 'Strick Pullover', emoji: '🧶',
-    price: 48.99, oldPrice: 74.99, badge: 'sale',
-    desc: 'Weicher Grobstrick-Pullover für kalte Herbsttage.',
-    rating: 4.8, reviews: 256, colors: ['Camel', 'Creme', 'Grün']
+    id: 10, cat: 'damen', brand: 'PURE & CO',
+    name: 'Leinenhose Weites Bein',
+    emoji: '👗', bg: 'linear-gradient(145deg,#e8f5e8,#d0ecd0)',
+    price: 44.95, badge: 'new',
+    desc: 'Luftige Leinenhose mit weitem Bein für heiße Sommertage. Natürliche Leinenqualität für maximale Atmungsaktivität. Mit Gummizug und Kordelzug.',
+    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Sand','Weiß','Olivgrün','Terracotta'],
+    colorDots: ['#d4c090','#f5f5f0','#6a8040','#c06040'],
+    rating: 4.6, reviews: 445, age: 'damen'
+  },
+  {
+    id: 11, cat: 'damen', brand: 'NOVA STYLE',
+    name: 'Bluse mit Rüschen Kragen',
+    emoji: '👒', bg: 'linear-gradient(145deg,#f8f0e8,#f0e4d0)',
+    price: 32.95, oldPrice: 49.95, badge: 'sale',
+    desc: 'Romantische Bluse mit Rüschenkragen aus leichtem Viskose-Crêpe. Passt zu Röcken, Hosen und Jeans. Für Büro und Freizeit gleichermaßen.',
+    sizes: ['XS','S','M','L','XL'], colors: ['Weiß','Creme','Schwarz','Altrosa'],
+    colorDots: ['#f5f5f5','#f0e8d0','#222','#c89898'],
+    rating: 4.5, reviews: 267, age: 'damen'
+  },
+  {
+    id: 12, cat: 'damen', brand: 'THE DAILY EDIT',
+    name: 'Kurzarm Sommerkleid Casual',
+    emoji: '👗', bg: 'linear-gradient(145deg,#fef5e0,#feeac8)',
+    price: 27.95, badge: 'new',
+    desc: 'Leichtes Sommerkleid mit kurzen Ärmeln für den entspannten Alltag. Weicher Jersey-Stoff, körperfreundliche Passform. Ideal für Ausflüge, Shopping und mehr.',
+    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Gelb','Hellblau','Mintgrün','Lachs'],
+    colorDots: ['#f0d040','#80b8f0','#80d0b0','#f0906a'],
+    rating: 4.7, reviews: 523, age: 'damen'
   },
 
-  // ===== SCHUHE =====
+  /* ============================================================
+     HERREN
+  ============================================================ */
   {
-    id: 11, category: 'schuhe', name: 'Air Sneaker Pro', emoji: '👟',
-    price: 89.99, oldPrice: 139.99, badge: 'hot',
-    desc: 'Premium Chunky Sneaker mit Air-Sohle. Maximaler Komfort.',
-    rating: 4.9, reviews: 521, colors: ['Weiß', 'Schwarz', 'Grau']
+    id: 13, cat: 'herren', brand: 'URBAN BASICS',
+    name: 'Premium Hoodie Heavyweight',
+    emoji: '🧥', bg: 'linear-gradient(145deg,#e8e8f0,#d8d8e8)',
+    price: 54.95, oldPrice: 84.95, badge: 'hot',
+    desc: 'Schwerer 400g-Baumwoll-Hoodie für maximalen Komfort. Eingenähtes Kragen-Tape, Känguru-Tasche, Metall-Ösen. Der Hoodie, der alles andere ersetzt.',
+    sizes: ['S','M','L','XL','XXL','XXXL'], colors: ['Schwarz','Dunkelgrau','Navy','Ecru'],
+    colorDots: ['#111','#555','#1a3a5a','#f0ecdc'],
+    rating: 4.9, reviews: 1043, age: 'herren'
   },
   {
-    id: 12, category: 'schuhe', name: 'Platform Boots', emoji: '👢',
-    price: 74.99, oldPrice: 109.99, badge: 'sale',
-    desc: 'Trendige Platform-Boots mit 5cm Absatz. Statement-Piece.',
-    rating: 4.7, reviews: 234, colors: ['Schwarz', 'Braun']
+    id: 14, cat: 'herren', brand: 'MIA LABEL',
+    name: 'Slim Fit Anzug 2-teilig',
+    emoji: '👔', bg: 'linear-gradient(145deg,#dde8f5,#c8d8f0)',
+    price: 159.95, oldPrice: 249.95, badge: 'sale',
+    desc: 'Edler 2-Teiler-Anzug in schlanker Passform. Hochwertiger Woll-Mix mit leichtem Glanz. Für Business-Meetings, Hochzeiten und festliche Anlässe.',
+    sizes: ['44','46','48','50','52','54','56'], colors: ['Navy','Anthrazit','Mittelgrau','Schwarz'],
+    colorDots: ['#1a3a6a','#404050','#888','#111'],
+    rating: 4.8, reviews: 287, age: 'herren'
   },
   {
-    id: 13, category: 'schuhe', name: 'Sommer Sandalen', emoji: '🩴',
-    price: 24.99, badge: 'new',
-    desc: 'Leichte Flap-Sandalen mit Kork-Fußbett. Für heiße Tage.',
-    rating: 4.5, reviews: 189, colors: ['Schwarz', 'Weiß', 'Beige']
+    id: 15, cat: 'herren', brand: 'PURE & CO',
+    name: 'Cargo Hose Relaxed Fit',
+    emoji: '👖', bg: 'linear-gradient(145deg,#e8f0e0,#d8e8c8)',
+    price: 49.95, badge: 'new',
+    desc: 'Bequeme Cargo-Hose im Relaxed-Fit mit 6 Taschen. Robuste Baumwoll-Twill-Qualität. Für Freizeit, Outdoor und lässige Streetwear-Looks.',
+    sizes: ['S','M','L','XL','XXL'], colors: ['Khaki','Schwarz','Olivgrün','Beige'],
+    colorDots: ['#a8986a','#222','#5a6a30','#d4c090'],
+    rating: 4.7, reviews: 612, age: 'herren'
   },
   {
-    id: 14, category: 'schuhe', name: 'High Heels', emoji: '👠',
-    price: 59.99, oldPrice: 89.99, badge: 'sale',
-    desc: 'Stilette High Heels in 9cm. Perfekt für den Abend.',
-    rating: 4.6, reviews: 178, colors: ['Schwarz', 'Nude', 'Rot']
+    id: 16, cat: 'herren', brand: 'URBAN BASICS',
+    name: 'Oxford Hemd Classic',
+    emoji: '🎽', bg: 'linear-gradient(145deg,#e0eef8,#c8dff0)',
+    price: 39.95, oldPrice: 59.95, badge: 'sale',
+    desc: 'Zeitloses Oxford-Hemd aus 100% Baumwolle mit Button-Down-Kragen. Leicht strukturiertes Gewebe, knitterarm. Passt zu Jeans, Chinos oder unter dem Blazer.',
+    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Weiß','Hellblau','Streifenblau','Rosa'],
+    colorDots: ['#f5f5f5','#a8c8f0','#4a7ab0','#f0b8c8'],
+    rating: 4.6, reviews: 438, age: 'herren'
   },
   {
-    id: 15, category: 'schuhe', name: 'Chelsea Boots', emoji: '🥾',
-    price: 69.99, badge: 'new',
-    desc: 'Klassische Chelsea Boots aus veganem Leder. Zeitlos schön.',
-    rating: 4.8, reviews: 312, colors: ['Schwarz', 'Tan']
+    id: 17, cat: 'herren', brand: 'THE DAILY EDIT',
+    name: 'Slim Chino Herren',
+    emoji: '🩳', bg: 'linear-gradient(145deg,#f5ede0,#eee0c8)',
+    price: 44.95, oldPrice: 69.95, badge: 'sale',
+    desc: 'Klassische Slim-Fit-Chino aus elastischem Baumwoll-Mix. Gepflegter Look mit Seitenfalte. Für Büro und Freizeit gleichermaßen geeignet.',
+    sizes: ['30/30','30/32','32/30','32/32','34/32','34/34','36/32'], colors: ['Beige','Marineblau','Olivgrün','Schwarz'],
+    colorDots: ['#d4bc90','#1a3a6a','#5a6a40','#111'],
+    rating: 4.5, reviews: 365, age: 'herren'
   },
   {
-    id: 16, category: 'schuhe', name: 'Slip-On Loafer', emoji: '🥿',
-    price: 44.99, oldPrice: 69.99, badge: 'sale',
-    desc: 'Bequeme Loafer zum Reinschlüpfen. Office-to-Street.',
-    rating: 4.4, reviews: 145, colors: ['Schwarz', 'Braun', 'Creme']
-  },
-
-  // ===== ACCESSOIRES =====
-  {
-    id: 17, category: 'accessoires', name: 'Gold Chain Kette', emoji: '📿',
-    price: 14.99, oldPrice: 24.99, badge: 'hot',
-    desc: 'Trendige vergoldete Gliederkette. Stapelbar und vielseitig.',
-    rating: 4.8, reviews: 598, colors: ['Gold', 'Silber']
+    id: 18, cat: 'herren', brand: 'MIA LABEL',
+    name: 'Leder-Bomberjacke',
+    emoji: '🧤', bg: 'linear-gradient(145deg,#d8d0c8,#c0b8a8)',
+    price: 149.95, oldPrice: 229.95, badge: 'hot',
+    desc: 'Echte Schafsleder-Bomberjacke in zeitlosem Design. Gestrickte Bündchen und Stehkragen, Reißverschlüsse in Kupfer. Ein Statement-Stück für jeden Kleiderschrank.',
+    sizes: ['S','M','L','XL','XXL'], colors: ['Schwarz','Braun','Burgund'],
+    colorDots: ['#222','#7a4a28','#7a1a2a'],
+    rating: 4.9, reviews: 198, age: 'herren'
   },
   {
-    id: 18, category: 'accessoires', name: 'Designer Sonnenbrille', emoji: '🕶️',
-    price: 19.99, oldPrice: 39.99, badge: 'sale',
-    desc: 'Cat-Eye Sonnenbrille mit UV400-Schutz. Festival-vibes.',
-    rating: 4.6, reviews: 321, colors: ['Schwarz', 'Leopard', 'Weiß']
+    id: 19, cat: 'herren', brand: 'PURE & CO',
+    name: 'Basic T-Shirt 5er Pack',
+    emoji: '👕', bg: 'linear-gradient(145deg,#f0f0f8,#e4e4f0)',
+    price: 34.95, oldPrice: 49.95, badge: 'hot',
+    desc: '5 hochwertige T-Shirts aus 100% Premium-Baumwolle im Vorteilspack. Klassische Passform, vorgewaschen für extra Weichheit. Das Fundament jedes Outfits.',
+    sizes: ['S','M','L','XL','XXL','XXXL'], colors: ['Weiß/Grau/Schwarz/Navy/Weiß'],
+    colorDots: ['#f5f5f5','#888','#222','#2a4a6a'],
+    rating: 4.8, reviews: 2341, age: 'herren'
   },
   {
-    id: 19, category: 'accessoires', name: 'Mini Crossbody Bag', emoji: '👜',
-    price: 32.99, badge: 'new',
-    desc: 'Kompakte Umhängetasche aus Kunstleder. Passt das Wesentliche.',
-    rating: 4.7, reviews: 267, colors: ['Schwarz', 'Braun', 'Rosa']
-  },
-  {
-    id: 20, category: 'accessoires', name: 'Bucket Hat', emoji: '🪣',
-    price: 16.99, oldPrice: 24.99, badge: 'sale',
-    desc: 'Trendiger Bucket Hat aus Cord. Der Summer-Look 2026.',
-    rating: 4.5, reviews: 213, colors: ['Beige', 'Schwarz', 'Grün']
-  },
-  {
-    id: 21, category: 'accessoires', name: 'Armband Set', emoji: '📿',
-    price: 9.99, badge: 'hot',
-    desc: '7er Set aus Perlen- und Goldarmbändern. Stapel-Armbänder im Trend.',
-    rating: 4.9, reviews: 782, colors: ['Gold/Bunt', 'Silber/Bunt']
-  },
-  {
-    id: 22, category: 'accessoires', name: 'Crossbody Bag Groß', emoji: '🎒',
-    price: 49.99, oldPrice: 79.99, badge: 'sale',
-    desc: 'Geräumige Schultertasche mit vielen Fächern. Für den Alltag.',
-    rating: 4.7, reviews: 189, colors: ['Schwarz', 'Camel']
-  },
-  {
-    id: 23, category: 'accessoires', name: 'Baseball Cap', emoji: '🧢',
-    price: 18.99, badge: 'new',
-    desc: 'Klassisches 6-Panel Cap mit verstellbarem Verschluss.',
-    rating: 4.6, reviews: 345, colors: ['Schwarz', 'Weiß', 'Navy', 'Rosa']
-  },
-  {
-    id: 24, category: 'accessoires', name: 'Haarschmuck Set', emoji: '🎀',
-    price: 12.99, oldPrice: 19.99, badge: 'sale',
-    desc: '10-teiliges Haarclip-Set in Schmetterlingsform. Süß und trendy.',
-    rating: 4.8, reviews: 534, colors: ['Bunt', 'Pastell', 'Schwarz']
-  },
-  {
-    id: 25, category: 'accessoires', name: 'Ring Set', emoji: '💍',
-    price: 11.99, badge: 'new',
-    desc: '5 zarte Goldringe mit Stein-Details. Stackable rings.',
-    rating: 4.7, reviews: 423, colors: ['Gold', 'Silber', 'Roségold']
-  },
-  {
-    id: 26, category: 'accessoires', name: 'Schal & Mütze Set', emoji: '🧣',
-    price: 23.99, oldPrice: 39.99, badge: 'sale',
-    desc: 'Wollschal und Beanie im Set. Warm durch den Winter.',
-    rating: 4.6, reviews: 178, colors: ['Grau', 'Schwarz', 'Camel']
-  },
-  {
-    id: 27, category: 'accessoires', name: 'Gürteltasche', emoji: '👝',
-    price: 21.99, badge: 'hot',
-    desc: 'Modische Fanny-Pack im 90s-Style. Freihändig und stylisch.',
-    rating: 4.5, reviews: 289, colors: ['Schwarz', 'Braun', 'Rosa']
+    id: 20, cat: 'herren', brand: 'NOVA STYLE',
+    name: 'Strickpullover Merino',
+    emoji: '🧤', bg: 'linear-gradient(145deg,#e8f0e8,#d0e8d0)',
+    price: 74.95, oldPrice: 119.95, badge: 'sale',
+    desc: 'Weicher Merinowolle-Pullover mit klassischem Rundhalsausschnitt. Temperaturregulierend und kratzt nicht. Perfekt für Büro, Reisen und kühle Abende.',
+    sizes: ['S','M','L','XL','XXL'], colors: ['Dunkelgrün','Camel','Burgund','Mittelgrau'],
+    colorDots: ['#2a5a30','#c8a870','#7a2030','#888'],
+    rating: 4.7, reviews: 312, age: 'herren'
   },
 
-  // ===== HANDYS =====
+  /* ============================================================
+     SCHUHE
+  ============================================================ */
   {
-    id: 28, category: 'handys', name: 'ProMax 16 Dummy', emoji: '📱',
-    price: 12.99, badge: 'hot',
-    desc: 'Displaymodell im ProMax-Stil. Perfekt als Dekoration oder Requisite.',
-    rating: 4.3, reviews: 145, colors: ['Schwarz', 'Silber', 'Gold']
+    id: 21, cat: 'schuhe', brand: 'NOVA STYLE',
+    name: 'Chunky Sneaker Platform',
+    emoji: '👟', bg: 'linear-gradient(145deg,#f0f4f8,#dde8f2)',
+    price: 89.95, oldPrice: 139.95, badge: 'hot',
+    desc: 'Trendige Chunky-Sneaker mit 4cm Plateausohle. Hochwertiges Kunstleder-Obermaterial, gedämpfte Laufsohle. Das Streetwear-Statement Piece der Saison.',
+    sizes: ['36','37','38','39','40','41','42','43'], colors: ['Weiß/Silber','Schwarz/Schwarz','Beige/Braun'],
+    colorDots: ['#f5f5f5','#222','#d4bc90'],
+    rating: 4.8, reviews: 723, age: 'schuhe'
   },
   {
-    id: 29, category: 'handys', name: 'Flip Phone Dummy', emoji: '📲',
-    price: 9.99, badge: 'new',
-    desc: 'Klapp-Handy Nachbildung. Cooles Retro-Accessoire.',
-    rating: 4.2, reviews: 89, colors: ['Schwarz', 'Lila']
+    id: 22, cat: 'schuhe', brand: 'URBAN BASICS',
+    name: 'Klassischer Leder-Sneaker',
+    emoji: '👟', bg: 'linear-gradient(145deg,#f8f5f0,#f0ebe0)',
+    price: 79.95, oldPrice: 119.95, badge: 'sale',
+    desc: 'Zeitloser weißer Sneaker aus echtem Nappaleder. Klassischer Schnitt mit schmaler Ledersohle. Passt zu allem – von Jeans bis Kleid.',
+    sizes: ['36','37','38','39','40','41','42','43','44','45'], colors: ['Reinweiß','Cremeweiss','Weiß/Schwarz'],
+    colorDots: ['#f8f8f8','#f8f0e0','#e0e0e0'],
+    rating: 4.9, reviews: 1089, age: 'schuhe'
   },
   {
-    id: 30, category: 'handys', name: 'Foto-Handy Prop', emoji: '🤳',
-    price: 7.99, oldPrice: 14.99, badge: 'sale',
-    desc: 'Handy-Dummy mit aufgedruckter Kamera. Für Foto-Shootings.',
-    rating: 4.1, reviews: 67, colors: ['Schwarz', 'Weiß']
+    id: 23, cat: 'schuhe', brand: 'MIA LABEL',
+    name: 'High Heel Pumps Classic',
+    emoji: '👠', bg: 'linear-gradient(145deg,#f8e8e8,#f0d0d0)',
+    price: 84.95, oldPrice: 129.95, badge: 'sale',
+    desc: 'Elegante Pumps mit 8cm Stiletto-Absatz aus feinstem Kunstleder. Verstärkte Zehenpartie, Leder-Innensohle für Komfort. Für Büro, Dinner und Galas.',
+    sizes: ['35','36','37','38','39','40','41','42'], colors: ['Schwarz','Nude','Rot','Navy'],
+    colorDots: ['#222','#d4a882','#c02020','#1a2a4a'],
+    rating: 4.6, reviews: 345, age: 'schuhe'
   },
   {
-    id: 31, category: 'handys', name: 'Ultra Slim Dummy', emoji: '📵',
-    price: 8.99, badge: 'new',
-    desc: 'Superdünner Handy-Mock für Display-Zwecke und als Requisite.',
-    rating: 4.0, reviews: 54, colors: ['Titan', 'Schwarz', 'Blau']
+    id: 24, cat: 'schuhe', brand: 'PURE & CO',
+    name: 'Chelsea Boots Damen',
+    emoji: '👢', bg: 'linear-gradient(145deg,#e8e0d8,#d8d0c8)',
+    price: 99.95, oldPrice: 159.95, badge: 'hot',
+    desc: 'Klassische Chelsea Boots aus echtem Rindsleder mit Gummizug-Einsatz. Leichte Blockabsatz (3cm), herausnehmbare Innensohle. Stilvoll von Herbst bis Frühling.',
+    sizes: ['36','37','38','39','40','41','42'], colors: ['Schwarz','Cognac','Dunkelbraun'],
+    colorDots: ['#222','#c87840','#6a3a20'],
+    rating: 4.8, reviews: 512, age: 'schuhe'
   },
   {
-    id: 32, category: 'handys', name: 'Retro Brick Phone', emoji: '☎️',
-    price: 15.99, oldPrice: 22.99, badge: 'hot',
-    desc: '90s Knochen-Handy Replik. Kultiges Party-Accessoire.',
-    rating: 4.6, reviews: 203, colors: ['Grau', 'Schwarz']
+    id: 25, cat: 'schuhe', brand: 'THE DAILY EDIT',
+    name: 'Sommer-Sandalen Leder',
+    emoji: '🩴', bg: 'linear-gradient(145deg,#fdf0e0,#f8e0c0)',
+    price: 49.95, badge: 'new',
+    desc: 'Handgenähte Flachsandalen aus echtem Leder mit anatomischem Fußbett. Kork-Latex-Sohle, verstellbare Riemen. Tragbar den ganzen Tag.',
+    sizes: ['36','37','38','39','40','41','42'], colors: ['Naturleder','Schwarz','Weiß','Bronzerot'],
+    colorDots: ['#c8a060','#222','#f5f5f0','#b05030'],
+    rating: 4.7, reviews: 389, age: 'schuhe'
   },
   {
-    id: 33, category: 'handys', name: 'Handy-Hülle Glitzer', emoji: '✨',
-    price: 11.99, badge: 'new',
-    desc: 'Glitzer-Handyhülle mit Kartenfach. Passt auf alle gängigen Modelle.',
-    rating: 4.7, reviews: 456, colors: ['Pink', 'Gold', 'Silber', 'Lila']
+    id: 26, cat: 'schuhe', brand: 'MIA LABEL',
+    name: 'Loafer Velvet Luxe',
+    emoji: '🥿', bg: 'linear-gradient(145deg,#e8d8f0,#d8c8e8)',
+    price: 74.95, oldPrice: 109.95, badge: 'sale',
+    desc: 'Elegante Loafer aus hochwertigem Samtvelour mit goldener Bit-Spange. Weiche Lederinnensohle, leichte Gummisohle. Vom Meeting bis zum Dinner.',
+    sizes: ['36','37','38','39','40','41','42'], colors: ['Petrol','Bordeaux','Schwarz','Camel'],
+    colorDots: ['#2a7a8a','#7a1a2a','#222','#c4904a'],
+    rating: 4.8, reviews: 234, age: 'schuhe'
   },
   {
-    id: 34, category: 'handys', name: 'Popsocket Set', emoji: '🔵',
-    price: 6.99, oldPrice: 12.99, badge: 'sale',
-    desc: '3er Set bunte Popsockets mit verschiedenen Motiven.',
-    rating: 4.5, reviews: 312, colors: ['Bunt']
+    id: 27, cat: 'schuhe', brand: 'NOVA STYLE',
+    name: 'Sneaker Herren Running',
+    emoji: '👟', bg: 'linear-gradient(145deg,#e8f0e0,#d0e4c8)',
+    price: 94.95, oldPrice: 149.95, badge: 'sale',
+    desc: 'Sportlicher Laufschuh mit Air-Boost-Sohle und Mesh-Obermaterial. Leicht (280g), atmungsaktiv und energierückkehrend. Für Sport und Alltag.',
+    sizes: ['40','41','42','43','44','45','46','47'], colors: ['Schwarz/Neon','Weiß/Grau','Navy/Weiß'],
+    colorDots: ['#222','#888','#1a3a6a'],
+    rating: 4.7, reviews: 678, age: 'schuhe'
   },
   {
-    id: 35, category: 'handys', name: 'Selfie Ring Light', emoji: '💡',
-    price: 18.99, badge: 'hot',
-    desc: 'Mini-Ringlicht fürs Handy. Perfekte Beleuchtung für Selfies.',
-    rating: 4.8, reviews: 589, colors: ['Weiß']
+    id: 28, cat: 'schuhe', brand: 'URBAN BASICS',
+    name: 'Komfort-Halbschuh Herren',
+    emoji: '👞', bg: 'linear-gradient(145deg,#e8e0d0,#d8d0c0)',
+    price: 89.95, oldPrice: 129.95, badge: 'hot',
+    desc: 'Eleganter Halbschuh aus echtem Kalbsleder mit weicher Laufsohle. Breite Passform, herausnehmbare Einlegesohle. Für lange Arbeitstage und Ausflüge.',
+    sizes: ['40','41','42','43','44','45','46'], colors: ['Dunkelbraun','Schwarz','Cognac'],
+    colorDots: ['#5a3a20','#222','#c07830'],
+    rating: 4.6, reviews: 289, age: 'schuhe'
+  },
+  {
+    id: 29, cat: 'schuhe', brand: 'PURE & CO',
+    name: 'UGG-Style Boots Winter',
+    emoji: '🥾', bg: 'linear-gradient(145deg,#f5ede0,#eeddd0)',
+    price: 64.95, oldPrice: 99.95, badge: 'sale',
+    desc: 'Warm und stylisch: Winterboots mit kuscheligem Innenflausch und wasserabweisender Außenwand. Griffige Profilsohle. Für kalte Tage und Schnee.',
+    sizes: ['36','37','38','39','40','41','42'], colors: ['Sand','Kastanienbraun','Schwarz'],
+    colorDots: ['#d4b888','#7a3a18','#222'],
+    rating: 4.8, reviews: 534, age: 'schuhe'
   },
 
-  // ===== HAUSHALT =====
+  /* ============================================================
+     TASCHEN
+  ============================================================ */
   {
-    id: 36, category: 'haushalt', name: 'Kerzen Set 4er', emoji: '🕯️',
-    price: 16.99, oldPrice: 24.99, badge: 'sale',
-    desc: '4 Duftkerzen in Gläsern. Entspannte Wohlatmosphäre schaffen.',
-    rating: 4.8, reviews: 432, colors: ['Vanille', 'Lavendel', 'Zimt', 'Ozean']
+    id: 30, cat: 'taschen', brand: 'MIA LABEL',
+    name: 'Tote Bag aus echtem Leder',
+    emoji: '👜', bg: 'linear-gradient(145deg,#efe0d0,#e5d0b8)',
+    price: 99.95, oldPrice: 169.95, badge: 'sale',
+    desc: 'Großzügige Ledertasche mit Reißverschluss-Hauptfach, Innentaschen und magnetischem Druckknopf. Schultergurt und kurzer Henkelt. Rindsleder in handgenähter Qualität.',
+    sizes: ['One Size'], colors: ['Cognac','Schwarz','Creme','Bordeaux'],
+    colorDots: ['#c07840','#222','#f8f5e8','#7a1a2a'],
+    rating: 4.9, reviews: 487, age: 'taschen'
   },
   {
-    id: 37, category: 'haushalt', name: 'Wandspiegel Oval', emoji: '🪞',
-    price: 44.99, oldPrice: 69.99, badge: 'hot',
-    desc: 'Trendiger Oval-Spiegel mit goldenem Rahmen. Instagram-Worthy.',
-    rating: 4.9, reviews: 287, colors: ['Gold', 'Schwarz', 'Silber']
+    id: 31, cat: 'taschen', brand: 'NOVA STYLE',
+    name: 'Crossbody Mini Bag',
+    emoji: '👛', bg: 'linear-gradient(145deg,#f8e8f4,#f0d4ec)',
+    price: 34.95, badge: 'new',
+    desc: 'Kompakte Mini-Umhängetasche mit Kette und Lederriemen. Magnetverschluss, Innenfach mit Spiegel. Passt Handy, Schlüssel und Portemonnaie.',
+    sizes: ['One Size'], colors: ['Schwarz','Altrosa','Creme','Burgund'],
+    colorDots: ['#222','#d4a0a8','#f5f0e8','#7a2030'],
+    rating: 4.7, reviews: 623, age: 'taschen'
   },
   {
-    id: 38, category: 'haushalt', name: 'Makramee-Wandbehang', emoji: '🪆',
-    price: 27.99, badge: 'new',
-    desc: 'Handgefertigter Makramee-Wandteppich. Boho-Deko für jedes Zimmer.',
-    rating: 4.7, reviews: 156, colors: ['Naturweiß', 'Beige']
+    id: 32, cat: 'taschen', brand: 'URBAN BASICS',
+    name: 'Canvas Shopper XL',
+    emoji: '🛍️', bg: 'linear-gradient(145deg,#e8ede8,#d8e4d8)',
+    price: 29.95, oldPrice: 44.95, badge: 'sale',
+    desc: 'Geräumiger Canvas-Shopper mit Lederhenkel und Innenreißverschluss. Verstärkter Boden, wasserabweisende Beschichtung. Für Shopping, Büro und Reisen.',
+    sizes: ['One Size'], colors: ['Naturbeige/Tan','Schwarz/Schwarz','Olivgrün/Braun'],
+    colorDots: ['#d8c498','#222','#6a7840'],
+    rating: 4.6, reviews: 312, age: 'taschen'
   },
   {
-    id: 39, category: 'haushalt', name: 'Kunstpflanze Groß', emoji: '🌿',
-    price: 21.99, oldPrice: 34.99, badge: 'sale',
-    desc: 'Lebensechte Kunstpflanze 60cm. Grün ohne Pflege.',
-    rating: 4.6, reviews: 378, colors: ['Grün']
+    id: 33, cat: 'taschen', brand: 'MIA LABEL',
+    name: 'Structured Satchel',
+    emoji: '💼', bg: 'linear-gradient(145deg,#e0d8f0,#d0c8e8)',
+    price: 119.95, oldPrice: 189.95, badge: 'hot',
+    desc: 'Formschöne Arbeitstasche aus strukturiertem Kunstleder. Platz für 14" Laptop, Tablet und Dokumente. Metall-Beschläge, verstellbarer Schultergurt.',
+    sizes: ['One Size'], colors: ['Schwarz','Navy','Dunkelgrau','Kamel'],
+    colorDots: ['#222','#1a3a6a','#555','#c89850'],
+    rating: 4.8, reviews: 234, age: 'taschen'
   },
   {
-    id: 40, category: 'haushalt', name: 'Lichterkette Stern', emoji: '✨',
-    price: 13.99, badge: 'hot',
-    desc: 'LED Lichterkette mit 40 Stern-Lichtern. Cozy Zimmer-Deko.',
-    rating: 4.8, reviews: 623, colors: ['Warmweiß', 'Kalt-Weiß', 'Bunt']
+    id: 34, cat: 'taschen', brand: 'THE DAILY EDIT',
+    name: 'Bucket Bag Raffia',
+    emoji: '🧺', bg: 'linear-gradient(145deg,#fdf0d8,#f8e4c0)',
+    price: 39.95, badge: 'new',
+    desc: 'Trendiger Beuteltaschen aus handgeflochtenem Raffia-Stroh. Innentasche mit Reißverschluss, Lederriemen. Der Sommerstyle par excellence.',
+    sizes: ['One Size'], colors: ['Natural/Braun','Weiß/Naturfarben','Schwarz/Schwarz'],
+    colorDots: ['#c8a870','#f5f0e0','#222'],
+    rating: 4.5, reviews: 189, age: 'taschen'
   },
   {
-    id: 41, category: 'haushalt', name: 'Kissenset 2er', emoji: '🛏️',
-    price: 29.99, oldPrice: 44.99, badge: 'sale',
-    desc: 'Samtweiche Dekokissen 45x45cm im 2er Pack.',
-    rating: 4.7, reviews: 245, colors: ['Grün', 'Rosa', 'Blau', 'Grau']
+    id: 35, cat: 'taschen', brand: 'NOVA STYLE',
+    name: 'Rucksack Anti-Theft',
+    emoji: '🎒', bg: 'linear-gradient(145deg,#e0e8f0,#ccd8e8)',
+    price: 69.95, oldPrice: 99.95, badge: 'sale',
+    desc: 'Sicherer Rucksack mit verstecktem Hauptfach an der Rückseite, USB-Ladekabel und Diebstahlschutz-Material. Passt 15" Laptop. Für Reisen und Pendler.',
+    sizes: ['One Size'], colors: ['Schwarz','Dunkelgrau','Navy'],
+    colorDots: ['#222','#555','#1a3a6a'],
+    rating: 4.7, reviews: 412, age: 'taschen'
   },
   {
-    id: 42, category: 'haushalt', name: 'Badezimmer Set', emoji: '🪥',
-    price: 19.99, badge: 'new',
-    desc: '5-teiliges Bambus-Badset: Seifenspender, Becher, Schale, Box.',
-    rating: 4.5, reviews: 189, colors: ['Natur']
+    id: 36, cat: 'taschen', brand: 'PURE & CO',
+    name: 'Abendtasche Clutch',
+    emoji: '👛', bg: 'linear-gradient(145deg,#f8f0e8,#f0e0c8)',
+    price: 44.95, oldPrice: 74.95, badge: 'sale',
+    desc: 'Elegante Abend-Clutch mit Kristall-Strass-Besatz. Magnetverschluss, herausnehmbares Kettchen. Für Abende, Hochzeiten und besondere Anlässe.',
+    sizes: ['One Size'], colors: ['Silber/Klar','Gold/Klar','Schwarz/Klar'],
+    colorDots: ['#c8c8c8','#c8a840','#222'],
+    rating: 4.8, reviews: 167, age: 'taschen'
+  },
+
+  /* ============================================================
+     ACCESSOIRES
+  ============================================================ */
+  {
+    id: 37, cat: 'accessoires', brand: 'MIA LABEL',
+    name: 'Vintage Sonnenbrillen Cat-Eye',
+    emoji: '🕶️', bg: 'linear-gradient(145deg,#f8f0e0,#f0e4c8)',
+    price: 24.95, oldPrice: 44.95, badge: 'sale',
+    desc: 'Retro Cat-Eye-Sonnenbrille mit polarisierten Gläsern (UV400). Acetat-Rahmen, federnde Bügel. Der Vintage-Sommer-Look für Frauen und Männer.',
+    sizes: ['One Size'], colors: ['Schildpatt','Schwarz','Transparent','Creme'],
+    colorDots: ['#8a6040','#222','#e8e0d8','#f5f0e0'],
+    rating: 4.7, reviews: 534, age: 'accessoires'
   },
   {
-    id: 43, category: 'haushalt', name: 'Foto Rahmen Set', emoji: '🖼️',
-    price: 24.99, oldPrice: 39.99, badge: 'sale',
-    desc: '6er Set Bilderrahmen in verschiedenen Größen. Für die Galerie-Wand.',
-    rating: 4.6, reviews: 312, colors: ['Schwarz', 'Weiß', 'Gold']
+    id: 38, cat: 'accessoires', brand: 'NOVA STYLE',
+    name: 'Halskette Goldkette Layered',
+    emoji: '📿', bg: 'linear-gradient(145deg,#fef8e8,#f8eed0)',
+    price: 19.95, badge: 'new',
+    desc: 'Schimmernde 3-lagige Goldkette im Layered-Look. Hochwertig vergoldet, allergikerfreundlich, nickelfrei. Für Alltag und besondere Abende.',
+    sizes: ['One Size'], colors: ['Gold','Silber','Roségold'],
+    colorDots: ['#d4a030','#c8c8c8','#d4887a'],
+    rating: 4.8, reviews: 789, age: 'accessoires'
   },
   {
-    id: 44, category: 'haushalt', name: 'Kuscheldecke XXL', emoji: '🛋️',
-    price: 34.99, badge: 'hot',
-    desc: 'Super weiche Kuscheldecke 200x150cm. Flauschig und warm.',
-    rating: 4.9, reviews: 734, colors: ['Grau', 'Beige', 'Rosa', 'Schwarz']
+    id: 39, cat: 'accessoires', brand: 'URBAN BASICS',
+    name: 'Seidenschal quadratisch',
+    emoji: '🎀', bg: 'linear-gradient(145deg,#f8e8f8,#f0d4f0)',
+    price: 34.95, oldPrice: 54.95, badge: 'sale',
+    desc: 'Hochwertiger 90x90cm Seidenschal mit gedrucktem Muster. In Haaren tragen, als Halstuch oder Taschendekoration. 100% Maulbeerseide.',
+    sizes: ['90x90cm'], colors: ['Fuchsia/Bunt','Navy/Gold','Kamel/Creme'],
+    colorDots: ['#e030a0','#1a3a6a','#c4904a'],
+    rating: 4.9, reviews: 234, age: 'accessoires'
   },
   {
-    id: 45, category: 'haushalt', name: 'Parfüm Diffuser', emoji: '🌸',
-    price: 22.99, oldPrice: 35.99, badge: 'sale',
-    desc: 'Eleganter Raumduft-Diffuser mit 6 Stäbchen und 200ml Öl.',
-    rating: 4.8, reviews: 289, colors: ['Rose', 'Oud', 'Citrus']
-  }
+    id: 40, cat: 'accessoires', brand: 'THE DAILY EDIT',
+    name: 'Armband Stack Set 7-teilig',
+    emoji: '💎', bg: 'linear-gradient(145deg,#e8f0f8,#d8e8f0)',
+    price: 16.95, badge: 'hot',
+    desc: '7 verschiedene Armbänder zum Stapeln: Goldkette, Perlenkette, Leder, Perlen, Anhänger und mehr. Perfekt kombinierbar, verstellbar.',
+    sizes: ['One Size'], colors: ['Gold-Mix','Silber-Mix','Roségold-Mix'],
+    colorDots: ['#c8a030','#b0b0b0','#c48070'],
+    rating: 4.8, reviews: 1023, age: 'accessoires'
+  },
+  {
+    id: 41, cat: 'accessoires', brand: 'MIA LABEL',
+    name: 'Lederarmbanduhr Classic',
+    emoji: '⌚', bg: 'linear-gradient(145deg,#e8e0d8,#d8d0c8)',
+    price: 89.95, oldPrice: 149.95, badge: 'sale',
+    desc: 'Klassische Quarzuhr mit Mineralglasfenster und echtem Kalbslederarmband. Datumsfunktion, wasserdicht bis 30m. Zeitloses Design für jeden Anlass.',
+    sizes: ['One Size'], colors: ['Schwarz/Silber','Braun/Gold','Schwarz/Gold'],
+    colorDots: ['#222','#8a6030','#c8a030'],
+    rating: 4.7, reviews: 312, age: 'accessoires'
+  },
+  {
+    id: 42, cat: 'accessoires', brand: 'PURE & CO',
+    name: 'Perlenohrringe Tropfen',
+    emoji: '💍', bg: 'linear-gradient(145deg,#f8f4f0,#f0eae4)',
+    price: 22.95, badge: 'new',
+    desc: 'Elegante Tropfen-Ohrringe mit Süßwasserperlen in verschiedenen Größen. 925er Sterling-Silber-Stecker, hypoallergen. Für Alltag und besondere Momente.',
+    sizes: ['One Size'], colors: ['Weiß/Silber','Creme/Gold','Roséblush/Gold'],
+    colorDots: ['#f8f8f8','#f8f0e0','#f4c0b0'],
+    rating: 4.8, reviews: 423, age: 'accessoires'
+  },
+  {
+    id: 43, cat: 'accessoires', brand: 'NOVA STYLE',
+    name: 'Ledergürtel Reversible',
+    emoji: '🩺', bg: 'linear-gradient(145deg,#e8e0d4,#d8d0c4)',
+    price: 39.95, oldPrice: 64.95, badge: 'sale',
+    desc: 'Wendegürtel aus echtem Rindsleder: eine Seite Schwarz, eine Seite Braun. Einzelne Metallschnalle, 3,5cm breit. Passt zu Anzügen, Jeans und mehr.',
+    sizes: ['85cm','90cm','95cm','100cm','105cm'], colors: ['Schwarz/Braun','Dunkelbraun/Cognac'],
+    colorDots: ['#333','#8a5030'],
+    rating: 4.6, reviews: 267, age: 'accessoires'
+  },
+  {
+    id: 44, cat: 'accessoires', brand: 'THE DAILY EDIT',
+    name: 'Mütze Cashmere-Mix',
+    emoji: '🧢', bg: 'linear-gradient(145deg,#e8f0e8,#d4e4d4)',
+    price: 29.95, badge: 'new',
+    desc: 'Weiche Beanie-Mütze aus Cashmere-Woll-Mix. Umschlagbündchen, angenehm warm ohne zu kratzen. Für Winter, Herbst und kühle Abende.',
+    sizes: ['One Size'], colors: ['Camel','Dunkelgrün','Grau Melange','Schwarz'],
+    colorDots: ['#c8a070','#3a6030','#a8a8a0','#222'],
+    rating: 4.7, reviews: 389, age: 'accessoires'
+  },
+  {
+    id: 45, cat: 'accessoires', brand: 'MIA LABEL',
+    name: 'Geldbörse Leder RFID',
+    emoji: '💳', bg: 'linear-gradient(145deg,#e8e8d8,#d8d8c8)',
+    price: 44.95, oldPrice: 69.95, badge: 'sale',
+    desc: 'Flache Damen-Geldbörse aus echtem Glattleder mit RFID-Schutz. 12 Kartenfächer, Münzfach mit Reißverschluss, Geldscheinfach.',
+    sizes: ['One Size'], colors: ['Schwarz','Cognac','Dunkelblau','Koralle'],
+    colorDots: ['#222','#c07840','#1a3a6a','#d06040'],
+    rating: 4.8, reviews: 534, age: 'accessoires'
+  },
+
+  /* ============================================================
+     SALE (Sonderangebote extra günstig)
+  ============================================================ */
+  {
+    id: 46, cat: 'sale', brand: 'URBAN BASICS',
+    name: 'Puffer Jacke Ultralight',
+    emoji: '🧥', bg: 'linear-gradient(145deg,#e8f4e8,#d0e8d0)',
+    price: 49.95, oldPrice: 129.95, badge: 'sale',
+    desc: 'Ultra-leichte Daunen-Jacke, packbar auf Faustgröße. Wasserdichte Außenschicht, hochwertiger Daunenersatz. Für Reisen und Outdoor.',
+    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Schwarz','Khaki','Marinblau','Koralle'],
+    colorDots: ['#222','#8a7840','#1a3a6a','#e06050'],
+    rating: 4.7, reviews: 623, age: 'sale'
+  },
+  {
+    id: 47, cat: 'sale', brand: 'THE DAILY EDIT',
+    name: 'Jogger Set 2-teilig',
+    emoji: '🩳', bg: 'linear-gradient(145deg,#f0e8f8,#e4d4f0)',
+    price: 29.95, oldPrice: 79.95, badge: 'sale',
+    desc: 'Matching Jogger-Set aus softem French-Terry. Hoodie mit Kapuze und Jogginghose mit Gummizug. Ideal für Zuhause, Gym und entspannte Tage.',
+    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Lila/Lila','Grau/Grau','Schwarz/Schwarz'],
+    colorDots: ['#a070c8','#888','#222'],
+    rating: 4.8, reviews: 891, age: 'sale'
+  },
+  {
+    id: 48, cat: 'sale', brand: 'MIA LABEL',
+    name: 'Schmuck-Set Hochwertig 5-tlg',
+    emoji: '💎', bg: 'linear-gradient(145deg,#fef8e0,#feecc8)',
+    price: 24.95, oldPrice: 89.95, badge: 'sale',
+    desc: 'Premium Schmuck-Geschenkset: Kette, Armband, 2 Ohrringe und Ring. Vergoldet, in luxuriöser Geschenkschachtel. Perfektes Geschenk oder für sich selbst.',
+    sizes: ['One Size'], colors: ['Gold-Set','Silber-Set','Roségold-Set'],
+    colorDots: ['#d4a030','#b0b0b0','#c48070'],
+    rating: 4.9, reviews: 1234, age: 'sale'
+  },
+  {
+    id: 49, cat: 'sale', brand: 'PURE & CO',
+    name: 'Sneaker Damen Slip-On',
+    emoji: '👟', bg: 'linear-gradient(145deg,#f4f0ec,#ece4dc)',
+    price: 34.95, oldPrice: 74.95, badge: 'sale',
+    desc: 'Bequeme Slip-On-Sneaker ohne Schnürung. Gestricktes Mesh-Obermaterial, Memory-Foam-Einlegesohle. Ultraleicht für den ganzen Tag.',
+    sizes: ['36','37','38','39','40','41'], colors: ['Weiß','Schwarz','Rose'],
+    colorDots: ['#f5f5f5','#222','#f0b0c0'],
+    rating: 4.6, reviews: 445, age: 'sale'
+  },
+  {
+    id: 50, cat: 'sale', brand: 'NOVA STYLE',
+    name: 'Maxi-Sommertasche Stroh',
+    emoji: '🧺', bg: 'linear-gradient(145deg,#fdf5e0,#f8ead0)',
+    price: 19.95, oldPrice: 54.95, badge: 'sale',
+    desc: 'XL-Strandtasche aus handgeflochtenem Seegras. Baumwoll-Innenfutter, magnetischer Druckknopf. Für Strand, Park und Shopping im Sommer.',
+    sizes: ['One Size'], colors: ['Natural/Weiß','Natural/Schwarz'],
+    colorDots: ['#d8c088','#d8c088'],
+    rating: 4.5, reviews: 289, age: 'sale'
+  },
+  {
+    id: 51, cat: 'sale', brand: 'URBAN BASICS',
+    name: 'Winterstiefel warm gefüttert',
+    emoji: '🥾', bg: 'linear-gradient(145deg,#e0e0e8,#d0d0e0)',
+    price: 54.95, oldPrice: 129.95, badge: 'sale',
+    desc: 'Kniehoher Winterstiefel mit Warmfutter bis -20°C. Wasserdichtes Obermaterial, griffige Profilsohle, Reißverschluss innen. Für Schnee und Kälte.',
+    sizes: ['36','37','38','39','40','41','42'], colors: ['Schwarz','Dunkelbraun','Grau'],
+    colorDots: ['#222','#5a3a20','#888'],
+    rating: 4.8, reviews: 534, age: 'sale'
+  },
 ];
