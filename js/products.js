@@ -1564,6 +1564,29 @@ const products = [
   /* ================================================================
      HÜTE & MÜTZEN
      ================================================================ */
+
+  /* --- MJ PAILLETTEN-HANDSCHUH --- */
+  {
+    id: 620, cat: 'damen', brand: 'MIA LABEL',
+    name: 'Pailletten-Handschuh MJ Style – Damen',
+    svgType: 'glove-sequin',
+    price: 19.99, oldPrice: 34.99, badge: 'hot',
+    desc: 'Ikonischer Pailletten-Handschuh im Michael Jackson-Style. Durchgehend mit silberglänzenden Pailletten besetzt, weicher Innenstoff, eleganter Abschluss am Handgelenk. Einzeln getragen – das Statement-Accessoire.',
+    sizes: ['One Size'],
+    variants: v('weiss','schwarz','silber','gold','rot','blush','babyrose','altrosa','navy','burgund','lila','smaragd','camel'),
+    rating: 5.0, reviews: 3840
+  },
+  {
+    id: 621, cat: 'herren', brand: 'MIA MAN',
+    name: 'Pailletten-Handschuh MJ Style – Herren',
+    svgType: 'glove-sequin',
+    price: 19.99, oldPrice: 34.99, badge: 'hot',
+    desc: 'Der legendäre Pailletten-Handschuh im Stil der Pop-Ikone. Silberglänzende Pailletten komplett besetzt, Innenfutter aus weichem Jersey, Ripp-Abschluss am Handgelenk. Einzeln – der Look macht alles.',
+    sizes: ['One Size'],
+    variants: v('weiss','schwarz','silber','gold','navy','anthrazit','rot','olivgruen','burgund','smaragd'),
+    rating: 4.9, reviews: 2670
+  },
+
   {
     id: 601, cat: 'accessoires', brand: 'MIA LABEL',
     name: 'Beanie Strickmütze Pompom',

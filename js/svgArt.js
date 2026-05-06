@@ -1466,6 +1466,103 @@ function bagDesignerBamboo(c, bg) {
 }
 
 /* ══════════════════════════════════════════════
+   ACCESSORIES – GLOVES
+   ══════════════════════════════════════════════ */
+
+// Sequin Glove – MJ-style single sparkle glove, palm view, fingers spread
+function gloveSequin(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c);
+  const rim   = 'rgba(200,200,200,0.72)';
+  const hole  = 'rgba(140,140,140,0.45)';
+  const shine = 'rgba(255,255,255,0.88)';
+
+  // --- sequin grid: check if point is inside the glove ---
+  function inGlove(x, y) {
+    if (x >= 86  && x <= 118 && y >= 56  && y <= 195) return true; // index
+    if (x >= 118 && x <= 148 && y >= 40  && y <= 188) return true; // middle
+    if (x >= 146 && x <= 182 && y >= 48  && y <= 190) return true; // ring
+    if (x >= 168 && x <= 204 && y >= 80  && y <= 205) return true; // pinky
+    if (x >= 44  && x <= 92  && y >= 140 && y <= 240) return true; // thumb
+    if (x >= 82  && x <= 200 && y >= 188 && y <= 326) return true; // palm
+    return false;
+  }
+
+  let dots = '';
+  for (let row = 0; row < 32; row++) {
+    for (let col = 0; col < 16; col++) {
+      const x = Math.round(46 + col * 11 + (row % 2) * 5.5);
+      const y = Math.round(44 + row * 9);
+      if (!inGlove(x, y)) continue;
+      const sparkle = (row * 3 + col * 5) % 7 === 0;
+      const big     = (row * 2 + col * 4) % 9 === 0;
+      const r = big ? 5.8 : 5.0;
+      dots += `<circle cx="${x}" cy="${y}" r="${r}" fill="${h}" stroke="${rim}" stroke-width="1.4"/>`;
+      dots += `<circle cx="${x}" cy="${y}" r="${big ? 2.6 : 2.1}" fill="${hole}"/>`;
+      if (sparkle) {
+        dots += `<circle cx="${x-1.2}" cy="${y-1.2}" r="1.2" fill="${shine}"/>`;
+      }
+    }
+  }
+
+  // cross-sparkles at highlight spots
+  let sparks = '';
+  [[98,130],[140,88],[168,162],[112,255],[160,290],[88,295],[192,238]].forEach(([sx,sy]) => {
+    sparks += `<line x1="${sx}" y1="${sy-9}" x2="${sx}" y2="${sy+9}" stroke="white" stroke-width="1.8" opacity="0.75"/>`;
+    sparks += `<line x1="${sx-9}" y1="${sy}" x2="${sx+9}" y2="${sy}" stroke="white" stroke-width="1.8" opacity="0.75"/>`;
+    sparks += `<line x1="${sx-5}" y1="${sy-5}" x2="${sx+5}" y2="${sy+5}" stroke="white" stroke-width="1.1" opacity="0.55"/>`;
+    sparks += `<line x1="${sx+5}" y1="${sy-5}" x2="${sx-5}" y2="${sy+5}" stroke="white" stroke-width="1.1" opacity="0.55"/>`;
+  });
+
+  return _wrap('0 0 280 380', b1, b2, `
+    <ellipse cx="142" cy="370" rx="68" ry="8" fill="rgba(0,0,0,0.09)"/>
+
+    <!-- Thumb -->
+    <path d="M 88 238 C 78 228 64 208 54 188 C 46 170 44 153 48 142
+             C 52 132 62 130 70 136 C 78 142 81 155 82 170 L 84 200 Z"
+          fill="${h}"/>
+
+    <!-- Index finger -->
+    <path d="M 88 195 L 87 120 C 87 92 90 68 94 58 C 96 51 101 48 106 50
+             C 111 52 114 58 115 68 C 117 82 116 108 114 136 L 113 195 Z"
+          fill="${h}"/>
+
+    <!-- Middle finger -->
+    <path d="M 118 188 L 118 110 C 118 78 121 54 125 43 C 127 35 132 31 138 32
+             C 144 33 148 38 149 48 C 151 62 150 85 148 115 L 146 188 Z"
+          fill="${h}"/>
+
+    <!-- Ring finger -->
+    <path d="M 147 190 L 148 112 C 148 80 151 57 156 47 C 158 38 163 35 168 37
+             C 173 39 176 46 177 57 C 179 72 177 96 174 126 L 170 190 Z"
+          fill="${h}"/>
+
+    <!-- Pinky -->
+    <path d="M 170 202 L 171 136 C 172 108 175 90 180 80 C 183 72 187 70 192 72
+             C 197 74 200 80 200 92 C 201 108 198 130 193 156 L 185 202 Z"
+          fill="${h}"/>
+
+    <!-- Palm -->
+    <path d="M 84 200 L 82 252 L 82 326 L 198 326 L 198 252 L 185 202
+             C 178 216 164 226 142 228 C 120 230 104 222 95 210 Z"
+          fill="${h}"/>
+
+    <!-- Wrist cuff -->
+    <path d="M 80 322 C 80 340 90 352 108 354 L 142 356 L 176 354
+             C 194 352 202 340 202 322 Z" fill="${_adj(h,-18)}"/>
+    <rect x="80" y="320" width="122" height="9" rx="4" fill="${_adj(h,-26)}" opacity="0.55"/>
+    <!-- Cuff rib lines -->
+    <line x1="80" y1="330" x2="202" y2="330" stroke="${_adj(h,-30)}" stroke-width="1.2" opacity="0.4"/>
+    <line x1="80" y1="339" x2="202" y2="339" stroke="${_adj(h,-30)}" stroke-width="1.2" opacity="0.4"/>
+
+    <!-- Sequin dots -->
+    ${dots}
+
+    <!-- Sparkle effects -->
+    ${sparks}
+  `);
+}
+
+/* ══════════════════════════════════════════════
    BEAUTY & HAIR PRODUCTS
    ══════════════════════════════════════════════ */
 
@@ -2183,6 +2280,7 @@ function getProductSVG(p) {
     case 'bag-designer-saddle':  return bagDesignerSaddle(c, bg);
     case 'bag-designer-mini':    return bagDesignerMini(c, bg);
     case 'bag-designer-bamboo':  return bagDesignerBamboo(c, bg);
+    case 'glove-sequin':         return gloveSequin(c, bg);
     case 'beauty-lipstick':      return beautyLipstick(c, bg);
     case 'beauty-palette':       return beautyPalette(c, bg);
     case 'beauty-mascara':       return beautyMascara(c, bg);
