@@ -1214,6 +1214,36 @@ const products = [
 
   /* --- HERREN KLEIDUNG --- */
   {
+    id: 850, cat: 'herren', brand: 'URBAN BASICS',
+    name: 'Baggy Jeans Wide Leg – Hellblau',
+    svgType: 'jeans-baggy',
+    price: 34.99, oldPrice: 64.99, badge: 'new',
+    desc: 'Ultraweit geschnittene Baggy Jeans im 90s-Style. Sehr lockerer Sitz durch Oberschenkel und Bein, breites Beinende. 5-Pocket, Vintage-Wash, authentische Denim-Qualität.',
+    sizes: ['28','30','32','34','36','38','40','42','44'],
+    variants: v('hellblau','babyblau','jeansblau','denim','schwarz','grau','anthrazit','weiss','navy','dunkelblau'),
+    rating: 4.9, reviews: 7832
+  },
+  {
+    id: 851, cat: 'herren', brand: 'MIA MAN',
+    name: 'Baggy Jeans Relaxed Fit – Washed',
+    svgType: 'jeans-baggy',
+    price: 39.99, badge: 'hot',
+    desc: 'Relaxed Baggy Jeans mit Used-Wash-Effekt. Komfortabler Schnitt, locker am Oberschenkel, geradlinig zum Saum. Perfekt zu Sneakern oder Boots.',
+    sizes: ['28','30','32','34','36','38','40','42','44'],
+    variants: v('jeansblau','denim','hellblau','babyblau','grau','anthrazit','schwarz','camel','dunkelblau','olivgruen'),
+    rating: 4.8, reviews: 5410
+  },
+  {
+    id: 852, cat: 'herren', brand: 'LUXE CO.',
+    name: 'Premium Baggy Denim Oversized',
+    svgType: 'jeans-baggy',
+    price: 59.99, oldPrice: 99.99, badge: 'sale',
+    desc: 'Premium Wide-Leg Denim aus schwerem 14oz Denim-Stoff. Organische Baumwolle, verstärkte Nähte, klassische 5-Pocket-Optik. Zeitloser Streetwear-Look.',
+    sizes: ['28','30','32','34','36','38','40','42','44'],
+    variants: v('schwarz','dunkelblau','navy','anthrazit','jeansblau','denim','grau','khaki','olivgruen','camel'),
+    rating: 4.7, reviews: 3210
+  },
+  {
     id: 401, cat: 'herren', brand: 'MIA MAN',
     name: 'Oxford Hemd Slim Fit',
     svgType: 'top-shirt',

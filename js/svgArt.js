@@ -829,6 +829,85 @@ function pants(c, bg) {
   `);
 }
 
+// Baggy Wide-Leg Jeans – relaxed fit, very wide leg, 5-pocket denim
+function jeansBaggy(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  const fc = _figColors();
+  const wash  = 'rgba(255,255,255,0.13)';
+  const seam  = 'rgba(0,0,0,0.10)';
+  const dark  = 'rgba(0,0,0,0.18)';
+  return _wrap('0 0 280 490', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="483" rx="76" ry="7" fill="rgba(0,0,0,0.08)"/>
+  ${_figTorso(fc.skin, 118, 165)}
+  <g transform="translate(0,40)">
+
+  <!-- Left leg: wide from hip to ankle -->
+  <path d="M 68 72 C 62 108 56 155 53 205 C 50 258 47 320 44 440
+           L 122 440 C 122 340 120 260 120 205
+           C 126 182 132 162 140 148
+           L 140 72 Z"
+        fill="url(#fab${id})" filter="url(#drp${id})"/>
+
+  <!-- Right leg: wide from hip to ankle -->
+  <path d="M 212 72 C 218 108 224 155 227 205 C 230 258 233 320 236 440
+           L 158 440 C 158 340 160 260 160 205
+           C 154 182 148 162 140 148
+           L 140 72 Z"
+        fill="url(#fab2${id})"/>
+
+  <!-- Waistband -->
+  <rect x="64" y="36" width="152" height="36" rx="5" fill="${_adj(h,-20)}"/>
+
+  <!-- Belt loops -->
+  <rect x="82"  y="33" width="9" height="22" rx="2.5" fill="${_adj(h,-40)}"/>
+  <rect x="135" y="33" width="9" height="22" rx="2.5" fill="${_adj(h,-40)}"/>
+  <rect x="189" y="33" width="9" height="22" rx="2.5" fill="${_adj(h,-40)}"/>
+
+  <!-- Button & fly -->
+  <circle cx="140" cy="50" r="5" fill="${_adj(h,-50)}" opacity="0.7"/>
+  <line x1="140" y1="57" x2="140" y2="130" stroke="${dark}" stroke-width="2.5"/>
+
+  <!-- Crotch seam curve -->
+  <path d="M 92 135 C 106 180 124 206 140 212 C 156 206 174 180 188 135"
+        fill="none" stroke="${seam}" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Front pockets left -->
+  <path d="M 76 76 C 70 90 68 106 72 118 C 82 116 96 110 102 102 L 102 76 Z"
+        fill="${_adj(h,-22)}" opacity="0.42"/>
+  <!-- Front pockets right -->
+  <path d="M 204 76 C 210 90 212 106 208 118 C 198 116 184 110 178 102 L 178 76 Z"
+        fill="${_adj(h,-22)}" opacity="0.42"/>
+
+  <!-- Outer leg seam stitching -->
+  <line x1="78"  y1="78" x2="56"  y2="438" stroke="${seam}" stroke-width="1.5"/>
+  <line x1="202" y1="78" x2="224" y2="438" stroke="${seam}" stroke-width="1.5"/>
+
+  <!-- Inseam stitching -->
+  <line x1="122" y1="210" x2="122" y2="438" stroke="${seam}" stroke-width="1.5"/>
+  <line x1="158" y1="210" x2="158" y2="438" stroke="${seam}" stroke-width="1.5"/>
+
+  <!-- Washed fading highlight – left thigh -->
+  <path d="M 86 82 C 82 165 80 285 82 390 L 90 388 C 88 284 90 164 94 80 Z"
+        fill="${wash}" opacity="0.9"/>
+  <!-- Washed fading highlight – right thigh -->
+  <path d="M 194 82 C 198 165 200 285 198 390 L 190 388 C 192 284 190 164 186 80 Z"
+        fill="${wash}" opacity="0.9"/>
+
+  <!-- Knee fade highlight left -->
+  <ellipse cx="82" cy="295" rx="18" ry="28" fill="${wash}" opacity="0.55"/>
+  <!-- Knee fade highlight right -->
+  <ellipse cx="198" cy="295" rx="18" ry="28" fill="${wash}" opacity="0.55"/>
+
+  <!-- Hem at ankles – slight rolled/clean cut -->
+  <rect x="44"  y="434" width="78" height="8" rx="3" fill="${_adj(h,-18)}" opacity="0.55"/>
+  <rect x="158" y="434" width="78" height="8" rx="3" fill="${_adj(h,-18)}" opacity="0.55"/>
+
+  </g>
+  ${_figHead(fc.skin, fc.hair, 'short')}
+  `);
+}
+
 /* ══════════════════════════════════════════════
    JACKET / BLAZER
    ══════════════════════════════════════════════ */
@@ -1911,6 +1990,7 @@ function getProductSVG(p) {
     case 'top-crop':             return topCrop(c, bg);
     case 'top-shirt':            return topShirt(c, bg);
     case 'pants':                return pants(c, bg);
+    case 'jeans-baggy':          return jeansBaggy(c, bg);
     case 'blazer':               return blazer(c, bg);
     case 'shoe-sneaker':         return shoeSneaker(c, bg);
     case 'shoe-heel':            return shoeHeel(c, bg);
