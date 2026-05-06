@@ -1274,6 +1274,370 @@ function beautyHairMask(c, bg) {
 }
 
 /* ══════════════════════════════════════════════
+   HÜTE & MÜTZEN
+   ══════════════════════════════════════════════ */
+
+// Beanie / Strickmütze – worn on head
+function hatBeanie(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  const fc = _figColors();
+  let ribs = '';
+  for (let i = 0; i < 10; i++) {
+    const x = 70 + i * 14;
+    ribs += `<line x1="${x}" y1="52" x2="${x+2}" y2="108" stroke="rgba(0,0,0,0.08)" stroke-width="4" stroke-linecap="round"/>`;
+  }
+  return _wrap('0 0 280 300', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="293" rx="52" ry="6" fill="rgba(0,0,0,0.07)"/>
+  <!-- Neck -->
+  <path d="M 130 170 C 129 185 129 198 130 210 L 150 210 C 151 198 151 185 150 170 Z" fill="${fc.skin}"/>
+  <!-- Face -->
+  <ellipse cx="140" cy="145" rx="30" ry="34" fill="${fc.skin}"/>
+  <!-- Eyes, brows, nose, lips (same as _figHead) -->
+  <ellipse cx="131" cy="140" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="149" cy="140" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="131" cy="141" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <ellipse cx="149" cy="141" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <circle cx="132" cy="139" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <circle cx="150" cy="139" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <path d="M 123 133 Q 131 130 137 132" fill="none" stroke="${fc.hair}" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M 143 132 Q 149 130 157 133" fill="none" stroke="${fc.hair}" stroke-width="1.8" stroke-linecap="round"/>
+  <path d="M 137 150 Q 135 156 134 158 Q 140 160 146 158 Q 145 156 143 150" fill="none" stroke="${_adj(fc.skin,-28)}" stroke-width="1.3" stroke-linecap="round"/>
+  <path d="M 133 164 Q 140 161 147 164" fill="none" stroke="${_adj(fc.skin,-55)}" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="122" cy="155" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <ellipse cx="158" cy="155" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <!-- Beanie body -->
+  <path d="M 68 118 C 66 96 72 72 86 58 C 100 44 118 36 140 34 C 162 36 180 44 194 58 C 208 72 214 96 212 118 L 212 134 L 68 134 Z" fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Rib texture -->
+  <defs><clipPath id="bc${id}"><path d="M 68 118 C 66 96 72 72 86 58 C 100 44 118 36 140 34 C 162 36 180 44 194 58 C 208 72 214 96 212 118 L 212 134 L 68 134 Z"/></clipPath></defs>
+  <g clip-path="url(#bc${id})">${ribs}</g>
+  <!-- Brim / Aufschlag -->
+  <rect x="64" y="120" width="152" height="22" rx="4" fill="${_adj(h,-18)}" opacity="0.85"/>
+  <!-- Pom pom on top -->
+  <circle cx="140" cy="34" r="16" fill="${_adj(h,20)}" filter="url(#drp${id})"/>
+  <circle cx="136" cy="30" r="5" fill="rgba(255,255,255,0.25)"/>
+  <!-- Sheen on hat -->
+  <path d="M 74 115 C 74 92 80 72 92 60 L 88 66 C 78 78 74 96 74 118 Z" fill="rgba(255,255,255,0.10)"/>
+  `);
+}
+
+// Baseball Cap
+function hatBaseball(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  const fc = _figColors();
+  return _wrap('0 0 280 300', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="293" rx="52" ry="6" fill="rgba(0,0,0,0.07)"/>
+  <!-- Neck -->
+  <path d="M 130 180 C 129 195 129 208 130 220 L 150 220 C 151 208 151 195 150 180 Z" fill="${fc.skin}"/>
+  <!-- Face (lower part visible under cap brim) -->
+  <ellipse cx="140" cy="165" rx="30" ry="34" fill="${fc.skin}"/>
+  <ellipse cx="131" cy="158" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="149" cy="158" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="131" cy="159" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <ellipse cx="149" cy="159" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <circle cx="132" cy="157" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <circle cx="150" cy="157" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <path d="M 137 169 Q 135 175 134 177 Q 140 179 146 177 Q 145 175 143 169" fill="none" stroke="${_adj(fc.skin,-28)}" stroke-width="1.3" stroke-linecap="round"/>
+  <path d="M 133 182 Q 140 179 147 182" fill="none" stroke="${_adj(fc.skin,-55)}" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="122" cy="173" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <ellipse cx="158" cy="173" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <!-- Hair at back/sides visible below cap -->
+  <path d="M 112 148 C 108 162 108 178 110 192 L 115 194 C 113 178 113 162 116 150 Z" fill="${fc.hair}"/>
+  <path d="M 168 148 C 172 162 172 178 170 192 L 165 194 C 167 178 167 162 164 150 Z" fill="${fc.hair}"/>
+  <!-- Cap dome -->
+  <path d="M 74 148 C 72 120 82 90 100 72 C 116 56 130 48 140 48 C 150 48 164 56 180 72 C 198 90 208 120 206 148 Z" fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Cap panels (6-panel look) -->
+  <path d="M 140 48 L 140 148" stroke="${_adj(h,-20)}" stroke-width="1.5" opacity="0.4"/>
+  <path d="M 100 72 L 112 148" stroke="${_adj(h,-20)}" stroke-width="1.5" opacity="0.3"/>
+  <path d="M 180 72 L 168 148" stroke="${_adj(h,-20)}" stroke-width="1.5" opacity="0.3"/>
+  <!-- Sweatband / circumference -->
+  <path d="M 74 148 L 206 148" stroke="${_adj(h,-25)}" stroke-width="3" opacity="0.6"/>
+  <!-- Button on top -->
+  <circle cx="140" cy="50" r="7" fill="${_adj(h,-30)}"/>
+  <!-- Logo / embroidery area -->
+  <rect x="118" y="94" width="44" height="30" rx="5" fill="rgba(255,255,255,0.12)"/>
+  <!-- Brim / Schirm -->
+  <path d="M 68 150 C 50 154 36 162 34 172 C 33 180 40 186 55 186 L 170 184 C 170 170 170 156 170 148 Z" fill="${_adj(h,-15)}" filter="url(#drp${id})"/>
+  <!-- Brim underside -->
+  <path d="M 68 152 C 52 156 40 162 38 170 C 37 175 42 180 54 180 L 168 178 C 168 166 168 154 168 150 Z" fill="${_adj(h,-35)}" opacity="0.7"/>
+  <!-- Snap closure at back -->
+  <rect x="196" y="143" width="22" height="10" rx="5" fill="${_adj(h,-30)}" opacity="0.7"/>
+  <!-- Sheen -->
+  <path d="M 80 144 C 80 120 88 95 102 78 L 98 82 C 86 98 80 122 80 146 Z" fill="rgba(255,255,255,0.10)"/>
+  `);
+}
+
+// Bucket Hat
+function hatBucket(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  const fc = _figColors();
+  return _wrap('0 0 280 300', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="293" rx="58" ry="6" fill="rgba(0,0,0,0.07)"/>
+  <!-- Neck -->
+  <path d="M 130 190 C 129 205 129 218 130 228 L 150 228 C 151 218 151 205 150 190 Z" fill="${fc.skin}"/>
+  <!-- Face -->
+  <ellipse cx="140" cy="175" rx="30" ry="34" fill="${fc.skin}"/>
+  <ellipse cx="131" cy="168" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="149" cy="168" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="131" cy="169" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <ellipse cx="149" cy="169" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <circle cx="132" cy="167" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <circle cx="150" cy="167" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <path d="M 133 192 Q 140 189 147 192" fill="none" stroke="${_adj(fc.skin,-55)}" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="122" cy="183" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <ellipse cx="158" cy="183" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <!-- Hair at sides -->
+  <path d="M 112 156 C 110 170 110 186 112 200 L 116 202 C 114 187 114 171 116 158 Z" fill="${fc.hair}"/>
+  <path d="M 168 156 C 170 170 170 186 168 200 L 164 202 C 166 187 166 171 164 158 Z" fill="${fc.hair}"/>
+  <!-- Bucket hat crown -->
+  <path d="M 82 158 C 80 130 88 104 104 88 C 116 76 128 68 140 68 C 152 68 164 76 176 88 C 192 104 200 130 198 158 Z" fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Crown top flatness -->
+  <ellipse cx="140" cy="68" rx="38" ry="12" fill="${_adj(h,-8)}" opacity="0.8"/>
+  <!-- Wide all-around brim -->
+  <path d="M 60 160 C 55 165 54 172 58 178 C 62 184 76 188 100 190 L 140 191 L 180 190 C 204 188 218 184 222 178 C 226 172 225 165 220 160 Z" fill="url(#fab${id})"/>
+  <!-- Brim underside hint -->
+  <path d="M 62 162 C 58 167 58 172 62 176 C 68 180 84 183 110 184 L 140 185 L 170 184 C 196 183 212 180 218 176 C 222 172 222 167 218 162 Z" fill="${_adj(h,-22)}" opacity="0.6"/>
+  <!-- Seam line crown/brim -->
+  <path d="M 82 160 C 95 165 118 168 140 168 C 162 168 185 165 198 160" fill="none" stroke="rgba(0,0,0,0.1)" stroke-width="2"/>
+  <!-- Eyelets / ventilation holes -->
+  <circle cx="116" cy="120" r="3.5" fill="rgba(0,0,0,0.18)"/>
+  <circle cx="164" cy="120" r="3.5" fill="rgba(0,0,0,0.18)"/>
+  <!-- Sheen -->
+  <path d="M 88 152 C 88 130 94 108 106 94 L 102 98 C 92 112 88 132 88 155 Z" fill="rgba(255,255,255,0.09)"/>
+  `);
+}
+
+// Fedora / Trilby
+function hatFedora(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  const fc = _figColors();
+  const band = _adj(h,-40);
+  return _wrap('0 0 280 300', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="293" rx="65" ry="6" fill="rgba(0,0,0,0.07)"/>
+  <!-- Neck -->
+  <path d="M 130 190 C 129 205 129 218 130 228 L 150 228 C 151 218 151 205 150 190 Z" fill="${fc.skin}"/>
+  <!-- Face -->
+  <ellipse cx="140" cy="175" rx="30" ry="34" fill="${fc.skin}"/>
+  <ellipse cx="131" cy="168" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="149" cy="168" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="131" cy="169" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <ellipse cx="149" cy="169" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <circle cx="132" cy="167" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <circle cx="150" cy="167" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <path d="M 133 182 Q 140 179 147 182" fill="none" stroke="${_adj(fc.skin,-55)}" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="122" cy="183" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <ellipse cx="158" cy="183" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <!-- Hair at sides (fedora sits higher) -->
+  <path d="M 110 148 C 108 164 109 182 112 196 L 116 197 C 114 183 113 165 112 150 Z" fill="${fc.hair}"/>
+  <path d="M 170 148 C 172 164 171 182 168 196 L 164 197 C 166 183 167 165 168 150 Z" fill="${fc.hair}"/>
+  <!-- Fedora crown -->
+  <path d="M 84 152 C 82 120 90 88 108 72 C 120 60 130 54 140 54 C 150 54 160 60 172 72 C 190 88 198 120 196 152 Z" fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Center crease (indentation) -->
+  <path d="M 140 54 C 138 72 137 110 138 152" stroke="rgba(0,0,0,0.12)" stroke-width="6" stroke-linecap="round" fill="none"/>
+  <!-- Pinch creases at front -->
+  <path d="M 112 90 C 116 100 120 118 122 138 L 118 140 C 116 120 112 102 108 92 Z" fill="rgba(0,0,0,0.05)"/>
+  <path d="M 168 90 C 164 100 160 118 158 138 L 162 140 C 164 120 168 102 172 92 Z" fill="rgba(0,0,0,0.05)"/>
+  <!-- Hat band -->
+  <path d="M 84 152 C 98 158 118 162 140 162 C 162 162 182 158 196 152 L 196 165 C 182 171 162 175 140 175 C 118 175 98 171 84 165 Z" fill="${band}" opacity="0.9"/>
+  <!-- Band bow/detail -->
+  <path d="M 136 157 C 133 159 132 162 134 164 C 136 166 144 166 146 164 C 148 162 147 159 144 157 C 142 155 138 155 136 157 Z" fill="${_adj(band,20)}" opacity="0.8"/>
+  <!-- Wide brim -->
+  <path d="M 44 166 C 42 172 44 180 52 185 C 66 192 98 196 140 196 C 182 196 214 192 228 185 C 236 180 238 172 236 166 L 196 165 C 182 171 162 175 140 175 C 118 175 98 171 84 165 Z" fill="${_adj(h,-8)}" filter="url(#drp${id})"/>
+  <!-- Brim underside -->
+  <path d="M 48 170 C 48 174 52 179 62 182 C 80 187 108 190 140 190 C 172 190 200 187 218 182 C 228 179 232 174 232 170 L 198 168 C 182 173 162 176 140 176 C 118 176 98 173 82 168 Z" fill="${_adj(h,-30)}" opacity="0.6"/>
+  <!-- Sheen on crown -->
+  <path d="M 90 148 C 90 122 96 96 110 78 L 106 82 C 94 100 90 124 90 151 Z" fill="rgba(255,255,255,0.08)"/>
+  `);
+}
+
+// Beret / Baskenmütze
+function hatBeret(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  const fc = _figColors();
+  return _wrap('0 0 280 300', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="293" rx="48" ry="6" fill="rgba(0,0,0,0.07)"/>
+  <!-- Neck -->
+  <path d="M 130 192 C 129 206 129 218 130 228 L 150 228 C 151 218 151 206 150 192 Z" fill="${fc.skin}"/>
+  <!-- Face -->
+  <ellipse cx="140" cy="177" rx="30" ry="34" fill="${fc.skin}"/>
+  <ellipse cx="131" cy="170" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="149" cy="170" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="131" cy="171" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <ellipse cx="149" cy="171" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <circle cx="132" cy="169" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <circle cx="150" cy="169" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <path d="M 133 184 Q 140 181 147 184" fill="none" stroke="${_adj(fc.skin,-55)}" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="122" cy="185" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <ellipse cx="158" cy="185" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <!-- Hair on opposite side of beret tilt -->
+  <path d="M 168 155 C 172 170 172 186 170 200 L 166 202 C 168 188 168 172 164 157 Z" fill="${fc.hair}"/>
+  <!-- Beret shape (tilted to one side) -->
+  <ellipse cx="148" cy="128" rx="62" ry="52" fill="url(#fab${id})" filter="url(#drp${id})" transform="rotate(-12,148,128)"/>
+  <!-- Top stalk / stem -->
+  <circle cx="186" cy="82" r="5" fill="${_adj(h,-35)}"/>
+  <!-- Headband rim -->
+  <path d="M 108 154 C 108 148 114 144 122 144 L 164 144 C 172 144 178 148 178 154 L 178 162 C 172 166 156 168 140 168 C 124 168 108 166 108 162 Z" fill="${_adj(h,-22)}" opacity="0.9"/>
+  <!-- Fabric fold/drape on left -->
+  <path d="M 90 130 C 96 110 110 96 128 90 L 124 102 C 112 108 100 120 96 138 Z" fill="rgba(255,255,255,0.08)"/>
+  <!-- Sheen -->
+  <path d="M 95 138 C 94 118 102 100 116 88 L 112 94 C 100 106 96 124 96 140 Z" fill="rgba(255,255,255,0.10)"/>
+  `);
+}
+
+// Strohhut / Sun Hat
+function hatStraw(c, bg) {
+  const straw = c && c !== '#555555' ? _hex(c) : '#c8a050';
+  const [b1,b2] = bg || ['#fdf8e8','#f8f0d0']; const id = Math.random().toString(36).slice(2,7);
+  const fc = _figColors();
+  const band = _adj(straw, -30);
+  return _wrap('0 0 280 300', b1, b2, `
+  ${_defs(id, straw)}
+  <ellipse cx="140" cy="293" rx="68" ry="6" fill="rgba(0,0,0,0.07)"/>
+  <!-- Neck -->
+  <path d="M 130 200 C 129 214 129 226 130 235 L 150 235 C 151 226 151 214 150 200 Z" fill="${fc.skin}"/>
+  <!-- Face -->
+  <ellipse cx="140" cy="185" rx="30" ry="34" fill="${fc.skin}"/>
+  <ellipse cx="131" cy="178" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="149" cy="178" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="131" cy="179" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <ellipse cx="149" cy="179" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <circle cx="132" cy="177" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <circle cx="150" cy="177" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <path d="M 133 192 Q 140 189 147 192" fill="none" stroke="${_adj(fc.skin,-55)}" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="122" cy="193" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <ellipse cx="158" cy="193" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <!-- Hair at sides and back -->
+  <path d="M 112 164 C 110 178 110 196 112 210 L 116 212 C 114 197 114 179 116 166 Z" fill="${fc.hair}"/>
+  <path d="M 168 164 C 170 178 170 196 168 210 L 164 212 C 166 197 166 179 164 166 Z" fill="${fc.hair}"/>
+  <!-- Straw woven texture (circles/ovals) -->
+  <defs><clipPath id="sc${id}"><path d="M 92 165 C 90 130 100 98 116 82 C 128 70 134 64 140 64 C 146 64 152 70 164 82 C 180 98 190 130 188 165 Z"/></clipPath></defs>
+  <!-- Crown -->
+  <path d="M 92 165 C 90 130 100 98 116 82 C 128 70 134 64 140 64 C 146 64 152 70 164 82 C 180 98 190 130 188 165 Z" fill="${straw}" filter="url(#drp${id})"/>
+  <!-- Woven pattern in crown -->
+  <g clip-path="url(#sc${id})">
+    ${Array.from({length:8},(_,row)=>Array.from({length:10},(_,col)=>{
+      const cx2=88+col*12+(row%2)*6; const cy2=68+row*12;
+      return `<ellipse cx="${cx2}" cy="${cy2}" rx="4" ry="2.5" fill="none" stroke="${_adj(straw,-20)}" stroke-width="1" opacity="0.5"/>`;
+    }).join('')).join('')}
+  </g>
+  <!-- Band / ribbon -->
+  <path d="M 92 165 C 106 172 122 175 140 175 C 158 175 174 172 188 165 L 188 177 C 174 184 158 187 140 187 C 122 187 106 184 92 177 Z" fill="${band}" opacity="0.85"/>
+  <!-- Band bow -->
+  <path d="M 154 168 C 150 171 149 175 152 177 L 164 172 C 166 170 164 166 161 166 Z" fill="${_adj(band,25)}" opacity="0.9"/>
+  <path d="M 162 174 C 166 174 168 172 166 170 L 162 168 Z" fill="${_adj(band,35)}" opacity="0.8"/>
+  <!-- Wide floppy brim -->
+  <path d="M 36 178 C 32 186 36 196 50 202 C 72 210 102 214 140 214 C 178 214 208 210 230 202 C 244 196 248 186 244 178 L 188 177 C 174 184 158 187 140 187 C 122 187 106 184 92 177 Z" fill="${straw}" opacity="0.92"/>
+  <!-- Brim woven texture -->
+  ${Array.from({length:4},(_,row)=>Array.from({length:14},(_,col)=>{
+    const bx=46+col*14+(row%2)*7; const by=182+row*7;
+    return `<ellipse cx="${bx}" cy="${by}" rx="5" ry="2" fill="none" stroke="${_adj(straw,-15)}" stroke-width="0.8" opacity="0.4"/>`;
+  }).join('')).join('')}
+  <!-- Brim edge shadow -->
+  <path d="M 40 196 C 62 206 100 210 140 210 C 180 210 218 206 240 196" fill="none" stroke="rgba(0,0,0,0.06)" stroke-width="3"/>
+  `);
+}
+
+// Snapback Cap (Herren-Style)
+function hatSnapback(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  const fc = _figColors();
+  return _wrap('0 0 280 300', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="293" rx="52" ry="6" fill="rgba(0,0,0,0.07)"/>
+  <!-- Neck -->
+  <path d="M 130 190 C 129 204 129 216 130 226 L 150 226 C 151 216 151 204 150 190 Z" fill="${fc.skin}"/>
+  <!-- Face -->
+  <ellipse cx="140" cy="175" rx="30" ry="34" fill="${fc.skin}"/>
+  <ellipse cx="131" cy="168" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="149" cy="168" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="131" cy="169" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <ellipse cx="149" cy="169" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <circle cx="132" cy="167" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <circle cx="150" cy="167" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <path d="M 133 182 Q 140 179 147 182" fill="none" stroke="${_adj(fc.skin,-55)}" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="122" cy="179" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <ellipse cx="158" cy="179" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <!-- Hair at sides/back -->
+  <path d="M 112 152 C 110 166 110 184 112 196 L 116 197 C 114 184 114 167 116 154 Z" fill="${fc.hair}"/>
+  <path d="M 168 152 C 170 166 170 184 168 196 L 164 197 C 166 184 166 167 164 154 Z" fill="${fc.hair}"/>
+  <!-- Snapback crown (more structured / flat top) -->
+  <path d="M 76 152 C 74 124 82 96 98 80 C 110 68 124 60 140 60 C 156 60 170 68 182 80 C 198 96 206 124 204 152 Z" fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Flat top ellipse -->
+  <ellipse cx="140" cy="60" rx="46" ry="10" fill="${_adj(h,-5)}" opacity="0.9"/>
+  <!-- Panel seams (6-panel) -->
+  <path d="M 140 60 L 140 152" stroke="${_adj(h,-22)}" stroke-width="2" opacity="0.4"/>
+  <path d="M 98 80 L 114 152" stroke="${_adj(h,-22)}" stroke-width="1.5" opacity="0.3"/>
+  <path d="M 182 80 L 166 152" stroke="${_adj(h,-22)}" stroke-width="1.5" opacity="0.3"/>
+  <!-- Sweat band -->
+  <path d="M 76 152 C 92 160 114 164 140 164 C 166 164 188 160 204 152 L 204 164 C 188 172 166 176 140 176 C 114 176 92 172 76 164 Z" fill="${_adj(h,-28)}" opacity="0.8"/>
+  <!-- Snapback snap closure -->
+  <rect x="200" y="148" width="28" height="8" rx="4" fill="${_adj(h,-35)}" opacity="0.8"/>
+  <rect x="204" y="150" width="5" height="4" rx="1" fill="${_adj(h,-50)}" opacity="0.7"/>
+  <rect x="212" y="150" width="5" height="4" rx="1" fill="${_adj(h,-50)}" opacity="0.7"/>
+  <rect x="220" y="150" width="5" height="4" rx="1" fill="${_adj(h,-50)}" opacity="0.7"/>
+  <!-- Flat brim (straight) -->
+  <path d="M 60 164 C 46 168 36 174 36 182 C 36 188 44 192 58 193 L 180 193 L 180 164 Z" fill="${h}" filter="url(#drp${id})"/>
+  <!-- Brim underside (dark) -->
+  <path d="M 62 166 C 50 170 42 174 42 180 C 42 184 48 187 60 188 L 178 188 L 178 166 Z" fill="${_adj(h,-40)}" opacity="0.85"/>
+  <!-- Logo/graphic on front -->
+  <rect x="106" y="96" width="68" height="36" rx="6" fill="rgba(255,255,255,0.10)"/>
+  <!-- Sheen -->
+  <path d="M 82 148 C 82 124 88 100 102 84 L 98 88 C 86 104 82 126 82 151 Z" fill="rgba(255,255,255,0.09)"/>
+  `);
+}
+
+// Cowboy Hat / Western
+function hatCowboy(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  const fc = _figColors();
+  const band = _adj(h,-35);
+  return _wrap('0 0 280 300', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="293" rx="72" ry="6" fill="rgba(0,0,0,0.07)"/>
+  <!-- Neck -->
+  <path d="M 130 200 C 129 214 129 226 130 235 L 150 235 C 151 226 151 214 150 200 Z" fill="${fc.skin}"/>
+  <!-- Face -->
+  <ellipse cx="140" cy="185" rx="30" ry="34" fill="${fc.skin}"/>
+  <ellipse cx="131" cy="178" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="149" cy="178" rx="3.8" ry="4.5" fill="#fff"/>
+  <ellipse cx="131" cy="179" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <ellipse cx="149" cy="179" rx="2.3" ry="3.1" fill="#2a1008"/>
+  <circle cx="132" cy="177" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <circle cx="150" cy="177" r="0.9" fill="rgba(255,255,255,0.85)"/>
+  <path d="M 133 192 Q 140 189 147 192" fill="none" stroke="${_adj(fc.skin,-55)}" stroke-width="2" stroke-linecap="round"/>
+  <ellipse cx="122" cy="193" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <ellipse cx="158" cy="193" rx="8" ry="5" fill="rgba(215,85,75,0.09)"/>
+  <!-- Hair sides -->
+  <path d="M 112 165 C 110 179 110 196 112 208 L 116 210 C 114 197 114 180 116 167 Z" fill="${fc.hair}"/>
+  <path d="M 168 165 C 170 179 170 196 168 208 L 164 210 C 166 197 166 180 164 167 Z" fill="${fc.hair}"/>
+  <!-- Cowboy crown with deep center crease + pinch front -->
+  <path d="M 88 165 C 88 134 96 104 112 86 C 122 74 131 66 140 66 C 149 66 158 74 168 86 C 184 104 192 134 192 165 Z" fill="url(#fab${id})" filter="url(#drp${id})"/>
+  <!-- Deep center dent -->
+  <path d="M 130 66 C 128 88 130 124 132 165" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <path d="M 150 66 C 152 88 150 124 148 165" stroke="rgba(0,0,0,0.14)" stroke-width="10" stroke-linecap="round" fill="none"/>
+  <!-- Front pinch -->
+  <path d="M 116 100 C 120 112 124 135 126 162 L 122 164 C 120 138 116 114 112 102 Z" fill="rgba(0,0,0,0.06)"/>
+  <path d="M 164 100 C 160 112 156 135 154 162 L 158 164 C 160 138 164 114 168 102 Z" fill="rgba(0,0,0,0.06)"/>
+  <!-- Hat band with metal studs -->
+  <path d="M 88 165 C 102 172 120 176 140 176 C 160 176 178 172 192 165 L 192 178 C 178 185 160 189 140 189 C 120 189 102 185 88 178 Z" fill="${band}" opacity="0.9"/>
+  ${[100,116,132,148,164,180].map(x=>`<circle cx="${x}" cy="171" r="3.5" fill="${_adj(band,30)}" opacity="0.8"/>`).join('')}
+  <!-- Very wide curved brim (up at sides, down at front/back) -->
+  <path d="M 30 180 C 24 188 28 198 48 204 C 72 211 104 215 140 215 C 176 215 208 211 232 204 C 252 198 256 188 250 180 L 192 178 C 178 185 160 189 140 189 C 120 189 102 185 88 178 Z" fill="${_adj(h,-6)}" filter="url(#drp${id})"/>
+  <!-- Brim curve upward at sides -->
+  <path d="M 34 182 C 50 190 36 200 52 200 L 52 186 Z" fill="${_adj(h,-18)}" opacity="0.5"/>
+  <path d="M 246 182 C 230 190 244 200 228 200 L 228 186 Z" fill="${_adj(h,-18)}" opacity="0.5"/>
+  <!-- Brim underside -->
+  <path d="M 36 190 C 60 198 98 202 140 202 C 182 202 220 198 244 190 C 250 188 252 184 248 182 L 192 180 C 178 187 160 190 140 190 C 120 190 102 187 88 180 L 32 182 C 30 184 30 188 36 190 Z" fill="${_adj(h,-25)}" opacity="0.6"/>
+  <!-- Sheen -->
+  <path d="M 94 160 C 94 134 100 108 114 92 L 110 96 C 98 112 94 136 94 163 Z" fill="rgba(255,255,255,0.09)"/>
+  `);
+}
+
+/* ══════════════════════════════════════════════
    MAIN DISPATCHER
    ══════════════════════════════════════════════ */
 
@@ -1320,6 +1684,14 @@ function getProductSVG(p) {
     case 'beauty-hairclip':      return beautyHairClip(c, bg);
     case 'beauty-scrunchie':     return beautyScrunchie(c, bg);
     case 'beauty-hairmask':      return beautyHairMask(c, bg);
+    case 'hat-beanie':           return hatBeanie(c, bg);
+    case 'hat-baseball':         return hatBaseball(c, bg);
+    case 'hat-bucket':           return hatBucket(c, bg);
+    case 'hat-fedora':           return hatFedora(c, bg);
+    case 'hat-beret':            return hatBeret(c, bg);
+    case 'hat-straw':            return hatStraw(c, bg);
+    case 'hat-snapback':         return hatSnapback(c, bg);
+    case 'hat-cowboy':           return hatCowboy(c, bg);
     default:                     return bodysuitTank(c, bg);
   }
 }

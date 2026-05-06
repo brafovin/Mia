@@ -1406,6 +1406,130 @@ const products = [
     variants: v('schwarz','dunkelbraun','cognac','camel','navy','olivgruen','anthrazit'),
     rating: 4.8, reviews: 3456
   },
+  /* ================================================================
+     HÜTE & MÜTZEN
+     ================================================================ */
+  {
+    id: 601, cat: 'accessoires', brand: 'MIA LABEL',
+    name: 'Beanie Strickmütze Pompom',
+    svgType: 'hat-beanie',
+    price: 9.99, badge: 'hot',
+    desc: 'Kuschelige Strickmütze mit weichem Pompom. Feines Rippstrick-Muster, warmes Innenfutter, für Damen und Herren. Der Winterklassiker in vielen Farben.',
+    sizes: ['One Size'],
+    variants: v('schwarz','weiss','grau','navy','camel','olivgruen','burgund','rosa','mintgruen','lavendel','creme','himmelblau','lila','mustard','anthrazit','rost','champagne','taubenblau'),
+    rating: 4.8, reviews: 4321
+  },
+  {
+    id: 602, cat: 'accessoires', brand: 'URBAN BASICS',
+    name: 'Baseball Cap Classic',
+    svgType: 'hat-baseball',
+    price: 11.99, badge: 'new',
+    desc: 'Klassische Baseball Cap aus Baumwoll-Twill. 6-Panel-Design, verstellbarer Klettverschluss. Für Sport, Alltag und unterwegs.',
+    sizes: ['One Size'],
+    variants: v('schwarz','weiss','navy','grau','olivgruen','rot','camel','anthrazit','himmelblau','dunkelblau','burgund','creme','mintgruen','khaki','sand','gelb'),
+    rating: 4.7, reviews: 3456
+  },
+  {
+    id: 603, cat: 'accessoires', brand: 'NOVA STYLE',
+    name: 'Bucket Hat Sommer',
+    svgType: 'hat-bucket',
+    price: 12.99, badge: 'new',
+    desc: 'Trendiger Bucket Hat für Sommer, Strand und Festival. Leichte Baumwolle, breite Krempe, verstaubar. Der Sonnenschutz-Trend aus den 90ern ist zurück!',
+    sizes: ['One Size'],
+    variants: v('weiss','schwarz','beige','creme','olivgruen','navy','rosa','mintgruen','lavendel','himmelblau','camel','gelb','lila','altrosa','taubenblau','babyblau'),
+    rating: 4.8, reviews: 5678
+  },
+  {
+    id: 604, cat: 'accessoires', brand: 'MIA LABEL',
+    name: 'Fedora Hut Eleganz',
+    svgType: 'hat-fedora',
+    price: 19.99, oldPrice: 39.99, badge: 'sale',
+    desc: 'Eleganter Fedora-Hut aus Wollfilz. Breite Krempe, Hutband mit Schleife. Verleiht jedem Outfit eine edle, zeitlose Note. Für Damen und Herren.',
+    sizes: ['S/M (54-57cm)','L/XL (58-61cm)'],
+    variants: v('schwarz','dunkelbraun','camel','sand','grau','olivgruen','navy','creme','cognac','anthrazit','burgund','beige'),
+    rating: 4.9, reviews: 1876
+  },
+  {
+    id: 605, cat: 'accessoires', brand: 'THE DAILY EDIT',
+    name: 'Baskenmütze Beret French Style',
+    svgType: 'hat-beret',
+    price: 14.99, badge: 'hot',
+    desc: 'Klassische Baskenmütze im französischen Stil. Wollfilz, schöner Drape, passt auf allen Kopfgrößen. Das Pariser Mode-Accessoire für jeden Herbstlook.',
+    sizes: ['One Size'],
+    variants: v('schwarz','rot','navy','olivgruen','burgund','camel','dunkelbraun','grau','weinrot','lila','taubenblau','creme','champagne','mauve'),
+    rating: 4.8, reviews: 2345
+  },
+  {
+    id: 606, cat: 'accessoires', brand: 'MIA LABEL',
+    name: 'Strohhut Boho Floppy',
+    svgType: 'hat-straw',
+    price: 16.99, badge: 'new',
+    desc: 'Großer Floppy-Strohhut im Boho-Stil. Handgewebtes Stroh, breite Krempe, Satinband mit Schleife. Perfekt für Strand, Garten und Sommerpartys.',
+    sizes: ['One Size'],
+    variants: v('camel','sand','beige','creme','weiss','champagne','cognac','caramel','latte','ivory'),
+    rating: 4.9, reviews: 3210
+  },
+  {
+    id: 607, cat: 'herren', brand: 'URBAN BASICS',
+    name: 'Snapback Cap Streetstyle',
+    svgType: 'hat-snapback',
+    price: 13.99, badge: 'hot',
+    desc: 'Strukturierte Snapback Cap mit flachem Schirm. 6-Panel-Design, verstellbarer Snap-Verschluss, besticktes Logo-Panel. Der Streetstyle-Klassiker.',
+    sizes: ['One Size'],
+    variants: v('schwarz','navy','olivgruen','grau','rot','anthrazit','weiss','dunkelblau','camel','burgund','khaki','mintgruen','lila'),
+    rating: 4.7, reviews: 4321
+  },
+  {
+    id: 608, cat: 'accessoires', brand: 'THE DAILY EDIT',
+    name: 'Cowboy Hat Western',
+    svgType: 'hat-cowboy',
+    price: 22.99, oldPrice: 44.99, badge: 'sale',
+    desc: 'Authentischer Cowboy-Hut aus Wollfilz. Breite geschwungene Krempe, tiefe Mittelkehle, Zierband mit Metallnieten. Für Festivals, Partys und Mutige.',
+    sizes: ['S/M (54-57cm)','L/XL (58-61cm)'],
+    variants: v('dunkelbraun','sand','schwarz','cognac','camel','beige','weiss','rost','olivgruen','grau'),
+    rating: 4.8, reviews: 987
+  },
+  {
+    id: 609, cat: 'jugend', brand: 'NOVA STYLE',
+    name: 'Trucker Cap Mesh',
+    svgType: 'hat-baseball',
+    price: 9.99, badge: 'new',
+    desc: 'Lässige Trucker Cap mit Mesh-Rückteil. Vorgebogener Schirm, Snapback-Verschluss. Der coolste Hut für Teens und junge Erwachsene.',
+    sizes: ['One Size'],
+    variants: v('schwarz','weiss','navy','rot','olivgruen','himmelblau','camel','mintgruen','gelb','lila','altrosa','creme'),
+    rating: 4.8, reviews: 3456
+  },
+  {
+    id: 610, cat: 'jugend', brand: 'MIA LABEL',
+    name: 'Beanie Teen Logo',
+    svgType: 'hat-beanie',
+    price: 7.99, badge: 'hot',
+    desc: 'Coole Logo-Beanie für Teens. Weiches Strickfleece, kein Pompom für den cleanen Look. In vielen trendigen Farben.',
+    sizes: ['One Size'],
+    variants: v('schwarz','weiss','navy','rosa','mintgruen','lavendel','himmelblau','lila','koralle','olivgruen','gelb','babyblau','altrosa','camel'),
+    rating: 4.8, reviews: 2876
+  },
+  {
+    id: 611, cat: 'accessoires', brand: 'MIA LABEL',
+    name: 'Wollmütze Bobble Premium',
+    svgType: 'hat-beanie',
+    price: 14.99, oldPrice: 24.99, badge: 'sale',
+    desc: 'Premium-Wollmütze mit Riesenpompom aus Echtwolle. Doppelt gestrickt für extra Wärme, kein Juckreiz. Das Winteraccessoire der Saison.',
+    sizes: ['One Size'],
+    variants: v('creme','camel','grau','weiss','schwarz','olivgruen','burgund','anthrazit','navy','rosa','lavendel','mustard','taubenblau'),
+    rating: 4.9, reviews: 1654
+  },
+  {
+    id: 612, cat: 'herren', brand: 'MIA MAN',
+    name: 'Flat Cap Herren',
+    svgType: 'hat-fedora',
+    price: 17.99, badge: 'new',
+    desc: 'Klassischer Flat Cap / Schiebermütze aus Tweed. Traditionelles britisches Design, fester Schirm, Hutknopf auf dem Deckel. Für lässig-elegante Herren.',
+    sizes: ['S/M (54-57cm)','L/XL (58-61cm)'],
+    variants: v('dunkelbraun','grau','schwarz','camel','navy','olivgruen','anthrazit','cognac','beige','khaki'),
+    rating: 4.8, reviews: 1234
+  },
+
   {
     id: 442, cat: 'herren', brand: 'NOVA STYLE',
     name: 'Armbanduhr Herren Chronograph',
