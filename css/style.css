@@ -281,7 +281,7 @@ button { cursor: pointer; font-family: inherit; }
 .cat-tiles-section { padding: 3rem 0 2rem; background: #fff; border-bottom: 1px solid #e8e8e8; }
 .cat-tiles {
   display: grid;
-  grid-template-columns: repeat(8, 1fr);
+  grid-template-columns: repeat(10, 1fr);
   gap: 1rem;
 }
 .cat-tile {
@@ -395,6 +395,7 @@ button { cursor: pointer; font-family: inherit; }
 .badge-sale { background: #c0392b; color: #fff; }
 .badge-hot { background: #e67e22; color: #fff; }
 .badge-top { background: #8e44ad; color: #fff; }
+.badge-luxury { background: linear-gradient(135deg, #b8962a, #e8c84a, #b8962a); color: #4a3000; font-weight: 800; letter-spacing: 0.5px; }
 .p-wishlist {
   position: absolute;
   top: 10px; right: 10px;
@@ -1170,6 +1171,13 @@ button { cursor: pointer; font-family: inherit; }
 }
 
 /* ===== RESPONSIVE ===== */
+@media (max-width: 1400px) {
+  .cat-tiles { grid-template-columns: repeat(6, 1fr); }
+}
+@media (max-width: 1200px) {
+  .cat-tiles { grid-template-columns: repeat(5, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
+}
 @media (max-width: 1100px) {
   .cat-tiles { grid-template-columns: repeat(4, 1fr); }
   .footer-grid { grid-template-columns: 1fr 1fr 1fr; }
@@ -1314,6 +1322,11 @@ button { cursor: pointer; font-family: inherit; }
 
 /* ===== BEAUTY CATEGORY TILE ===== */
 .beauty-tile .cat-tile-img { background: linear-gradient(135deg, #fde8f4, #f8c0e8) !important; }
+
+/* ===== LUXURY TILE ===== */
+.luxury-tile { border: 1.5px solid #d4b060; }
+.luxury-tile .cat-tile-img { background: linear-gradient(135deg, #f8f0d8, #e8d4a0) !important; }
+.luxury-tile:hover { border-color: #c8a030; box-shadow: 0 6px 24px rgba(200,160,48,0.22); }
 
 /* ===== RESPONSIVE UPDATES ===== */
 @media (max-width: 1200px) {

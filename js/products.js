@@ -988,4 +988,656 @@ const products = [
     variants: v('weiss','creme','sand','graumel','ivory'),
     rating: 4.7, reviews: 1543
   },
+
+  /* ================================================================
+     DESIGNER TASCHEN – LUXURY
+     ================================================================ */
+  {
+    id: 300, cat: 'taschen', brand: 'GUCCI',
+    name: 'GG Bamboo Top Handle Bag',
+    svgType: 'bag-designer-bamboo',
+    price: 890.00, badge: 'luxury',
+    desc: 'Ikonische Gucci-Tasche mit handgefertigtem Bambus-Griff. Kalbsleder-Körper mit GG-Logo und charakteristischem Webstreifen. Jedes Stück ein Unikat.',
+    sizes: ['One Size'],
+    variants: v('cognac','schwarz','creme','camel','rosegold','olivgruen','burgund','navy'),
+    rating: 4.9, reviews: 543
+  },
+  {
+    id: 301, cat: 'taschen', brand: 'CHANEL',
+    name: 'Classic Double Flap Bag',
+    svgType: 'bag-designer-flap',
+    price: 1290.00, badge: 'luxury',
+    desc: 'Das zeitloseste Stück der Modewelt. Gestepptes Lammleder, Gold-Hardware mit CC-Schließe und Goldketten-Schulterriemen. Eine Investition für die Ewigkeit.',
+    sizes: ['One Size'],
+    variants: v('schwarz','weiss','beige','altrosa','burgund','navy','camel','silber'),
+    rating: 5.0, reviews: 1203
+  },
+  {
+    id: 302, cat: 'taschen', brand: 'HERMÈS',
+    name: 'Birkin 30 Togo Leder',
+    svgType: 'bag-designer-birkin',
+    price: 2490.00, badge: 'luxury',
+    desc: 'Die begehrteste Handtasche der Welt. Handgenähtes Togo-Kalbsleder, Palladium-Hardware. Jede Birkin wird von einem einzelnen Handwerker in 18–24 Stunden gefertigt.',
+    sizes: ['One Size'],
+    variants: v('caramel','schwarz','creme','olivgruen','navy','burgund','rot','gold','cognac'),
+    rating: 5.0, reviews: 876
+  },
+  {
+    id: 303, cat: 'taschen', brand: 'LOUIS VUITTON',
+    name: 'Speedy Monogram Canvas',
+    svgType: 'bag-designer-mono',
+    price: 790.00, badge: 'luxury',
+    desc: 'Der ikonische Speedy in monogrammierten Canvas. Das unverwechselbare LV-Muster auf beige Canvas mit Vachetta-Leder-Trimm. Ein Stück Modegeschichte.',
+    sizes: ['One Size'],
+    variants: v('camel','beige','sand','champagne'),
+    rating: 4.9, reviews: 2341
+  },
+  {
+    id: 304, cat: 'taschen', brand: 'DIOR',
+    name: 'Saddle Bag Oblique',
+    svgType: 'bag-designer-saddle',
+    price: 990.00, badge: 'luxury',
+    desc: 'John Galliano\'s ikonische Sattel-Silhouette. Oblique-Jacquard-Canvas mit goldener CD-Schließe. Wurde zum Symbol einer ganzen Ära.',
+    sizes: ['One Size'],
+    variants: v('beige','schwarz','camel','navy','burgund','olivgruen','cognac'),
+    rating: 4.9, reviews: 765
+  },
+  {
+    id: 305, cat: 'taschen', brand: 'PRADA',
+    name: 'Saffiano Mini Bag',
+    svgType: 'bag-designer-mini',
+    price: 890.00, badge: 'luxury',
+    desc: 'Mini-Bag aus Pradas exklusivem Saffiano-Leder – kratzfest, wasserabweisend, unverwechselbar. Silber-Triangel-Logo, Reißverschluss, schulterfreier Kettenriemen.',
+    sizes: ['One Size'],
+    variants: v('schwarz','creme','navy','burgund','altrosa','olivgruen','camel','silber'),
+    rating: 4.9, reviews: 654
+  },
+  {
+    id: 306, cat: 'taschen', brand: 'BALENCIAGA',
+    name: 'City Bag Aged Leather',
+    svgType: 'bag-crossbody',
+    price: 990.00, badge: 'luxury',
+    desc: 'Die rockige Balenciaga City ist Kult. Weiches, angesatteltes Lammleder mit vielen Reißverschlüssen und Nieten. Umhänge- oder Handtasche.',
+    sizes: ['One Size'],
+    variants: v('schwarz','cognac','camel','grau','olivgruen','burgund','rot','navy','sand'),
+    rating: 4.8, reviews: 432
+  },
+  {
+    id: 307, cat: 'taschen', brand: 'VALENTINO',
+    name: 'Rockstud Crossbody Bag',
+    svgType: 'bag-crossbody',
+    price: 890.00, badge: 'luxury',
+    desc: 'Valentinos signature Rockstud-Nieten veredeln diese elegante Crossbody aus Nappa-Kalbsleder. Für den kraftvollen, femininen Look.',
+    sizes: ['One Size'],
+    variants: v('schwarz','altrosa','creme','beige','burgund','camel','navy','rot'),
+    rating: 4.9, reviews: 567
+  },
+  {
+    id: 308, cat: 'taschen', brand: 'SAINT LAURENT',
+    name: 'Loulou Quilted Flap',
+    svgType: 'bag-designer-flap',
+    price: 1090.00, badge: 'luxury',
+    desc: 'YSL\'s Loulou mit ihrer ikonischen Rauten-Steppung, goldener YSL-Schließe und Kettenhenkel. Eleganz in Perfektion – von Tag zu Nacht.',
+    sizes: ['One Size'],
+    variants: v('schwarz','camel','weiss','altrosa','burgund','navy','olivgruen','creme'),
+    rating: 4.9, reviews: 789
+  },
+  {
+    id: 309, cat: 'taschen', brand: 'BOTTEGA VENETA',
+    name: 'Cassette Intrecciato Bag',
+    svgType: 'bag-tote',
+    price: 1190.00, badge: 'luxury',
+    desc: 'Das berühmte Intrecciato-Flechtleder von Bottega Veneta. Soft Nappa, handgeflochten in der Ledermanufaktur. Kein sichtbares Logo – das Leder ist die Signatur.',
+    sizes: ['One Size'],
+    variants: v('caramel','schwarz','olivgruen','cognac','creme','navy','burgund','beige','lavendel'),
+    rating: 5.0, reviews: 345
+  },
+  {
+    id: 310, cat: 'taschen', brand: 'CELINE',
+    name: 'Box Bag Smooth Calfskin',
+    svgType: 'bag-designer-mini',
+    price: 890.00, badge: 'luxury',
+    desc: 'Céline\'s Box Bag mit halbrundem Griff. Poliertes Kalbsleder, silberne Druckknopf-Schließe. Phoebe Philos minimalistisches Meisterwerk.',
+    sizes: ['One Size'],
+    variants: v('schwarz','creme','camel','navy','olivgruen','rot','burgund','beige'),
+    rating: 4.9, reviews: 456
+  },
+  {
+    id: 311, cat: 'taschen', brand: 'FENDI',
+    name: 'Baguette FF Jacquard',
+    svgType: 'bag-crossbody',
+    price: 990.00, badge: 'luxury',
+    desc: 'Seit 1997 Kult: Die Fendi Baguette in FF-Jacquard. Klein, schmal, unter dem Arm getragen. Das Taschikon aus \"Sex and the City\".',
+    sizes: ['One Size'],
+    variants: v('beige','schwarz','camel','burgund','olivgruen','navy','creme','altrosa'),
+    rating: 4.9, reviews: 678
+  },
+  {
+    id: 312, cat: 'taschen', brand: 'GIVENCHY',
+    name: 'Antigona Mini Satchel',
+    svgType: 'bag-designer-birkin',
+    price: 890.00, badge: 'luxury',
+    desc: 'Givenchy\'s ikonische Antigona in ihrer kleinsten Version. Geometrische Silhouette, Boxy-Form, Tragegriff und Schulterriemen. Klassisch und modern.',
+    sizes: ['One Size'],
+    variants: v('schwarz','creme','olivgruen','cognac','navy','burgund','altrosa','camel'),
+    rating: 4.8, reviews: 312
+  },
+  {
+    id: 313, cat: 'taschen', brand: 'MIU MIU',
+    name: 'Arcadie Bag Wicker',
+    svgType: 'bag-designer-flap',
+    price: 890.00, badge: 'luxury',
+    desc: 'Raffinierter Mix aus Naturmaterial und Leder. Miu Mius Arcadie verbindet handgeflochtenes Wicker mit zartem Lammleder-Flap. Verspielt und luxuriös.',
+    sizes: ['One Size'],
+    variants: v('beige','sand','creme','camel','weiss','ivory','champagne'),
+    rating: 4.8, reviews: 234
+  },
+  {
+    id: 314, cat: 'taschen', brand: 'BURBERRY',
+    name: 'TB Bag Vintage Check',
+    svgType: 'bag-designer-mono',
+    price: 790.00, badge: 'luxury',
+    desc: 'Burberry\'s berühmtes Karo-Muster auf hochwertigem Canvas. Handgriff aus Leder, goldene TB-Schnalle. Britische Eleganz seit 1856.',
+    sizes: ['One Size'],
+    variants: v('camel','beige','schwarz','weiss','navy','rot'),
+    rating: 4.8, reviews: 543
+  },
+
+  /* ================================================================
+     HERREN – Kleidung, Schuhe, Pflege
+     ================================================================ */
+
+  /* --- HERREN KLEIDUNG --- */
+  {
+    id: 401, cat: 'herren', brand: 'MIA MAN',
+    name: 'Oxford Hemd Slim Fit',
+    svgType: 'top-shirt',
+    price: 19.99, oldPrice: 39.99, badge: 'sale',
+    desc: 'Klassisches Oxford-Hemd in Slim-Fit-Schnitt aus 100% Baumwolle. Geknöpfter Kragen, gebügelter Look den ganzen Tag. Büro, Dinner, Casual.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('weiss','hellblau','creme','navy','schwarz','grau','babyblau','taubenblau','mintgruen','rosa','lavendel'),
+    rating: 4.8, reviews: 2345
+  },
+  {
+    id: 402, cat: 'herren', brand: 'MIA MAN',
+    name: 'Chino Hose Regular Fit',
+    svgType: 'pants',
+    price: 24.99, oldPrice: 49.99, badge: 'sale',
+    desc: 'Hochwertige Chino aus stretchiger Baumwolle. Regular Fit mit flachem Bund. Perfekte Hose für Büro und Freizeit.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('beige','camel','navy','schwarz','grau','olivgruen','anthrazit','sand','dunkelbraun','khaki','taubenblau'),
+    rating: 4.7, reviews: 1876
+  },
+  {
+    id: 403, cat: 'herren', brand: 'URBAN BASICS',
+    name: 'Jeans Slim Straight',
+    svgType: 'pants',
+    price: 29.99, oldPrice: 59.99, badge: 'sale',
+    desc: 'Moderne Slim-Straight-Jeans aus hochwertiger Denim-Qualität. Leichter Stretch für Komfort, 5-Pocket-Design, nachhaltig gefärbt.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('denim','dunkelblau','schwarz','grau','jeansblau','anthrazit','navy'),
+    rating: 4.8, reviews: 3421
+  },
+  {
+    id: 404, cat: 'herren', brand: 'MIA MAN',
+    name: 'Blazer Herren Modern Fit',
+    svgType: 'blazer',
+    price: 59.99, oldPrice: 119.99, badge: 'sale',
+    desc: 'Eleganter Herren-Blazer mit Modern-Fit-Schnitt. Strukturiertes Material, geknöpft, mit Brusttasche und aufgesetzten Taschen. Für Büro und Abend.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL'],
+    variants: v('navy','schwarz','anthrazit','grau','olivgruen','dunkelblau','camel','taubenblau','burgund'),
+    rating: 4.8, reviews: 1234
+  },
+  {
+    id: 405, cat: 'herren', brand: 'URBAN BASICS',
+    name: 'Bomber Jacket Herren',
+    svgType: 'blazer',
+    price: 34.99, oldPrice: 79.99, badge: 'hot',
+    desc: 'Trendy Bomber Jacket mit Rippbündchen und Reißverschluss. Leicht gefüttert, perfekt für Herbst und Frühjahr. Lässiger Streetstyle-Look.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL'],
+    variants: v('schwarz','olivgruen','navy','grau','kamel','caramel','anthrazit','burgund','dunkelbraun','rost'),
+    rating: 4.7, reviews: 2109
+  },
+  {
+    id: 406, cat: 'herren', brand: 'MIA MAN',
+    name: 'Polo Shirt Piqué',
+    svgType: 'top-shirt',
+    price: 14.99, oldPrice: 29.99, badge: 'sale',
+    desc: 'Klassisches Polo-Shirt aus hochwertigem Piqué-Stoff. Dreifach-geknöpfter Kragen, schmale Passform. Sportlich-elegant für jede Gelegenheit.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('weiss','navy','schwarz','grau','olivgruen','himmelblau','rot','burgund','camel','mintgruen','lavendel','gelb'),
+    rating: 4.8, reviews: 3456
+  },
+  {
+    id: 407, cat: 'herren', brand: 'URBAN BASICS',
+    name: 'Pullover Rundhals Merino-Mix',
+    svgType: 'top-shirt',
+    price: 22.99, oldPrice: 44.99, badge: 'new',
+    desc: 'Weicher Rundhals-Pullover aus Merino-Mix. Körpernahe Passform, kein Kratzen, wärmt natürlich. Das Basis-Piece der Herren-Garderobe.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('grau','navy','schwarz','camel','olivgruen','burgund','creme','anthrazit','taubenblau','mustard','himmelblau'),
+    rating: 4.9, reviews: 2876
+  },
+
+  /* --- HERREN SCHUHE --- */
+  {
+    id: 410, cat: 'herren', brand: 'MIA MAN',
+    name: 'Chelsea Boots Herren Leder',
+    svgType: 'shoe-boots',
+    price: 49.99, oldPrice: 99.99, badge: 'sale',
+    desc: 'Klassische Chelsea Boots aus echtem Rindsleder. Elastikeinsatz an den Seiten, Gummisohle, verdeckte Reißverschlüsse. Für Büro und abends.',
+    sizes: ['40','41','42','43','44','45','46','47'],
+    variants: v('schwarz','dunkelbraun','cognac','camel','olivgruen','navy','anthrazit','sand'),
+    rating: 4.8, reviews: 1543
+  },
+  {
+    id: 411, cat: 'herren', brand: 'NOVA STYLE',
+    name: 'Sneaker Herren Leder Casual',
+    svgType: 'shoe-sneaker',
+    price: 44.99, oldPrice: 89.99, badge: 'sale',
+    desc: 'Cleaner Leder-Sneaker im minimalistischen Design. Weiches Nappaleder, Gummisohle, Comfort-Fußbett. Der All-Day-Sneaker.',
+    sizes: ['40','41','42','43','44','45','46','47'],
+    variants: v('weiss','schwarz','grau','navy','camel','olivgruen','creme','cognac','himmelblau'),
+    rating: 4.7, reviews: 2134
+  },
+  {
+    id: 412, cat: 'herren', brand: 'PURE & CO',
+    name: 'Derby Schnürer Business',
+    svgType: 'shoe-heel',
+    price: 54.99, oldPrice: 109.99, badge: 'hot',
+    desc: 'Klassischer Derby-Schuh aus poliertem Kalbsleder. Spitze Zehenkappe, Lederinnensohle, Ledersohle. Für formelle Anlässe.',
+    sizes: ['40','41','42','43','44','45','46','47'],
+    variants: v('schwarz','dunkelbraun','cognac','caramel','navy','olivgruen'),
+    rating: 4.9, reviews: 876
+  },
+  {
+    id: 413, cat: 'herren', brand: 'URBAN BASICS',
+    name: 'Laufschuh Performance Plus',
+    svgType: 'shoe-sneaker',
+    price: 39.99, oldPrice: 79.99, badge: 'sale',
+    desc: 'Hochleistungs-Laufschuh mit Boost-Dämpfung und breathable Mesh-Obermaterial. Ideal für Training, Marathon oder Alltag.',
+    sizes: ['40','41','42','43','44','45','46','47'],
+    variants: v('schwarz','grau','navy','olivgruen','rot','anthrazit','himmelblau','weiss','mintgruen'),
+    rating: 4.7, reviews: 3210
+  },
+
+  /* --- HERREN GESICHTSPFLEGE --- */
+  {
+    id: 420, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Gesichtswasser Active Toner',
+    svgType: 'beauty-bottle',
+    price: 8.99, oldPrice: 16.99, badge: 'new',
+    desc: 'Erfrischender Gesichts-Toner mit Salicylsäure und Niacinamid. Reinigt Poren, reduziert Rötungen, mattiert. Das tägliche Basis-Pflegeprodukt für Männer.',
+    sizes: ['One Size'],
+    variants: v('hellblau','taubenblau','mintfrisch','mintgruen','weiss','creme'),
+    rating: 4.7, reviews: 1987
+  },
+  {
+    id: 421, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Gesichtscreme SPF 30 Anti-Age',
+    svgType: 'beauty-hairmask',
+    price: 14.99, oldPrice: 29.99, badge: 'hot',
+    desc: 'Leichte Tagescreme mit LSF 30 und Anti-Aging-Formel. Schützt vor UV-Strahlen, reduziert Fältchen, spendet 24h Feuchtigkeit. Kein fettiger Film.',
+    sizes: ['One Size'],
+    variants: v('weiss','creme','ivory','hellblau','silber','mintgruen'),
+    rating: 4.8, reviews: 2345
+  },
+  {
+    id: 422, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Bart-Öl Premium Pflege',
+    svgType: 'beauty-hairoil',
+    price: 9.99, oldPrice: 18.99, badge: 'hot',
+    desc: 'Pflegendes Bartöl mit Argan-, Mandel- und Jojobaöl. Macht den Bart weich, gepflegt und duftet maskulin. Kein Kratzen mehr. Für jeden Barttyp.',
+    sizes: ['One Size'],
+    variants: v('caramel','cognac','dunkelbraun','camel','gold','champagne','olivgruen'),
+    rating: 4.9, reviews: 4321
+  },
+  {
+    id: 423, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Rasierschaum Sensitive',
+    svgType: 'beauty-hairspray',
+    price: 5.99, badge: 'new',
+    desc: 'Schonender Rasierschaum für empfindliche Haut. Aloe Vera und Panthenol schützen die Haut während des Rasierens. Für eine sanfte, saubere Rasur.',
+    sizes: ['One Size'],
+    variants: v('weiss','hellblau','mintgruen','silber','creme','babyblau'),
+    rating: 4.7, reviews: 1876
+  },
+  {
+    id: 424, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'After Shave Balsam',
+    svgType: 'beauty-bottle',
+    price: 7.99, badge: 'new',
+    desc: 'Beruhigender After-Shave-Balsam gegen Irritationen und Brennen. Schließt die Poren, erfrischt und pflegt. Maskuliner, holziger Duft.',
+    sizes: ['One Size'],
+    variants: v('navy','taubenblau','mintgruen','himmelblau','silber','grau','anthrazit'),
+    rating: 4.8, reviews: 2109
+  },
+  {
+    id: 425, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Augen-Roller Anti-Müdigkeit',
+    svgType: 'beauty-bottle',
+    price: 11.99, oldPrice: 22.99, badge: 'sale',
+    desc: 'Kühlender Augen-Roller mit Koffein und Hyaluron. Reduziert Augenringe, Schwellungen und Müdigkeitszeichen in Minuten. Für den frischen Business-Blick.',
+    sizes: ['One Size'],
+    variants: v('silber','weiss','hellblau','creme','champagne','mintfrisch'),
+    rating: 4.8, reviews: 1543
+  },
+  {
+    id: 426, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Gesichtsreiniger Daily Detox',
+    svgType: 'beauty-bottle',
+    price: 6.99, badge: 'new',
+    desc: 'Tiefenreinigendes Gesichtsgel für Männerhaut. Aktivkohle und Teebaumöl entfernen Talg und Schmutz. Kühlendes Minze-Gefühl.',
+    sizes: ['One Size'],
+    variants: v('schwarz','anthrazit','dunkelblau','navy','grau','mintfrisch','olivgruen'),
+    rating: 4.7, reviews: 2876
+  },
+  {
+    id: 427, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Peeling Gesichtsmaske 2-in-1',
+    svgType: 'beauty-hairmask',
+    price: 9.99, badge: 'hot',
+    desc: '2-in-1 Gesichtsmaske: Tiefenpflege + Peeling in einem. Kaolin-Ton, Kaffeepeelingpartikel und Retinol. Wochenend-Ritual für straffe Männerhaut.',
+    sizes: ['One Size'],
+    variants: v('dunkelbraun','cognac','caramel','anthrazit','grau','olivgruen'),
+    rating: 4.9, reviews: 1234
+  },
+
+  /* --- HERREN HAARPFLEGE --- */
+  {
+    id: 430, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Haar-Pomade Strong Hold',
+    svgType: 'beauty-hairmask',
+    price: 7.99, badge: 'hot',
+    desc: 'Starke Haar-Pomade auf Wasserbasis. Perfekt für Undercut, Quiff und Slickback. Wasserlöslich, kein Steifheitsgefühl, natürlicher Glanz.',
+    sizes: ['One Size'],
+    variants: v('schwarz','anthrazit','dunkelbraun','navy','caramel','grau'),
+    rating: 4.8, reviews: 3456
+  },
+  {
+    id: 431, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Styling Wachs Matt Finish',
+    svgType: 'beauty-hairmask',
+    price: 6.99, badge: 'new',
+    desc: 'Matt-Wax für strukturierte Looks. Mittlerer Halt, kein Glanz, natürliche Optik. Ideal für Textured Crops und Natural Styles.',
+    sizes: ['One Size'],
+    variants: v('grau','anthrazit','schwarz','camel','olivgruen','dunkelbraun'),
+    rating: 4.7, reviews: 2109
+  },
+  {
+    id: 432, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Anti-Schuppen Shampoo',
+    svgType: 'beauty-bottle',
+    price: 8.49, badge: 'new',
+    desc: 'Klinisch getestetes Anti-Schuppen-Shampoo mit Pyrithion-Zink und Teebaum-Extrakt. Sichtbare Wirkung nach 2 Anwendungen. Für fettige Kopfhaut.',
+    sizes: ['One Size'],
+    variants: v('navy','dunkelblau','taubenblau','schwarz','anthrazit','grau','mintgruen'),
+    rating: 4.8, reviews: 3876
+  },
+  {
+    id: 433, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Haar & Bart Conditioner',
+    svgType: 'beauty-bottle',
+    price: 7.49, badge: 'new',
+    desc: 'Multifunktionaler Conditioner für Haar und Bart. Keratin und Macadamiaöl glättten und pflegen. Kein Frizz, kein Kratzen.',
+    sizes: ['One Size'],
+    variants: v('caramel','cognac','camel','dunkelbraun','olivgruen','champagne','gold'),
+    rating: 4.7, reviews: 1765
+  },
+
+  /* --- HERREN ACCESSOIRES --- */
+  {
+    id: 440, cat: 'herren', brand: 'MIA MAN',
+    name: 'Leder-Gürtel Classic',
+    svgType: 'bag-crossbody',
+    price: 12.99, oldPrice: 24.99, badge: 'sale',
+    desc: 'Klassischer Ledergürtel mit Dornenschließe. Veganes Leder, 3,5 cm breit. Für Chino, Jeans und Anzughosen.',
+    sizes: ['75cm','80cm','85cm','90cm','95cm','100cm','105cm','110cm'],
+    variants: v('schwarz','dunkelbraun','cognac','camel','navy','olivgruen'),
+    rating: 4.7, reviews: 1234
+  },
+  {
+    id: 441, cat: 'herren', brand: 'MIA MAN',
+    name: 'Leder-Geldbörse Slim',
+    svgType: 'bag-crossbody',
+    price: 14.99, oldPrice: 29.99, badge: 'hot',
+    desc: 'Schlanke Herren-Geldbörse aus genarbtem Leder. Platz für 8 Karten + Geldscheine + Münzfach. RFID-Schutz.',
+    sizes: ['One Size'],
+    variants: v('schwarz','dunkelbraun','cognac','camel','navy','olivgruen','anthrazit'),
+    rating: 4.8, reviews: 3456
+  },
+  {
+    id: 442, cat: 'herren', brand: 'NOVA STYLE',
+    name: 'Armbanduhr Herren Chronograph',
+    svgType: 'bag-crossbody',
+    price: 49.99, oldPrice: 99.99, badge: 'sale',
+    desc: 'Eleganter Herren-Chronograph mit Edelstahlgehäuse und Saphirglas. 5 ATM wasserdicht, Datum-Anzeige, Miyota-Werk.',
+    sizes: ['One Size'],
+    variants: v('schwarz','silber','gold','cognac','navy','anthrazit'),
+    rating: 4.9, reviews: 876
+  },
+  {
+    id: 443, cat: 'herren', brand: 'URBAN BASICS',
+    name: 'Jogginganzug Herren 2-teilig',
+    svgType: 'top-shirt',
+    price: 24.99, oldPrice: 54.99, badge: 'sale',
+    desc: 'Bequemer Jogginganzug aus Baumwoll-French-Terry. Kapuzenpulli + Jogger-Hose. Ideal für Sport, Freizeit und Zuhause.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('schwarz','grau','navy','olivgruen','anthrazit','burgund','camel','himmelblau','weiss'),
+    rating: 4.8, reviews: 2987
+  },
+  {
+    id: 444, cat: 'herren', brand: 'MIA MAN',
+    name: 'Strickjacke Herren Merino',
+    svgType: 'blazer',
+    price: 29.99, oldPrice: 59.99, badge: 'sale',
+    desc: 'Elegante Strickjacke aus Merino-Wolle-Mix. V-Ausschnitt, Knopfleiste, Rippbündchen an Saum und Ärmeln. Für Büro und Casual.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('grau','navy','schwarz','camel','olivgruen','burgund','anthrazit','creme','taubenblau','mustard'),
+    rating: 4.8, reviews: 1654
+  },
+  {
+    id: 445, cat: 'herren', brand: 'URBAN BASICS',
+    name: 'Cargo Shorts Herren',
+    svgType: 'pants',
+    price: 16.99, oldPrice: 34.99, badge: 'sale',
+    desc: 'Lockere Cargo-Shorts mit seitlichen Taschen. Gürtelschlaufen, verstellbarer Saum, Baumwolle-Mix. Der Sommer-Klassiker für Herren.',
+    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    variants: v('khaki','olivgruen','schwarz','sand','grau','navy','camel','anthrazit','dunkelbraun','beige'),
+    rating: 4.7, reviews: 2109
+  },
+  {
+    id: 446, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Deo Spray Men 72h',
+    svgType: 'beauty-hairspray',
+    price: 4.99, badge: 'new',
+    desc: '72-Stunden-Schutz gegen Schweiß und Geruch. Alkoholfrei, kein weißer Flecken. Frischer maskuliner Duft – Zeder & Bergamotte.',
+    sizes: ['One Size'],
+    variants: v('navy','taubenblau','grau','schwarz','mintgruen','anthrazit'),
+    rating: 4.7, reviews: 3456
+  },
+  {
+    id: 447, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Körperlotion Herren Sport',
+    svgType: 'beauty-bottle',
+    price: 6.99, badge: 'new',
+    desc: 'Leichte Körperlotion für aktive Männer. Shea-Butter und Vitamin E pflegen nach dem Sport. Schnell einziehend, kein Fettfilm.',
+    sizes: ['One Size'],
+    variants: v('navy','taubenblau','grau','mintfrisch','olivgruen','weiss','silber'),
+    rating: 4.6, reviews: 1765
+  },
+  {
+    id: 448, cat: 'herren', brand: 'MIA MAN',
+    name: 'Sporttasche Gym Bag',
+    svgType: 'bag-tote',
+    price: 19.99, oldPrice: 39.99, badge: 'sale',
+    desc: 'Geräumige Sporttasche mit separatem Schuhfach. Schweißfeste Innenfächer, verstellbarer Schulterriemen, Nylon-Außenmaterial.',
+    sizes: ['One Size'],
+    variants: v('schwarz','navy','grau','olivgruen','anthrazit','rot','camel','dunkelblau'),
+    rating: 4.8, reviews: 2876
+  },
+  {
+    id: 449, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Parfum Herren Intense',
+    svgType: 'beauty-bottle',
+    price: 29.99, oldPrice: 59.99, badge: 'hot',
+    desc: 'Intensives Herren-Eau de Parfum mit Noten von Vetiver, Zedernholz und Moschus. Hält 12+ Stunden. Das Signature-Duftprojekt von MIA MAN.',
+    sizes: ['One Size'],
+    variants: v('dunkelbraun','anthrazit','schwarz','cognac','navy','olivgruen'),
+    rating: 4.9, reviews: 1876
+  },
+  {
+    id: 450, cat: 'herren', brand: 'MIA MAN CARE',
+    name: 'Lippenpflege Balsam für Männer',
+    svgType: 'beauty-lipstick',
+    price: 2.99, badge: 'new',
+    desc: 'Pflegender Lippenbalsam mit Bienenwachs und Vitamin E. Schützt vor Austrocknung, ohne Glanz. Der dezente, maskuline Lippenschutz.',
+    sizes: ['One Size'],
+    variants: v('weiss','creme','nudenude','mintfrisch','navy','anthrazit'),
+    rating: 4.6, reviews: 987
+  },
+
+  /* ================================================================
+     JUGEND & TEENS
+     ================================================================ */
+  {
+    id: 501, cat: 'jugend', brand: 'URBAN BASICS',
+    name: 'Oversized Hoodie Teens',
+    svgType: 'top-shirt',
+    price: 14.99, oldPrice: 29.99, badge: 'hot',
+    desc: 'Der Must-Have-Hoodie für Teens. Überschnittene Schultern, Känguru-Tasche, weiches French-Terry-Material. Zu allem kombinierbar.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('schwarz','grau','weiss','rosa','himmelblau','mintgruen','lavendel','navy','olivgruen','gelb','koralle','burgundrot','creme','babyblau'),
+    rating: 4.9, reviews: 5432
+  },
+  {
+    id: 502, cat: 'jugend', brand: 'URBAN BASICS',
+    name: 'Baggy Jeans Y2K Style',
+    svgType: 'pants',
+    price: 24.99, oldPrice: 49.99, badge: 'new',
+    desc: 'Die trendigsten weiten Jeans im Y2K-Style. Niedriger Bund, extrem weites Bein, Kargo-Taschen an den Seiten. TikTok-approved!',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('denim','schwarz','grau','dunkelblau','jeansblau','weiss','beige','camel'),
+    rating: 4.8, reviews: 4321
+  },
+  {
+    id: 503, cat: 'jugend', brand: 'NOVA STYLE',
+    name: 'Crop Top Teens Printed',
+    svgType: 'top-crop',
+    price: 7.99, badge: 'hot',
+    desc: 'Trendiger Crop-Top für junge Girls. Verschiedene Motive und Drucke, leichtes Jersey-Material. Perfekt für Schule, Freizeit und ausgehen.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('weiss','schwarz','rosa','mintgruen','lavendel','himmelblau','creme','gelb','koralle','lila','babyrose','altrosa'),
+    rating: 4.8, reviews: 6789
+  },
+  {
+    id: 504, cat: 'jugend', brand: 'URBAN BASICS',
+    name: 'Sneakers Teen High-Top',
+    svgType: 'shoe-sneaker',
+    price: 29.99, oldPrice: 59.99, badge: 'sale',
+    desc: 'Stylische High-Top-Sneaker für Teens. Robuste Canvas-Außenfläche, Gummisohle, Schnürung. Der klassische Skater-Sneaker.',
+    sizes: ['36','37','38','39','40','41','42'],
+    variants: v('schwarz','weiss','navy','rot','olivgruen','rosa','himmelblau','mintgruen','gelb','orange'),
+    rating: 4.7, reviews: 4231
+  },
+  {
+    id: 505, cat: 'jugend', brand: 'MIA LABEL',
+    name: 'Mini Backpack Teen',
+    svgType: 'bag-crossbody',
+    price: 16.99, badge: 'new',
+    desc: 'Angesagter Mini-Rucksack für Teens und Tweens. Vordertasche mit Reißverschluss, verstellbare Riemen, viele Farben.',
+    sizes: ['One Size'],
+    variants: v('schwarz','altrosa','lila','himmelblau','mintgruen','weiss','olivgruen','navy','koralle','gelb','lavendel','creme'),
+    rating: 4.8, reviews: 3456
+  },
+  {
+    id: 506, cat: 'jugend', brand: 'NOVA STYLE',
+    name: 'Cargo Pants Teen Streetstyle',
+    svgType: 'pants',
+    price: 19.99, oldPrice: 39.99, badge: 'hot',
+    desc: 'Trendy Cargo-Hose im Streetstyle. Weites Bein, viele Taschen, elastischer Bund. Ein Must-Have für jeden Teen-Kleiderschrank.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('schwarz','olivgruen','beige','grau','camel','khaki','navy','anthrazit','sand','rost'),
+    rating: 4.8, reviews: 5678
+  },
+  {
+    id: 507, cat: 'jugend', brand: 'MIA LABEL',
+    name: 'Bodysuit Teen Floral',
+    svgType: 'bodysuit-ribbed',
+    price: 9.99, badge: 'new',
+    desc: 'Süßer Bodysuit mit Blumenmuster für Teens. Weicher Ripp-Stoff, Rundhalsausschnitt, Druckknöpfe am Schritt. Ideal unter Jeans oder Cargo-Pants.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('rosa','mintgruen','lavendel','babyblau','weiss','creme','altrosa','himmelblau','lila','gelb'),
+    rating: 4.7, reviews: 2345
+  },
+  {
+    id: 508, cat: 'jugend', brand: 'URBAN BASICS',
+    name: 'Bomberjacke Teen Shiny',
+    svgType: 'blazer',
+    price: 24.99, oldPrice: 49.99, badge: 'sale',
+    desc: 'Glänzende Bomberjacke für junge Trendsetter. Satin-Obermaterial, Rippbündchen, Eingrifftaschen. Statement-Piece für jeden Look.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('schwarz','navy','olivgruen','altrosa','burgund','himmelblau','camel','lila','rot','mintgruen'),
+    rating: 4.8, reviews: 3210
+  },
+  {
+    id: 509, cat: 'jugend', brand: 'MIA BEAUTY',
+    name: 'Tinted Lip Balm Teen',
+    svgType: 'beauty-lipstick',
+    price: 3.49, badge: 'hot',
+    desc: 'Pflegender getönter Lippenbalsam für Teens. Leichte Farbe, Glossy-Effekt, kein Schminken-Gefühl. In 10 Glossy-Farben.',
+    sizes: ['One Size'],
+    variants: v('rosa','babyrose','koralle','lachs','nudenude','altrosa','beerenpink','lila','mintfrisch','gelb'),
+    rating: 4.9, reviews: 8765
+  },
+  {
+    id: 510, cat: 'jugend', brand: 'MIA HAIR',
+    name: 'Glitzer Hair Spray Party',
+    svgType: 'beauty-hairspray',
+    price: 4.99, badge: 'new',
+    desc: 'Temporäres Glitzer-Haarspray für Partys, Festivals und besondere Anlässe. Wäscht sich aus, kein Schaden am Haar. In 8 Glitzer-Farben.',
+    sizes: ['One Size'],
+    variants: v('gold','silber','rosegold','champagne','himmelblau','rosa','lila','weiss'),
+    rating: 4.8, reviews: 4321
+  },
+  {
+    id: 511, cat: 'jugend', brand: 'MIA BEAUTY',
+    name: 'Nagellack Set Trendy 6-tlg',
+    svgType: 'beauty-nail',
+    price: 7.99, badge: 'hot',
+    desc: '6 trendige Nagellacke in aktuellen Teen-Farben. Jelly, Neon und Pastel. Trocknet in 60 Sekunden, kein Schälen.',
+    sizes: ['One Size'],
+    variants: v('rosa','mintfrisch','lila','himmelblau','gelb','koralle','weiss','lachs','babyblau','altrosa'),
+    rating: 4.8, reviews: 5678
+  },
+  {
+    id: 512, cat: 'jugend', brand: 'MIA HAIR',
+    name: 'Haarbänder-Set Rainbow 20er',
+    svgType: 'beauty-scrunchie',
+    price: 5.99, badge: 'new',
+    desc: '20 bunte Haarbänder im Regenbogen-Set. Verschiedene Größen und Farben, Satin- und Velour-Mix. Für jedes Haar und jeden Look.',
+    sizes: ['One Size'],
+    variants: v('rosa','gelb','mintgruen','himmelblau','lila','koralle','weiss','schwarz','altrosa','babyblau','champagne','lavendel','babyrose'),
+    rating: 4.9, reviews: 6543
+  },
+  {
+    id: 513, cat: 'jugend', brand: 'URBAN BASICS',
+    name: 'Sport-BH Teen Active',
+    svgType: 'bodysuit-tank',
+    price: 8.99, badge: 'new',
+    desc: 'Sportlicher Bustier-BH für aktive Teens. Leichte Polsterung, breite Träger, elastischer Rippstoff. Für Yoga, Sport und Alltag.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('schwarz','weiss','rosa','mintgruen','lavendel','navy','olivgruen','creme','himmelblau','gelb'),
+    rating: 4.7, reviews: 3210
+  },
+  {
+    id: 514, cat: 'jugend', brand: 'MIA LABEL',
+    name: 'Maxi Kleid Boho Teen',
+    svgType: 'dress-maxi',
+    price: 19.99, badge: 'new',
+    desc: 'Verspieltes Boho-Maxikleid für junge Mädchen. Rüschendetails, elastischer Bund, leicht und fließend. Für Sommer, Strand und Festival.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('weiss','creme','rosa','himmelblau','mintgruen','lavendel','gelb','babyblau','ivory','altrosa','lila'),
+    rating: 4.8, reviews: 2345
+  },
 ];

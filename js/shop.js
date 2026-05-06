@@ -23,6 +23,7 @@ const catTitles = {
   bodys: 'Bodys & Bodies',
   damen: 'Damen',
   herren: 'Herren',
+  jugend: 'Jugend & Teens',
   schuhe: 'Schuhe',
   taschen: 'Taschen',
   accessoires: 'Accessoires',
@@ -120,8 +121,8 @@ function getActiveVariant(p) {
 
 function cardHTML(p) {
   const discount = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
-  const badgeMap = { new: 'badge-new', sale: 'badge-sale', hot: 'badge-hot', top: 'badge-top' };
-  const badgeLbl = { new: 'NEU', sale: `-${discount}%`, hot: 'TOP', top: '⭐ BELIEBT' };
+  const badgeMap = { new: 'badge-new', sale: 'badge-sale', hot: 'badge-hot', top: 'badge-top', luxury: 'badge-luxury' };
+  const badgeLbl = { new: 'NEU', sale: `-${discount}%`, hot: 'TOP', top: '⭐ BELIEBT', luxury: '✦ LUXURY' };
   const isWished = wishlist.has(p.id);
   const activeIdx = selectedVariant[p.id] || 0;
   const activeV = getActiveVariant(p);
