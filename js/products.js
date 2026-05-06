@@ -322,6 +322,36 @@ const products = [
     rating: 4.8, reviews: 3210
   },
   {
+    id: 860, cat: 'damen', brand: 'URBAN BASICS',
+    name: 'Baggy Jeans Low-Rise – Hellblau',
+    svgType: 'jeans-baggy-women',
+    price: 32.99, oldPrice: 59.99, badge: 'new',
+    desc: 'Lässige Low-Rise Baggy Jeans im 90s Y2K-Style. Sehr weites Bein, vintage Wash-Effekt, authentische Denim-Details. Sitzt tief an der Hüfte – kombiniere mit Crop Top.',
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
+    variants: v('hellblau','babyblau','jeansblau','denim','schwarz','grau','anthrazit','weiss','navy','dunkelblau','olivgruen','camel'),
+    rating: 4.9, reviews: 8640
+  },
+  {
+    id: 861, cat: 'damen', brand: 'MIA LABEL',
+    name: 'Baggy Jeans Oversize Vintage',
+    svgType: 'jeans-baggy-women',
+    price: 37.99, badge: 'hot',
+    desc: 'Oversized Baggy Jeans mit ultra-weitem Beinschnitt und Vintage-Wash. Low Rise, 5 Taschen, Gürtelschlaufen. Streetwear-Must-Have für alle Größen.',
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
+    variants: v('jeansblau','denim','hellblau','schwarz','anthrazit','grau','babyblau','weiss','dunkelblau','camel','olivgruen'),
+    rating: 4.8, reviews: 6120
+  },
+  {
+    id: 862, cat: 'damen', brand: 'THE DAILY EDIT',
+    name: 'Wide Leg Denim Baggy Premium',
+    svgType: 'jeans-baggy-women',
+    price: 44.99, oldPrice: 79.99, badge: 'sale',
+    desc: 'Premium Wide-Leg Jeans aus schwerem Stretch-Denim. Weiches Material, trotzdem strukturiert. Low-Rise mit femininem Hüftsitz. Passt zu jedem Anlass.',
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
+    variants: v('schwarz','dunkelblau','navy','anthrazit','jeansblau','denim','grau','hellblau','burgund','olivgruen','camel','creme'),
+    rating: 4.7, reviews: 4280
+  },
+  {
     id: 702, cat: 'damen', brand: 'NOVA STYLE',
     name: 'Pailletten-Kleid Festlich',
     svgType: 'dress-sequin',

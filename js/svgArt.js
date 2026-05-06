@@ -908,6 +908,101 @@ function jeansBaggy(c, bg) {
   `);
 }
 
+// Women's Baggy Jeans – low-rise, wide leg, bare midriff, female figure
+function jeansBaggyWomen(c, bg) {
+  const [b1,b2] = bg || _bg(c); const h = _hex(c); const id = Math.random().toString(36).slice(2,7);
+  const fc = _figColors();
+  const wash = 'rgba(255,255,255,0.15)';
+  const seam = 'rgba(0,0,0,0.09)';
+  const dark = 'rgba(0,0,0,0.17)';
+  return _wrap('0 0 280 490', b1, b2, `
+  ${_defs(id, c)}
+  <ellipse cx="140" cy="483" rx="76" ry="7" fill="rgba(0,0,0,0.08)"/>
+
+  <!-- Female midriff skin – exposed belly (low-rise fit) -->
+  <path d="M 100 86 C 88 93 80 107 78 126 L 78 150 L 202 150 L 202 126
+           C 200 107 192 93 180 86 Q 161 78 140 78 Q 119 78 100 86 Z"
+        fill="${fc.skin}" opacity="0.92"/>
+  <!-- Belly button -->
+  <ellipse cx="140" cy="140" rx="2" ry="2.8" fill="rgba(0,0,0,0.16)" opacity="0.65"/>
+
+  <g transform="translate(0,40)">
+
+  <!-- Left leg: wide baggy from hip to ankle -->
+  <path d="M 78 112 C 72 152 64 205 59 258 C 54 312 49 372 45 440
+           L 125 440 C 125 362 123 298 123 244
+           C 127 216 133 189 140 170
+           L 140 112 Z"
+        fill="url(#fab${id})" filter="url(#drp${id})"/>
+
+  <!-- Right leg: wide baggy from hip to ankle -->
+  <path d="M 202 112 C 208 152 216 205 221 258 C 226 312 231 372 235 440
+           L 155 440 C 155 362 157 298 157 244
+           C 153 216 147 189 140 170
+           L 140 112 Z"
+        fill="url(#fab2${id})"/>
+
+  <!-- Low-rise waistband – dips at centre, flares at hips -->
+  <path d="M 76 110 C 84 100 106 93 128 95 L 140 99 L 152 95
+           C 174 93 196 100 204 110
+           L 204 126 C 196 124 172 122 155 122 L 140 123 L 125 122
+           C 108 122 84 124 76 126 Z"
+        fill="${_adj(h,-20)}"/>
+
+  <!-- Belt loops -->
+  <rect x="90"  y="90" width="8" height="22" rx="2.5" fill="${_adj(h,-40)}"/>
+  <rect x="136" y="90" width="8" height="22" rx="2.5" fill="${_adj(h,-40)}"/>
+  <rect x="182" y="90" width="8" height="22" rx="2.5" fill="${_adj(h,-40)}"/>
+
+  <!-- Button & fly -->
+  <circle cx="140" cy="103" r="4.5" fill="${_adj(h,-52)}" opacity="0.72"/>
+  <line x1="140" y1="109" x2="140" y2="178" stroke="${dark}" stroke-width="2.5"/>
+
+  <!-- Crotch seam curve -->
+  <path d="M 100 172 C 114 212 130 232 140 236 C 150 232 166 212 180 172"
+        fill="none" stroke="${seam}" stroke-width="2.5" stroke-linecap="round"/>
+
+  <!-- Front pocket left (hand pocket) -->
+  <path d="M 84 130 C 78 145 76 162 80 174 C 90 172 106 165 112 156 L 112 130 Z"
+        fill="${_adj(h,-20)}" opacity="0.40"/>
+  <!-- Front pocket right -->
+  <path d="M 196 130 C 202 145 204 162 200 174 C 190 172 174 165 168 156 L 168 130 Z"
+        fill="${_adj(h,-20)}" opacity="0.40"/>
+
+  <!-- Outer leg seam stitching lines -->
+  <line x1="86"  y1="134" x2="49"  y2="438" stroke="${seam}" stroke-width="1.5"/>
+  <line x1="194" y1="134" x2="231" y2="438" stroke="${seam}" stroke-width="1.5"/>
+
+  <!-- Inseam stitching -->
+  <line x1="125" y1="236" x2="125" y2="438" stroke="${seam}" stroke-width="1.5"/>
+  <line x1="155" y1="236" x2="155" y2="438" stroke="${seam}" stroke-width="1.5"/>
+
+  <!-- Washed/vintage fade highlight – left thigh -->
+  <path d="M 83 138 C 79 228 77 335 79 418 L 87 416 C 85 332 87 226 91 136 Z"
+        fill="${wash}" opacity="0.9"/>
+  <!-- Washed/vintage fade highlight – right thigh -->
+  <path d="M 197 138 C 201 228 203 335 201 418 L 193 416 C 195 332 193 226 189 136 Z"
+        fill="${wash}" opacity="0.9"/>
+
+  <!-- Knee worn highlights -->
+  <ellipse cx="84"  cy="292" rx="17" ry="27" fill="${wash}" opacity="0.52"/>
+  <ellipse cx="196" cy="292" rx="17" ry="27" fill="${wash}" opacity="0.52"/>
+
+  <!-- Horizontal fold creases mid-thigh (baggy drape effect) -->
+  <path d="M 66 230 C 78 225 100 223 118 224" fill="none" stroke="${seam}" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 214 230 C 202 225 180 223 162 224" fill="none" stroke="${seam}" stroke-width="1.2" stroke-linecap="round"/>
+  <path d="M 62 318 C 75 313 98 311 120 312" fill="none" stroke="${seam}" stroke-width="1.1" stroke-linecap="round"/>
+  <path d="M 218 318 C 205 313 182 311 160 312" fill="none" stroke="${seam}" stroke-width="1.1" stroke-linecap="round"/>
+
+  <!-- Hem at ankles -->
+  <rect x="45"  y="433" width="80" height="8" rx="3" fill="${_adj(h,-18)}" opacity="0.5"/>
+  <rect x="155" y="433" width="80" height="8" rx="3" fill="${_adj(h,-18)}" opacity="0.5"/>
+
+  </g>
+  ${_figHead(fc.skin, fc.hair, 'long')}
+  `);
+}
+
 /* ══════════════════════════════════════════════
    JACKET / BLAZER
    ══════════════════════════════════════════════ */
@@ -1991,6 +2086,7 @@ function getProductSVG(p) {
     case 'top-shirt':            return topShirt(c, bg);
     case 'pants':                return pants(c, bg);
     case 'jeans-baggy':          return jeansBaggy(c, bg);
+    case 'jeans-baggy-women':    return jeansBaggyWomen(c, bg);
     case 'blazer':               return blazer(c, bg);
     case 'shoe-sneaker':         return shoeSneaker(c, bg);
     case 'shoe-heel':            return shoeHeel(c, bg);
