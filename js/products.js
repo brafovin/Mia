@@ -98,7 +98,7 @@ const products = [
     svgType: 'dress-off-shoulder',
     price: 34.99, oldPrice: 69.99, badge: 'hot',
     desc: 'Elegantes Off-Shoulder Maxi Kleid mit raffiniertem Satin-Drapéekragen, tief fallender Schulterpartie und seitlichem Schlitz. Figurbetonter Schnitt, bodenlanges Silhouette.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','anthrazit','navy','burgund','weinrot','dunkelbraun','olivgruen','smaragd','lila','rot','weiss','creme','camel','taubenblau','grau','blush','dustyrose','sage'),
     rating: 5.0, reviews: 12043
   },
@@ -108,7 +108,7 @@ const products = [
     svgType: 'dress-bodycon',
     price: 29.99, oldPrice: 59.99, badge: 'hot',
     desc: 'Das Signature-Kleid von MIA LABEL: langer Ärmel, hoher Mock-Neck und üppige Seitenraffung für eine perfekte Sanduhr-Silhouette. Bodenlang, super elastischer Stretch-Jersey.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','anthrazit','weiss','navy','burgund','olivgruen','dunkelbraun','grau','weinrot','camel','taubenblau','smaragd','rost','creme','lila','rot','blush','sage'),
     rating: 5.0, reviews: 9821
   },
@@ -122,7 +122,7 @@ const products = [
     svgType: 'bodysuit-tank',
     price: 12.99, oldPrice: 24.99, badge: 'hot',
     desc: 'Klassischer Spaghetti-Träger-Body aus weichem Viskose-Mix. Formschön, körpernah, mit Druckknöpfen am Schritt. Perfekt unter Blazer, Jeans oder solo.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','anthrazit','grau','weiss','creme','navy','burgund','terracotta','olivgruen','mintgruen','flieder','rosa','babyrose','camel','dustyrose','lila'),
     rating: 4.8, reviews: 1203
   },
@@ -132,7 +132,7 @@ const products = [
     svgType: 'bodysuit-ribbed',
     price: 10.99, oldPrice: 19.99, badge: 'new',
     desc: 'Zeitloser Ripp-Body aus elastischem Baumwoll-Ripp. Angenehm dehnbar, atmungsaktiv. Das must-have Basics für jeden Kleiderschrank.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('weiss','schwarz','grau','graumel','creme','ivory','navy','taubenblau','mintgruen','sage','altrosa','rosa','camel','latte','dunkelbraun','mustard'),
     rating: 4.9, reviews: 2145
   },
@@ -142,7 +142,7 @@ const products = [
     svgType: 'bodysuit-vneck',
     price: 13.99, badge: 'new',
     desc: 'Eleganter V-Ausschnitt-Body in vielen schönen Farben. Weiches Interlock-Jersey, formt die Figur. Von Business bis Date-Night.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('camel','latte','schwarz','weiss','navy','himmelblau','burgund','weinrot','rot','terracotta','olivgruen','sage','lila','lavendel','rosa','altrosa','dustyrose','grau'),
     rating: 4.7, reviews: 876
   },
@@ -152,7 +152,7 @@ const products = [
     svgType: 'bodysuit-long',
     price: 17.99, oldPrice: 34.99, badge: 'sale',
     desc: 'Schicker Langarm-Body mit hohem Turtleneck-Kragen. Weicher Viskose-Stoff für den Herbst. Trägt sich wie ein zweites Hautbild.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('camel','creme','schokobraun','cognac','schwarz','anthrazit','grau','navy','olivgruen','waldgruen','burgund','weinrot','taubenblau','lila','pflaume','mustard','rost'),
     rating: 4.8, reviews: 654
   },
@@ -162,7 +162,7 @@ const products = [
     svgType: 'bodysuit-cutout',
     price: 15.99, badge: 'hot',
     desc: 'Trendy Cut-Out-Body mit offenem Midriff-Detail. Spaghetti-Träger, Snap-Verschluss. Der Hingucker auf jeder Party.',
-    sizes: ['XS','S','M','L'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('terracotta','rost','koralle','schwarz','weiss','burgund','rot','navy','olivgruen','mintgruen','lila','rosa','pink','gold','champagne'),
     rating: 4.6, reviews: 432
   },
@@ -172,7 +172,7 @@ const products = [
     svgType: 'bodysuit-lace',
     price: 18.99, oldPrice: 34.99, badge: 'sale',
     desc: 'Romantischer Spitzen-Body mit feinem All-over-Spitzenmuster. Gefüttertes Brustteil, Spaghetti-Träger. Zarter Look für besondere Anlässe.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('altrosa','weiss','schwarz','creme','ivory','babyrose','dustyrose','lavendel','mintgruen','navy','champagne','rosegold','burgund','mauve','taubenblau'),
     rating: 4.9, reviews: 789
   },
@@ -182,7 +182,7 @@ const products = [
     svgType: 'bodysuit-square',
     price: 11.99, badge: 'new',
     desc: 'Trendiger Body mit breitem quadratischen Ausschnitt und Schulterträgern. Aus straffem Jersey, formend.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('navy','dunkelblau','schwarz','weiss','creme','burgund','olivgruen','waldgruen','taubenblau','himmelblau','babyblau','lila','flieder','rosa','terracotta','mustard','grau'),
     rating: 4.7, reviews: 534
   },
@@ -192,7 +192,7 @@ const products = [
     svgType: 'bodysuit-offshoulder',
     price: 16.99, oldPrice: 29.99, badge: 'sale',
     desc: 'Verführerischer Off-Shoulder-Body mit elastischem Schulterband. Mit Jeans oder Shorts für den perfekten Sommeroutfit.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('mintgruen','smaragd','sage','schwarz','weiss','rosa','babyrose','koralle','lachs','himmelblau','hellblau','lila','lavendel','gelb','buttercup','turkis','flieder','altrosa'),
     rating: 4.8, reviews: 347
   },
@@ -202,7 +202,7 @@ const products = [
     svgType: 'bodysuit-wrap',
     price: 19.99, badge: 'hot',
     desc: 'Schöner Wrap-Body mit Raffung vorne für einen figurbetonenden V-Effekt. Spaghetti-Träger, angenehm weich.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('flieder','lila','lavendel','pflaume','schwarz','weiss','grau','rosa','altrosa','navy','olivgruen','sage','terracotta','camel','burgund','himmelblau','turkis','mustard'),
     rating: 4.7, reviews: 489
   },
@@ -212,7 +212,7 @@ const products = [
     svgType: 'bodysuit-long',
     price: 14.99, badge: 'new',
     desc: 'Gemütlicher Langarm-Ripp-Body aus elastischem Baumwoll-Ripp. Wärmend und formend – ideal für kühle Jahreszeiten.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schokobraun','dunkelbraun','schwarz','anthrazit','waldgruen','olivgruen','navy','burgund','weinrot','grau','graumel','camel','caramel','lila','pflaume','rost','taubenblau'),
     rating: 4.8, reviews: 923
   },
@@ -222,7 +222,7 @@ const products = [
     svgType: 'bodysuit-tank',
     price: 22.99, oldPrice: 39.99, badge: 'sale',
     desc: 'Luxuriöser Satin-Body in vielen festlichen Farben. Fließendes Material, einstellbare Träger. Für festliche Anlässe und elegante Abende.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('champagne','ivory','weiss','rosegold','gold','schwarz','navy','burgundrot','mintgruen','himmelblau','lavendel','lila','babyrose','dustyrose','creme','taubenblau'),
     rating: 4.9, reviews: 312
   },
@@ -232,7 +232,7 @@ const products = [
     svgType: 'bodysuit-ribbed',
     price: 24.99, oldPrice: 44.99, badge: 'hot',
     desc: 'Vorteilspack: 3 Basic-Bodies aus Ripp-Jersey. Perfekte Layering-Pieces für jeden Look. Zeitloser Style, alltagstauglich.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','weiss','grau','navy','creme','camel','rosa','mintgruen','lila','terracotta','burgund','taubenblau'),
     rating: 4.9, reviews: 1876
   },
@@ -242,7 +242,7 @@ const products = [
     svgType: 'bodysuit-vneck',
     price: 13.99, badge: 'new',
     desc: 'Figurbetonter Deep-V-Body in vielen intensiven Farben. Weiches Interlock, Spaghetti-Träger, elastischer Bund.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('burgund','weinrot','schwarz','navy','rot','terracotta','koralle','olivgruen','waldgruen','lila','pflaume','taubenblau','grau','anthrazit','camel','mustard','pink'),
     rating: 4.7, reviews: 645
   },
@@ -252,7 +252,7 @@ const products = [
     svgType: 'bodysuit-cutout',
     price: 17.99, oldPrice: 32.99, badge: 'sale',
     desc: 'Edgy Mesh-Body mit auffälligen Cut-Out-Details an Taille und Schultern. Halbdurchsichtiges Obermaterial mit Futter am Brust.',
-    sizes: ['XS','S','M','L'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','anthrazit','navy','burgund','olivgruen','lila','rot','creme','weiss','rosegold'),
     rating: 4.6, reviews: 298
   },
@@ -262,7 +262,7 @@ const products = [
     svgType: 'bodysuit-offshoulder',
     price: 15.99, badge: 'new',
     desc: 'Romantischer schulterfreier Body. Breites elastisches Band, körpernah. Kombiniert mit Mom-Jeans für lässige Summer-Vibes.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('dustyrose','mauve','blush','schwarz','weiss','creme','lavendel','flieder','mintgruen','sage','babyblau','turkis','koralle','lachs','gelb','grau','navy','olivgruen'),
     rating: 4.8, reviews: 567
   },
@@ -272,7 +272,7 @@ const products = [
     svgType: 'bodysuit-square',
     price: 14.99, badge: 'hot',
     desc: 'Weicher Ripp-Strick-Body mit quadratischem Ausschnitt. Herbstlich, warm, fashionable. Dazu ein langer Rock oder weite Jeans.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('olivgruen','waldgruen','sage','schwarz','camel','creme','dunkelbraun','rost','terracotta','navy','grau','lila','burgund','mustard','weinrot','salbei','mintgruen'),
     rating: 4.7, reviews: 423
   },
@@ -282,7 +282,7 @@ const products = [
     svgType: 'bodysuit-wrap',
     price: 16.99, oldPrice: 29.99, badge: 'sale',
     desc: 'Verspielter geraffter Body in leuchtenden Sommerfarben. Spaghetti-Träger, angenehm weicher Stoff.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('himmelblau','turkis','mintgruen','koralle','lachs','gelb','buttercup','rosa','pink','weiss','schwarz','lavendel','babyblau','sage','navy','creme','babyrose'),
     rating: 4.6, reviews: 378
   },
@@ -292,7 +292,7 @@ const products = [
     svgType: 'bodysuit-lace',
     price: 21.99, badge: 'new',
     desc: 'Traumhafter Langarm-Body aus feiner Chantilly-Spitze über Viskose-Futter. Elegant und romantic.',
-    sizes: ['XS','S','M','L'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('ivory','weiss','creme','babyrose','altrosa','schwarz','navy','champagne','mintgruen','lavendel','lila','dustyrose','blush','sage','taubenblau','rosegold'),
     rating: 4.9, reviews: 234
   },
@@ -307,7 +307,7 @@ const products = [
     svgType: 'dress-bodycon',
     price: 27.99, oldPrice: 54.99, badge: 'hot',
     desc: 'Figurbetontes Bodycon-Kleid mit langen Ärmeln, hohem Mock-Neck und ausgeprägter Seitenraffung. Formt eine Sanduhr-Silhouette. Midi-Länge, leicht elastischer Jersey.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','anthrazit','weiss','creme','navy','burgund','olivgruen','dunkelbraun','grau','weinrot','camel','dunkelblau','taubenblau','smaragd','rost'),
     rating: 4.9, reviews: 4821
   },
@@ -317,7 +317,7 @@ const products = [
     svgType: 'dress-bodycon',
     price: 24.99, badge: 'new',
     desc: 'Sexy Bodycon-Kleid mit Turtleneck und aufwendiger Raffung an den Seiten. Enganliegend und trotzdem bequem dank Stretch-Mix. Perfekt für den Ausgehnight.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','burgundrot','weinrot','navy','smaragd','anthrazit','dunkelbraun','lila','rot','olivgruen','grau','taubenblau','creme','weiss'),
     rating: 4.8, reviews: 3210
   },
@@ -327,7 +327,7 @@ const products = [
     svgType: 'dress-sequin',
     price: 34.99, oldPrice: 69.99, badge: 'hot',
     desc: 'Atemberaubendes Paillettenkleid mit schimmernden Glitzersteinen, Satin-Saum und zartem Satinband in der Taille. Für unvergessliche Abende.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','navy','burgund','weinrot','smaragd','olivgruen','anthrazit','lila','dunkelblau','gold','rosegold','silber'),
     rating: 4.9, reviews: 2876
   },
@@ -337,7 +337,7 @@ const products = [
     svgType: 'dress-cocktail',
     price: 29.99, oldPrice: 59.99, badge: 'sale',
     desc: 'Elegantes Wickel-Cocktailkleid mit tiefem V-Ausschnitt und fließendem Rock. Asymmetrischer Gürtel mit Schleife betont die Taille perfekt.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('burgund','navy','schwarz','smaragd','weinrot','dunkelblau','taubenblau','olivgruen','anthrazit','lila','rot','creme','camel','altrosa'),
     rating: 4.8, reviews: 1987
   },
@@ -347,7 +347,7 @@ const products = [
     svgType: 'dress-midi',
     price: 22.99, oldPrice: 44.99, badge: 'sale',
     desc: 'Wunderschönes Midi-Kleid im Wickelstil mit romantischem Blumenprint. Fließender Chiffon für leichten Tragekomfort.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('rosa','altrosa','dustyrose','himmelblau','mintgruen','gelb','koralle','lavendel','weiss','creme','schwarz','navy','turkis','babyrose','lachs','salbei'),
     rating: 4.8, reviews: 634
   },
@@ -357,7 +357,7 @@ const products = [
     svgType: 'blazer',
     price: 34.99, oldPrice: 69.99, badge: 'hot',
     desc: 'Klassischer Oversized-Blazer in zeitlosem Design. Hochwertige Webqualität mit strukturierter Schulterpartie.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('camel','schwarz','creme','navy','grau','anthrazit','olivgruen','burgund','taubenblau','beige','mustard','rost','weiss','dunkelbraun','sage','weinrot'),
     rating: 4.9, reviews: 421
   },
@@ -367,7 +367,7 @@ const products = [
     svgType: 'top-crop',
     price: 9.99, badge: 'new',
     desc: 'Zwei hochwertige Ripp-Crop-Tops im Set. Körpernahes Material mit angenehmer Stretchqualität.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('weiss','schwarz','grau','creme','rosa','mintgruen','himmelblau','lavendel','camel','navy','koralle','lachs','gelb','turkis','altrosa','babyblau','sage','mustard'),
     rating: 4.7, reviews: 892
   },
@@ -377,7 +377,7 @@ const products = [
     svgType: 'dress-maxi',
     price: 39.99, oldPrice: 79.99, badge: 'sale',
     desc: 'Luxuriöses Maxi-Kleid aus satinartigem Viskose-Mix. Fließende Silhouette mit elegantem Ausschnitt.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('navy','champagne','burgund','schwarz','olivgruen','mintgruen','himmelblau','rosa','lila','taubenblau','creme','ivory','smaragd','weinrot','camel','pflaume'),
     rating: 4.9, reviews: 287
   },
@@ -387,7 +387,7 @@ const products = [
     svgType: 'pants',
     price: 27.99, oldPrice: 54.99, badge: 'sale',
     desc: 'Trendige Wide-Leg-Jeans mit hohem Bund. Klassische Waschung in Blau.',
-    sizes: ['34','36','38','40','42','44'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('jeansblau','denim','navy','schwarz','dunkelblau','hellblau','grau','weiss','khaki','olivgruen'),
     rating: 4.6, reviews: 543
   },
@@ -397,7 +397,7 @@ const products = [
     svgType: 'dress-short',
     price: 14.99, badge: 'new',
     desc: 'Leichtes Sommerkleid für den entspannten Alltag. Weicher Jersey-Stoff, körperfreundliche Passform.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('gelb','buttercup','himmelblau','mintgruen','koralle','lachs','rosa','babyrose','lavendel','weiss','schwarz','turkis','babyblau','altrosa','creme','salbei','mustard','flieder'),
     rating: 4.7, reviews: 523
   },
@@ -407,7 +407,7 @@ const products = [
     svgType: 'top-shirt',
     price: 15.99, oldPrice: 29.99, badge: 'sale',
     desc: 'Romantische Bluse mit Rüschenkragen aus leichtem Viskose-Crêpe. Für Büro und Freizeit.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('weiss','creme','schwarz','altrosa','mintgruen','himmelblau','lavendel','navy','gelb','koralle','sage','taubenblau','ivory','rosa','babyblau','mustard'),
     rating: 4.5, reviews: 267
   },
@@ -417,7 +417,7 @@ const products = [
     svgType: 'blazer',
     price: 49.99, oldPrice: 99.99, badge: 'sale',
     desc: 'Zeitloser Trenchcoat. Doppelreiher mit Gürtel und Schulterklappen. Das Must-Have für den Übergang.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('camel','schwarz','beige','creme','olivgruen','grau','dunkelbraun','navy','rost','anthrazit'),
     rating: 4.8, reviews: 312
   },
@@ -427,7 +427,7 @@ const products = [
     svgType: 'dress-short',
     price: 17.99, badge: 'new',
     desc: 'Niedliches A-Linien Mini-Kleid in fröhlichen Farben. Leichter Jerseytsoff, bequem für den Sommer.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('rosa','babyrose','altrosa','koralle','lachs','gelb','mintgruen','himmelblau','lavendel','weiss','schwarz','turkis','creme','orange','flieder','babyblau'),
     rating: 4.7, reviews: 412
   },
@@ -451,7 +451,7 @@ const products = [
     svgType: 'top-shirt',
     price: 24.99, oldPrice: 54.99, badge: 'hot',
     desc: 'Schwerer 400g-Baumwoll-Hoodie für maximalen Komfort. Känguru-Tasche, Metall-Ösen.',
-    sizes: ['S','M','L','XL','XXL','XXXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','anthrazit','grau','graumel','navy','olivgruen','burgund','creme','weiss','dunkelbraun','himmelblau','lila','rost','camel','taubenblau','waldgruen'),
     rating: 4.9, reviews: 1043
   },
@@ -461,7 +461,7 @@ const products = [
     svgType: 'blazer',
     price: 69.99, oldPrice: 149.99, badge: 'sale',
     desc: 'Edler 2-Teiler-Anzug in schlanker Passform. Hochwertiger Woll-Mix. Für Business und festliche Anlässe.',
-    sizes: ['44','46','48','50','52','54','56'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('navy','anthrazit','grau','schwarz','taubenblau','camel','olivgruen','burgund','dunkelbraun','creme','beige'),
     rating: 4.8, reviews: 287
   },
@@ -471,7 +471,7 @@ const products = [
     svgType: 'pants',
     price: 22.99, badge: 'new',
     desc: 'Bequeme Cargo-Hose im Relaxed-Fit mit 6 Taschen. Robuste Baumwoll-Twill-Qualität.',
-    sizes: ['S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('olivgruen','schwarz','khaki','beige','navy','grau','dunkelbraun','rost','waldgruen','anthrazit','sand'),
     rating: 4.7, reviews: 612
   },
@@ -481,7 +481,7 @@ const products = [
     svgType: 'top-shirt',
     price: 18.99, oldPrice: 39.99, badge: 'sale',
     desc: 'Zeitloses Oxford-Hemd aus 100% Baumwolle mit Button-Down-Kragen. Knitterarm.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('weiss','hellblau','babyblau','rosa','lavendel','navy','schwarz','grau','mintgruen','gelb','taubenblau','creme','sage','koralle','himmelblau','olivgruen'),
     rating: 4.6, reviews: 438
   },
@@ -491,7 +491,7 @@ const products = [
     svgType: 'pants',
     price: 19.99, oldPrice: 44.99, badge: 'sale',
     desc: 'Klassische Slim-Fit-Chino aus elastischem Baumwoll-Mix. Für Büro und Freizeit.',
-    sizes: ['30/30','30/32','32/30','32/32','34/32','34/34','36/32'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('beige','navy','olivgruen','schwarz','grau','camel','dunkelbraun','sand','khaki','rost','anthrazit','taubenblau'),
     rating: 4.5, reviews: 365
   },
@@ -501,7 +501,7 @@ const products = [
     svgType: 'blazer',
     price: 59.99, oldPrice: 129.99, badge: 'hot',
     desc: 'Echte Schafsleder-Bomberjacke. Gestrickte Bündchen und Stehkragen. Ein Statement-Stück.',
-    sizes: ['S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','dunkelbraun','burgund','cognac','olivgruen','navy','anthrazit','camel'),
     rating: 4.9, reviews: 198
   },
@@ -511,7 +511,7 @@ const products = [
     svgType: 'top-shirt',
     price: 14.99, oldPrice: 29.99, badge: 'hot',
     desc: '5 hochwertige T-Shirts aus 100% Premium-Baumwolle im Vorteilspack.',
-    sizes: ['S','M','L','XL','XXL','XXXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('weiss','schwarz','grau','navy','creme','olivgruen','dunkelbraun','himmelblau','rosa','lavendel','mintgruen','gelb'),
     rating: 4.8, reviews: 2341
   },
@@ -707,7 +707,7 @@ const products = [
     svgType: 'blazer',
     price: 19.99, oldPrice: 79.99, badge: 'sale',
     desc: 'Ultra-leichte Daunen-Jacke, packbar auf Faustgröße. Wasserdichte Außenschicht.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','navy','olivgruen','koralle','grau','burgund','mintgruen','gelb','creme','anthrazit','lila','camel','himmelblau'),
     rating: 4.7, reviews: 623
   },
@@ -717,7 +717,7 @@ const products = [
     svgType: 'top-shirt',
     price: 12.99, oldPrice: 49.99, badge: 'sale',
     desc: 'Matching Jogger-Set aus softem French-Terry. Ideal für Zuhause, Gym und entspannte Tage.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('lila','grau','schwarz','navy','olivgruen','rosa','mintgruen','himmelblau','burgund','weiss','creme','camel','lavendel','rost','mustard'),
     rating: 4.8, reviews: 891
   },
@@ -1219,7 +1219,7 @@ const products = [
     svgType: 'jeans-baggy',
     price: 34.99, oldPrice: 64.99, badge: 'new',
     desc: 'Ultraweit geschnittene Baggy Jeans im 90s-Style. Sehr lockerer Sitz durch Oberschenkel und Bein, breites Beinende. 5-Pocket, Vintage-Wash, authentische Denim-Qualität.',
-    sizes: ['28','30','32','34','36','38','40','42','44'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('hellblau','babyblau','jeansblau','denim','schwarz','grau','anthrazit','weiss','navy','dunkelblau'),
     rating: 4.9, reviews: 7832
   },
@@ -1229,7 +1229,7 @@ const products = [
     svgType: 'jeans-baggy',
     price: 39.99, badge: 'hot',
     desc: 'Relaxed Baggy Jeans mit Used-Wash-Effekt. Komfortabler Schnitt, locker am Oberschenkel, geradlinig zum Saum. Perfekt zu Sneakern oder Boots.',
-    sizes: ['28','30','32','34','36','38','40','42','44'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('jeansblau','denim','hellblau','babyblau','grau','anthrazit','schwarz','camel','dunkelblau','olivgruen'),
     rating: 4.8, reviews: 5410
   },
@@ -1239,7 +1239,7 @@ const products = [
     svgType: 'jeans-baggy',
     price: 59.99, oldPrice: 99.99, badge: 'sale',
     desc: 'Premium Wide-Leg Denim aus schwerem 14oz Denim-Stoff. Organische Baumwolle, verstärkte Nähte, klassische 5-Pocket-Optik. Zeitloser Streetwear-Look.',
-    sizes: ['28','30','32','34','36','38','40','42','44'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','dunkelblau','navy','anthrazit','jeansblau','denim','grau','khaki','olivgruen','camel'),
     rating: 4.7, reviews: 3210
   },
@@ -1249,7 +1249,7 @@ const products = [
     svgType: 'top-shirt',
     price: 19.99, oldPrice: 39.99, badge: 'sale',
     desc: 'Klassisches Oxford-Hemd in Slim-Fit-Schnitt aus 100% Baumwolle. Geknöpfter Kragen, gebügelter Look den ganzen Tag. Büro, Dinner, Casual.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('weiss','hellblau','creme','navy','schwarz','grau','babyblau','taubenblau','mintgruen','rosa','lavendel'),
     rating: 4.8, reviews: 2345
   },
@@ -1259,7 +1259,7 @@ const products = [
     svgType: 'pants',
     price: 24.99, oldPrice: 49.99, badge: 'sale',
     desc: 'Hochwertige Chino aus stretchiger Baumwolle. Regular Fit mit flachem Bund. Perfekte Hose für Büro und Freizeit.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('beige','camel','navy','schwarz','grau','olivgruen','anthrazit','sand','dunkelbraun','khaki','taubenblau'),
     rating: 4.7, reviews: 1876
   },
@@ -1269,7 +1269,7 @@ const products = [
     svgType: 'pants',
     price: 29.99, oldPrice: 59.99, badge: 'sale',
     desc: 'Moderne Slim-Straight-Jeans aus hochwertiger Denim-Qualität. Leichter Stretch für Komfort, 5-Pocket-Design, nachhaltig gefärbt.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('denim','dunkelblau','schwarz','grau','jeansblau','anthrazit','navy'),
     rating: 4.8, reviews: 3421
   },
@@ -1279,7 +1279,7 @@ const products = [
     svgType: 'blazer',
     price: 59.99, oldPrice: 119.99, badge: 'sale',
     desc: 'Eleganter Herren-Blazer mit Modern-Fit-Schnitt. Strukturiertes Material, geknöpft, mit Brusttasche und aufgesetzten Taschen. Für Büro und Abend.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('navy','schwarz','anthrazit','grau','olivgruen','dunkelblau','camel','taubenblau','burgund'),
     rating: 4.8, reviews: 1234
   },
@@ -1289,7 +1289,7 @@ const products = [
     svgType: 'blazer',
     price: 34.99, oldPrice: 79.99, badge: 'hot',
     desc: 'Trendy Bomber Jacket mit Rippbündchen und Reißverschluss. Leicht gefüttert, perfekt für Herbst und Frühjahr. Lässiger Streetstyle-Look.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','olivgruen','navy','grau','kamel','caramel','anthrazit','burgund','dunkelbraun','rost'),
     rating: 4.7, reviews: 2109
   },
@@ -1299,7 +1299,7 @@ const products = [
     svgType: 'top-shirt',
     price: 14.99, oldPrice: 29.99, badge: 'sale',
     desc: 'Klassisches Polo-Shirt aus hochwertigem Piqué-Stoff. Dreifach-geknöpfter Kragen, schmale Passform. Sportlich-elegant für jede Gelegenheit.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('weiss','navy','schwarz','grau','olivgruen','himmelblau','rot','burgund','camel','mintgruen','lavendel','gelb'),
     rating: 4.8, reviews: 3456
   },
@@ -1309,7 +1309,7 @@ const products = [
     svgType: 'top-shirt',
     price: 22.99, oldPrice: 44.99, badge: 'new',
     desc: 'Weicher Rundhals-Pullover aus Merino-Mix. Körpernahe Passform, kein Kratzen, wärmt natürlich. Das Basis-Piece der Herren-Garderobe.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('grau','navy','schwarz','camel','olivgruen','burgund','creme','anthrazit','taubenblau','mustard','himmelblau'),
     rating: 4.9, reviews: 2876
   },
@@ -1641,7 +1641,7 @@ const products = [
     svgType: 'top-shirt',
     price: 24.99, oldPrice: 54.99, badge: 'sale',
     desc: 'Bequemer Jogginganzug aus Baumwoll-French-Terry. Kapuzenpulli + Jogger-Hose. Ideal für Sport, Freizeit und Zuhause.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','grau','navy','olivgruen','anthrazit','burgund','camel','himmelblau','weiss'),
     rating: 4.8, reviews: 2987
   },
@@ -1651,7 +1651,7 @@ const products = [
     svgType: 'blazer',
     price: 29.99, oldPrice: 59.99, badge: 'sale',
     desc: 'Elegante Strickjacke aus Merino-Wolle-Mix. V-Ausschnitt, Knopfleiste, Rippbündchen an Saum und Ärmeln. Für Büro und Casual.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('grau','navy','schwarz','camel','olivgruen','burgund','anthrazit','creme','taubenblau','mustard'),
     rating: 4.8, reviews: 1654
   },
@@ -1661,7 +1661,7 @@ const products = [
     svgType: 'pants',
     price: 16.99, oldPrice: 34.99, badge: 'sale',
     desc: 'Lockere Cargo-Shorts mit seitlichen Taschen. Gürtelschlaufen, verstellbarer Saum, Baumwolle-Mix. Der Sommer-Klassiker für Herren.',
-    sizes: ['XS','S','M','L','XL','XXL','XXXL','4XL','5XL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('khaki','olivgruen','schwarz','sand','grau','navy','camel','anthrazit','dunkelbraun','beige'),
     rating: 4.7, reviews: 2109
   },
@@ -1725,7 +1725,7 @@ const products = [
     svgType: 'top-shirt',
     price: 14.99, oldPrice: 29.99, badge: 'hot',
     desc: 'Der Must-Have-Hoodie für Teens. Überschnittene Schultern, Känguru-Tasche, weiches French-Terry-Material. Zu allem kombinierbar.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','grau','weiss','rosa','himmelblau','mintgruen','lavendel','navy','olivgruen','gelb','koralle','burgundrot','creme','babyblau'),
     rating: 4.9, reviews: 5432
   },
@@ -1735,7 +1735,7 @@ const products = [
     svgType: 'pants',
     price: 24.99, oldPrice: 49.99, badge: 'new',
     desc: 'Die trendigsten weiten Jeans im Y2K-Style. Niedriger Bund, extrem weites Bein, Kargo-Taschen an den Seiten. TikTok-approved!',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('denim','schwarz','grau','dunkelblau','jeansblau','weiss','beige','camel'),
     rating: 4.8, reviews: 4321
   },
@@ -1745,7 +1745,7 @@ const products = [
     svgType: 'top-crop',
     price: 7.99, badge: 'hot',
     desc: 'Trendiger Crop-Top für junge Girls. Verschiedene Motive und Drucke, leichtes Jersey-Material. Perfekt für Schule, Freizeit und ausgehen.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('weiss','schwarz','rosa','mintgruen','lavendel','himmelblau','creme','gelb','koralle','lila','babyrose','altrosa'),
     rating: 4.8, reviews: 6789
   },
@@ -1775,7 +1775,7 @@ const products = [
     svgType: 'pants',
     price: 19.99, oldPrice: 39.99, badge: 'hot',
     desc: 'Trendy Cargo-Hose im Streetstyle. Weites Bein, viele Taschen, elastischer Bund. Ein Must-Have für jeden Teen-Kleiderschrank.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','olivgruen','beige','grau','camel','khaki','navy','anthrazit','sand','rost'),
     rating: 4.8, reviews: 5678
   },
@@ -1785,7 +1785,7 @@ const products = [
     svgType: 'bodysuit-ribbed',
     price: 9.99, badge: 'new',
     desc: 'Süßer Bodysuit mit Blumenmuster für Teens. Weicher Ripp-Stoff, Rundhalsausschnitt, Druckknöpfe am Schritt. Ideal unter Jeans oder Cargo-Pants.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('rosa','mintgruen','lavendel','babyblau','weiss','creme','altrosa','himmelblau','lila','gelb'),
     rating: 4.7, reviews: 2345
   },
@@ -1795,7 +1795,7 @@ const products = [
     svgType: 'blazer',
     price: 24.99, oldPrice: 49.99, badge: 'sale',
     desc: 'Glänzende Bomberjacke für junge Trendsetter. Satin-Obermaterial, Rippbündchen, Eingrifftaschen. Statement-Piece für jeden Look.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','navy','olivgruen','altrosa','burgund','himmelblau','camel','lila','rot','mintgruen'),
     rating: 4.8, reviews: 3210
   },
@@ -1845,7 +1845,7 @@ const products = [
     svgType: 'bodysuit-tank',
     price: 8.99, badge: 'new',
     desc: 'Sportlicher Bustier-BH für aktive Teens. Leichte Polsterung, breite Träger, elastischer Rippstoff. Für Yoga, Sport und Alltag.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('schwarz','weiss','rosa','mintgruen','lavendel','navy','olivgruen','creme','himmelblau','gelb'),
     rating: 4.7, reviews: 3210
   },
@@ -1855,7 +1855,7 @@ const products = [
     svgType: 'dress-maxi',
     price: 19.99, badge: 'new',
     desc: 'Verspieltes Boho-Maxikleid für junge Mädchen. Rüschendetails, elastischer Bund, leicht und fließend. Für Sommer, Strand und Festival.',
-    sizes: ['XS','S','M','L','XL','XXL'],
+    sizes: ['XXS','XS','S','M','L','XL','XXL','4XL','5XL','6XL','7XL'],
     variants: v('weiss','creme','rosa','himmelblau','mintgruen','lavendel','gelb','babyblau','ivory','altrosa','lila'),
     rating: 4.8, reviews: 2345
   },
