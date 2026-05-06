@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MiaShop - Mode, Technik & mehr</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="nav-logo">
+      <span class="logo-icon">🛍️</span>
+      <span class="logo-text">MiaShop</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#" onclick="showCategory('all')" class="nav-link active" id="nav-all">Alle</a>
+      <a href="#" onclick="showCategory('kleidung')" class="nav-link" id="nav-kleidung">Kleidung</a>
+      <a href="#" onclick="showCategory('schuhe')" class="nav-link" id="nav-schuhe">Schuhe</a>
+      <a href="#" onclick="showCategory('accessoires')" class="nav-link" id="nav-accessoires">Accessoires</a>
+      <a href="#" onclick="showCategory('handys')" class="nav-link" id="nav-handys">Handys</a>
+      <a href="#" onclick="showCategory('haushalt')" class="nav-link" id="nav-haushalt">Haushalt</a>
+    </nav>
+    <div class="nav-actions">
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Suchen..." oninput="filterSearch()" />
+        <span class="search-icon">🔍</span>
+      </div>
+      <button class="cart-btn" onclick="toggleCart()">
+        🛒 <span class="cart-count" id="cartCount">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO BANNER -->
+  <section class="hero">
+    <div class="hero-content">
+      <p class="hero-sub">Neu eingetroffen 🔥</p>
+      <h1>Der beste Style<br /><span>zu Top-Preisen</span></h1>
+      <p class="hero-desc">Kleidung, Schuhe, Accessoires, Handys & mehr – alles an einem Ort</p>
+      <button class="hero-btn" onclick="showCategory('all')">Jetzt shoppen</button>
+    </div>
+    <div class="hero-badges">
+      <div class="badge">🚚 Gratis Versand ab 49€</div>
+      <div class="badge">↩️ 30 Tage Rückgabe</div>
+      <div class="badge">🔒 Sicher bezahlen</div>
+    </div>
+  </section>
+
+  <!-- CATEGORY PILLS -->
+  <section class="category-pills">
+    <button class="pill active" onclick="showCategory('all')" id="pill-all">🛍️ Alle</button>
+    <button class="pill" onclick="showCategory('kleidung')" id="pill-kleidung">👕 Kleidung</button>
+    <button class="pill" onclick="showCategory('schuhe')" id="pill-schuhe">👟 Schuhe</button>
+    <button class="pill" onclick="showCategory('accessoires')" id="pill-accessoires">💍 Accessoires</button>
+    <button class="pill" onclick="showCategory('handys')" id="pill-handys">📱 Handys</button>
+    <button class="pill" onclick="showCategory('haushalt')" id="pill-haushalt">🏠 Haushalt</button>
+  </section>
+
+  <!-- PRODUCTS GRID -->
+  <main class="shop-main">
+    <div class="section-header">
+      <h2 id="sectionTitle">Alle Produkte</h2>
+      <span class="product-count" id="productCount"></span>
+    </div>
+    <div class="products-grid" id="productsGrid"></div>
+  </main>
+
+  <!-- CART SIDEBAR -->
+  <div class="cart-overlay" id="cartOverlay" onclick="toggleCart()"></div>
+  <div class="cart-sidebar" id="cartSidebar">
+    <div class="cart-header">
+      <h3>🛒 Warenkorb</h3>
+      <button class="close-cart" onclick="toggleCart()">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <p class="cart-empty">Dein Warenkorb ist leer</p>
+    </div>
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span>Gesamt:</span>
+        <span id="cartTotal">0,00 €</span>
+      </div>
+      <button class="checkout-btn" onclick="checkout()">Zur Kasse →</button>
+    </div>
+  </div>
+
+  <!-- TOAST NOTIFICATION -->
+  <div class="toast" id="toast"></div>
+
+  <!-- MODAL -->
+  <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+  <div class="modal" id="productModal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>🛍️ MiaShop</h4>
+        <p>Dein Online-Shop für Mode, Technik und alles dazwischen.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Kategorien</h4>
+        <ul>
+          <li><a href="#" onclick="showCategory('kleidung')">Kleidung</a></li>
+          <li><a href="#" onclick="showCategory('schuhe')">Schuhe</a></li>
+          <li><a href="#" onclick="showCategory('accessoires')">Accessoires</a></li>
+          <li><a href="#" onclick="showCategory('handys')">Handys</a></li>
+          <li><a href="#" onclick="showCategory('haushalt')">Haushalt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Service</h4>
+        <ul>
+          <li><a href="#">Kontakt</a></li>
+          <li><a href="#">Versand & Rückgabe</a></li>
+          <li><a href="#">FAQ</a></li>
+          <li><a href="#">Datenschutz</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Zahlung</h4>
+        <div class="payment-icons">
+          <span>💳</span><span>🏦</span><span>📲</span><span>💰</span>
+        </div>
+        <p style="margin-top:0.5rem;font-size:0.8rem;">Visa · Mastercard · PayPal · Klarna</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 MiaShop – Alle Rechte vorbehalten</p>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/shop.js"></script>
+</body>
+</html>
