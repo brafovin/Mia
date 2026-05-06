@@ -1,169 +1,266 @@
+/* ==========================================================
+   MIASHOP – Produktdaten mit Farbvarianten
+   ========================================================== */
+
+// Gemeinsame Farbpaletten
+const PALETTE = {
+  // Neutrale
+  schwarz:      { name: 'Schwarz',       hex: '#111111' },
+  anthrazit:    { name: 'Anthrazit',     hex: '#3a3a3a' },
+  grau:         { name: 'Grau',          hex: '#888888' },
+  graumel:      { name: 'Grau Melange',  hex: '#a0a0a0' },
+  weiss:        { name: 'Weiß',          hex: '#f5f5f0' },
+  creme:        { name: 'Creme',         hex: '#f0e8d0' },
+  ivory:        { name: 'Ivory',         hex: '#f8f4e8' },
+  // Braun-Töne
+  camel:        { name: 'Camel',         hex: '#c4924a' },
+  caramel:      { name: 'Caramel',       hex: '#b87030' },
+  cognac:       { name: 'Cognac',        hex: '#c07840' },
+  sand:         { name: 'Sand',          hex: '#d4c090' },
+  beige:        { name: 'Beige',         hex: '#d8c898' },
+  latte:        { name: 'Latte',         hex: '#c0a878' },
+  schokobraun:  { name: 'Schokobraun',   hex: '#3d2010' },
+  dunkelbraun:  { name: 'Dunkelbraun',   hex: '#5a3a20' },
+  // Rosa / Pink
+  rosa:         { name: 'Rosa',          hex: '#f0a0b8' },
+  babyrose:     { name: 'Baby-Rose',     hex: '#f8d0dc' },
+  altrosa:      { name: 'Altrosa',       hex: '#c87888' },
+  dustyrose:    { name: 'Dusty Rose',    hex: '#d4a0a8' },
+  blush:        { name: 'Blush',         hex: '#f0c0c0' },
+  pink:         { name: 'Pink',          hex: '#e060a0' },
+  // Rot / Orange
+  rot:          { name: 'Rot',           hex: '#c02020' },
+  koralle:      { name: 'Koralle',       hex: '#e07050' },
+  terracotta:   { name: 'Terracotta',    hex: '#c05830' },
+  rost:         { name: 'Rost',          hex: '#a04020' },
+  lachs:        { name: 'Lachs',         hex: '#e89878' },
+  // Burgund / Weinrot
+  burgund:      { name: 'Burgund',       hex: '#7a1830' },
+  weinrot:      { name: 'Weinrot',       hex: '#8a1a28' },
+  // Blau
+  navy:         { name: 'Navy',          hex: '#1a2e5e' },
+  dunkelblau:   { name: 'Dunkelblau',    hex: '#0a1e4e' },
+  taubenblau:   { name: 'Taubenblau',    hex: '#6080a8' },
+  himmelblau:   { name: 'Himmelblau',    hex: '#4a90d4' },
+  hellblau:     { name: 'Hellblau',      hex: '#90c0e0' },
+  denim:        { name: 'Denim',         hex: '#3a6098' },
+  jeansblau:    { name: 'Jeansblau',     hex: '#5070a0' },
+  babyblau:     { name: 'Babyblau',      hex: '#a8d0f0' },
+  // Grün
+  mintgruen:    { name: 'Mintgrün',      hex: '#5ab8a0' },
+  sage:         { name: 'Sage',          hex: '#7a9870' },
+  olivgruen:    { name: 'Olivgrün',      hex: '#4a6030' },
+  waldgruen:    { name: 'Waldgrün',      hex: '#1e4828' },
+  salbei:       { name: 'Salbei',        hex: '#8aaa70' },
+  smaragd:      { name: 'Smaragd',       hex: '#1a7858' },
+  khaki:        { name: 'Khaki',         hex: '#a8986a' },
+  // Lila / Violett
+  lavendel:     { name: 'Lavendel',      hex: '#b098d0' },
+  flieder:      { name: 'Flieder',       hex: '#c8a8d8' },
+  lila:         { name: 'Lila',          hex: '#8060b0' },
+  pflaume:      { name: 'Pflaume',       hex: '#6a2a5a' },
+  mauve:        { name: 'Mauve',         hex: '#b88090' },
+  // Gold / Champagne
+  champagne:    { name: 'Champagne',     hex: '#d4b87a' },
+  gold:         { name: 'Gold',          hex: '#c8a030' },
+  rosegold:     { name: 'Roségold',      hex: '#d4887a' },
+  // Gelb
+  gelb:         { name: 'Gelb',          hex: '#e8c020' },
+  buttercup:    { name: 'Buttercup',     hex: '#f0d040' },
+  mustard:      { name: 'Mustard',       hex: '#c8900a' },
+  // Türkis
+  turkis:       { name: 'Türkis',        hex: '#30a8b8' },
+};
+
+// Shortcut: holt Hex-Farben für colorDots (rückwärtskompatibel)
+function v(...keys) {
+  return keys.map(k => PALETTE[k] || { name: k, hex: '#888' });
+}
+
 const products = [
 
   /* ================================================================
-     BODYS (neu)
+     BODYS
      ================================================================ */
   {
     id: 101, cat: 'bodys', brand: 'MIA LABEL',
-    name: 'Spaghetti-Träger Body Schwarz',
-    svgType: 'bodysuit-tank', primaryColor: '#1a1a1a', svgBg: ['#ebe8e4','#ddd9d4'],
+    name: 'Spaghetti-Träger Body',
+    svgType: 'bodysuit-tank',
     price: 12.99, oldPrice: 24.99, badge: 'hot',
     desc: 'Klassischer Spaghetti-Träger-Body aus weichem Viskose-Mix. Formschön, körpernah, mit Druckknöpfen am Schritt. Perfekt unter Blazer, Jeans oder solo.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Schwarz','Anthrazit'],
-    colorDots: ['#1a1a1a','#444'], rating: 4.8, reviews: 1203
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('schwarz','anthrazit','grau','weiss','creme','navy','burgund','terracotta','olivgruen','mintgruen','flieder','rosa','babyrose','camel','dustyrose','lila'),
+    rating: 4.8, reviews: 1203
   },
   {
     id: 102, cat: 'bodys', brand: 'NOVA STYLE',
-    name: 'Ripp-Body Weiß Klassisch',
-    svgType: 'bodysuit-ribbed', primaryColor: '#f0ede8', svgBg: ['#faf8f5','#f0ece5'],
+    name: 'Ripp-Body Klassisch',
+    svgType: 'bodysuit-ribbed',
     price: 10.99, oldPrice: 19.99, badge: 'new',
-    desc: 'Zeitloser Ripp-Body in Weiß aus elastischem Baumwoll-Ripp. Angenehm dehnbar, atmungsaktiv. Das must-have Basics für jeden Kleiderschrank.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Weiß','Creme','Hellgrau'],
-    colorDots: ['#f5f5f0','#f0e8d8','#d8d8d8'], rating: 4.9, reviews: 2145
+    desc: 'Zeitloser Ripp-Body aus elastischem Baumwoll-Ripp. Angenehm dehnbar, atmungsaktiv. Das must-have Basics für jeden Kleiderschrank.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('weiss','schwarz','grau','graumel','creme','ivory','navy','taubenblau','mintgruen','sage','altrosa','rosa','camel','latte','dunkelbraun','mustard'),
+    rating: 4.9, reviews: 2145
   },
   {
     id: 103, cat: 'bodys', brand: 'THE DAILY EDIT',
-    name: 'V-Neck Body Cappuccino',
-    svgType: 'bodysuit-vneck', primaryColor: '#c8a882', svgBg: ['#faf5ee','#f2ebe0'],
+    name: 'V-Neck Body',
+    svgType: 'bodysuit-vneck',
     price: 13.99, badge: 'new',
-    desc: 'Eleganter V-Ausschnitt-Body in warmem Cappuccino-Ton. Weiches Interlock-Jersey, formt die Figur. Von Business bis Date-Night vielseitig kombinierbar.',
-    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Cappuccino','Mocha','Caramel'],
-    colorDots: ['#c8a882','#8a6042','#d4b87a'], rating: 4.7, reviews: 876
+    desc: 'Eleganter V-Ausschnitt-Body in vielen schönen Farben. Weiches Interlock-Jersey, formt die Figur. Von Business bis Date-Night.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('camel','latte','schwarz','weiss','navy','himmelblau','burgund','weinrot','rot','terracotta','olivgruen','sage','lila','lavendel','rosa','altrosa','dustyrose','grau'),
+    rating: 4.7, reviews: 876
   },
   {
     id: 104, cat: 'bodys', brand: 'MIA LABEL',
-    name: 'Langarm Body Turtleneck Camel',
-    svgType: 'bodysuit-long', primaryColor: '#c4924a', svgBg: ['#faf3e8','#f2e8d4'],
+    name: 'Langarm Turtleneck Body',
+    svgType: 'bodysuit-long',
     price: 17.99, oldPrice: 34.99, badge: 'sale',
-    desc: 'Schicker Langarm-Body mit hohem Turtleneck-Kragen. Weicher Viskose-Stoff für den Herbst. Trägt sich wie ein zweites Hautbild und schafft elegante Silhouetten.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Camel','Ecru','Dunkelbraun','Cognac'],
-    colorDots: ['#c4924a','#f0e0c0','#5a3820','#b87030'], rating: 4.8, reviews: 654
+    desc: 'Schicker Langarm-Body mit hohem Turtleneck-Kragen. Weicher Viskose-Stoff für den Herbst. Trägt sich wie ein zweites Hautbild.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('camel','creme','schokobraun','cognac','schwarz','anthrazit','grau','navy','olivgruen','waldgruen','burgund','weinrot','taubenblau','lila','pflaume','mustard','rost'),
+    rating: 4.8, reviews: 654
   },
   {
     id: 105, cat: 'bodys', brand: 'URBAN BASICS',
-    name: 'Cut-Out Bodysuit Terracotta',
-    svgType: 'bodysuit-cutout', primaryColor: '#c25830', svgBg: ['#faf0ea','#f0e4d8'],
+    name: 'Cut-Out Bodysuit',
+    svgType: 'bodysuit-cutout',
     price: 15.99, badge: 'hot',
-    desc: 'Trendy Cut-Out-Body mit offenem Midriff-Detail. Spaghetti-Träger, Snap-Verschluss. Der Hingucker auf jeder Party – kombiniert mit High-Waist-Jeans.',
-    sizes: ['XS','S','M','L'], colors: ['Terracotta','Rostrot','Koralle'],
-    colorDots: ['#c25830','#a84020','#e07050'], rating: 4.6, reviews: 432
+    desc: 'Trendy Cut-Out-Body mit offenem Midriff-Detail. Spaghetti-Träger, Snap-Verschluss. Der Hingucker auf jeder Party.',
+    sizes: ['XS','S','M','L'],
+    variants: v('terracotta','rost','koralle','schwarz','weiss','burgund','rot','navy','olivgruen','mintgruen','lila','rosa','pink','gold','champagne'),
+    rating: 4.6, reviews: 432
   },
   {
     id: 106, cat: 'bodys', brand: 'PURE & CO',
-    name: 'Spitzen-Body Altrosa',
-    svgType: 'bodysuit-lace', primaryColor: '#d4788a', svgBg: ['#fdf0f2','#f8e4e8'],
+    name: 'Spitzen-Body',
+    svgType: 'bodysuit-lace',
     price: 18.99, oldPrice: 34.99, badge: 'sale',
     desc: 'Romantischer Spitzen-Body mit feinem All-over-Spitzenmuster. Gefüttertes Brustteil, Spaghetti-Träger. Zarter Look für besondere Anlässe.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Altrosa','Weiß','Schwarz','Nude'],
-    colorDots: ['#d4788a','#f8f8f8','#1a1a1a','#d4a882'], rating: 4.9, reviews: 789
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('altrosa','weiss','schwarz','creme','ivory','babyrose','dustyrose','lavendel','mintgruen','navy','champagne','rosegold','burgund','mauve','taubenblau'),
+    rating: 4.9, reviews: 789
   },
   {
     id: 107, cat: 'bodys', brand: 'NOVA STYLE',
-    name: 'Quadrat-Ausschnitt Body Navy',
-    svgType: 'bodysuit-square', primaryColor: '#1e3a6e', svgBg: ['#e8eef8','#d8e4f2'],
+    name: 'Quadrat-Ausschnitt Body',
+    svgType: 'bodysuit-square',
     price: 11.99, badge: 'new',
-    desc: 'Trendiger Body mit breitem quadratischen Ausschnitt und Schulterträgern. Aus straffem Jersey, formend. Super mit Culotte oder High-Waist-Rock.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Navy','Dunkelblau','Marineblau'],
-    colorDots: ['#1e3a6e','#0a2458','#2a5090'], rating: 4.7, reviews: 534
+    desc: 'Trendiger Body mit breitem quadratischen Ausschnitt und Schulterträgern. Aus straffem Jersey, formend.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('navy','dunkelblau','schwarz','weiss','creme','burgund','olivgruen','waldgruen','taubenblau','himmelblau','babyblau','lila','flieder','rosa','terracotta','mustard','grau'),
+    rating: 4.7, reviews: 534
   },
   {
     id: 108, cat: 'bodys', brand: 'THE DAILY EDIT',
-    name: 'Off-Shoulder Body Mint',
-    svgType: 'bodysuit-offshoulder', primaryColor: '#5ab8a0', svgBg: ['#e8f8f4','#d4f0e8'],
+    name: 'Off-Shoulder Body',
+    svgType: 'bodysuit-offshoulder',
     price: 16.99, oldPrice: 29.99, badge: 'sale',
-    desc: 'Verführerischer Off-Shoulder-Body mit elastischem Schulterband. Smaragd-Mint-Ton setzt Akzente. Mit Jeans oder Shorts für den perfekten Sommeroutfit.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Mint','Sage','Türkis','Smaragd'],
-    colorDots: ['#5ab8a0','#6a9870','#30a8b8','#1a7858'], rating: 4.8, reviews: 347
+    desc: 'Verführerischer Off-Shoulder-Body mit elastischem Schulterband. Mit Jeans oder Shorts für den perfekten Sommeroutfit.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('mintgruen','smaragd','sage','schwarz','weiss','rosa','babyrose','koralle','lachs','himmelblau','hellblau','lila','lavendel','gelb','buttercup','turkis','flieder','altrosa'),
+    rating: 4.8, reviews: 347
   },
   {
     id: 109, cat: 'bodys', brand: 'MIA LABEL',
-    name: 'Wrap-Body Flieder Gerafft',
-    svgType: 'bodysuit-wrap', primaryColor: '#8868b4', svgBg: ['#f0eaf8','#e4d8f2'],
+    name: 'Wrap-Body Gerafft',
+    svgType: 'bodysuit-wrap',
     price: 19.99, badge: 'hot',
-    desc: 'Schöner Wrap-Body mit Raffung vorne für einen figurbetonenden V-Effekt. Spaghetti-Träger, angenehm weich. Kombiniert mit Jeans der perfekte Casual-Look.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Flieder','Lavendel','Lila','Pflaume'],
-    colorDots: ['#8868b4','#b8a0d0','#6840a0','#4a2870'], rating: 4.7, reviews: 489
+    desc: 'Schöner Wrap-Body mit Raffung vorne für einen figurbetonenden V-Effekt. Spaghetti-Träger, angenehm weich.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('flieder','lila','lavendel','pflaume','schwarz','weiss','grau','rosa','altrosa','navy','olivgruen','sage','terracotta','camel','burgund','himmelblau','turkis','mustard'),
+    rating: 4.7, reviews: 489
   },
   {
     id: 110, cat: 'bodys', brand: 'PURE & CO',
-    name: 'Langarm Ripp Body Schokobraun',
-    svgType: 'bodysuit-long', primaryColor: '#3d2010', svgBg: ['#ece8e4','#e0d8d0'],
+    name: 'Langarm Ripp Body',
+    svgType: 'bodysuit-long',
     price: 14.99, badge: 'new',
-    desc: 'Gemütlicher Langarm-Ripp-Body aus elastischem Baumwoll-Ripp. Wärmend und formend – ideal für kühle Jahreszeiten unter Blazern oder Mänteln.',
-    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Schokobraun','Dunkelgrün','Schwarz','Graumelange'],
-    colorDots: ['#3d2010','#1a3820','#1a1a1a','#888'], rating: 4.8, reviews: 923
+    desc: 'Gemütlicher Langarm-Ripp-Body aus elastischem Baumwoll-Ripp. Wärmend und formend – ideal für kühle Jahreszeiten.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('schokobraun','dunkelbraun','schwarz','anthrazit','waldgruen','olivgruen','navy','burgund','weinrot','grau','graumel','camel','caramel','lila','pflaume','rost','taubenblau'),
+    rating: 4.8, reviews: 923
   },
   {
     id: 111, cat: 'bodys', brand: 'NOVA STYLE',
-    name: 'Satin Body Champagne Elegant',
-    svgType: 'bodysuit-tank', primaryColor: '#d4b87a', svgBg: ['#fdf8ee','#f8f0e0'],
+    name: 'Satin Body Elegant',
+    svgType: 'bodysuit-tank',
     price: 22.99, oldPrice: 39.99, badge: 'sale',
-    desc: 'Luxuriöser Satin-Body in zartem Champagne-Gold. Fließendes Material, einstellbare Träger, Spitzen-Einsätze. Für festliche Anlässe und elegante Abende.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Champagne','Ivory','Roségold'],
-    colorDots: ['#d4b87a','#f0e8d0','#c89880'], rating: 4.9, reviews: 312
+    desc: 'Luxuriöser Satin-Body in vielen festlichen Farben. Fließendes Material, einstellbare Träger. Für festliche Anlässe und elegante Abende.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('champagne','ivory','weiss','rosegold','gold','schwarz','navy','burgundrot','mintgruen','himmelblau','lavendel','lila','babyrose','dustyrose','creme','taubenblau'),
+    rating: 4.9, reviews: 312
   },
   {
     id: 112, cat: 'bodys', brand: 'THE DAILY EDIT',
-    name: 'Crop Body Set 3-teilig',
-    svgType: 'bodysuit-ribbed', primaryColor: '#888888', svgBg: ['#f0f0f0','#e8e8e8'],
+    name: 'Ripp-Body 3er Set',
+    svgType: 'bodysuit-ribbed',
     price: 24.99, oldPrice: 44.99, badge: 'hot',
-    desc: 'Vorteilspack: 3 Basic-Bodies aus Ripp-Jersey in Schwarz, Weiß und Grau. Perfekte Layering-Pieces für jeden Look. Zeitloser Style, alltagstauglich.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Schwarz+Weiß+Grau'],
-    colorDots: ['#1a1a1a','#f5f5f5','#888'], rating: 4.9, reviews: 1876
+    desc: 'Vorteilspack: 3 Basic-Bodies aus Ripp-Jersey. Perfekte Layering-Pieces für jeden Look. Zeitloser Style, alltagstauglich.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('schwarz','weiss','grau','navy','creme','camel','rosa','mintgruen','lila','terracotta','burgund','taubenblau'),
+    rating: 4.9, reviews: 1876
   },
   {
     id: 113, cat: 'bodys', brand: 'MIA LABEL',
-    name: 'Deep-V Spaghettiträger Body Burgund',
-    svgType: 'bodysuit-vneck', primaryColor: '#6a1030', svgBg: ['#f8eaee','#f0d8de'],
+    name: 'Deep-V Spaghetti-Body',
+    svgType: 'bodysuit-vneck',
     price: 13.99, badge: 'new',
-    desc: 'Figurbetonter Deep-V-Body in sattem Burgund. Weiches Interlock, Spaghetti-Träger, elastischer Bund. Der Eyecatcher unter Blazern oder als Solo-Statement.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Burgund','Dunkelrot','Weinrot'],
-    colorDots: ['#6a1030','#a01828','#8a1820'], rating: 4.7, reviews: 645
+    desc: 'Figurbetonter Deep-V-Body in vielen intensiven Farben. Weiches Interlock, Spaghetti-Träger, elastischer Bund.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('burgund','weinrot','schwarz','navy','rot','terracotta','koralle','olivgruen','waldgruen','lila','pflaume','taubenblau','grau','anthrazit','camel','mustard','pink'),
+    rating: 4.7, reviews: 645
   },
   {
     id: 114, cat: 'bodys', brand: 'URBAN BASICS',
-    name: 'Mesh Cut-Out Body Schwarz',
-    svgType: 'bodysuit-cutout', primaryColor: '#222222', svgBg: ['#e8e8e8','#dcdcdc'],
+    name: 'Mesh Cut-Out Body',
+    svgType: 'bodysuit-cutout',
     price: 17.99, oldPrice: 32.99, badge: 'sale',
-    desc: 'Edgy Mesh-Body mit auffälligen Cut-Out-Details an Taille und Schultern. Semi-transparentes Obermaterial mit Futter am Brustteil. Party-Look par excellence.',
-    sizes: ['XS','S','M','L'], colors: ['Schwarz'],
-    colorDots: ['#1a1a1a'], rating: 4.6, reviews: 298
+    desc: 'Edgy Mesh-Body mit auffälligen Cut-Out-Details an Taille und Schultern. Halbdurchsichtiges Obermaterial mit Futter am Brust.',
+    sizes: ['XS','S','M','L'],
+    variants: v('schwarz','anthrazit','navy','burgund','olivgruen','lila','rot','creme','weiss','rosegold'),
+    rating: 4.6, reviews: 298
   },
   {
     id: 115, cat: 'bodys', brand: 'PURE & CO',
-    name: 'Schulterfreier Body Dusty Rose',
-    svgType: 'bodysuit-offshoulder', primaryColor: '#d4a0a8', svgBg: ['#fdf0f4','#f8e4e8'],
+    name: 'Schulterfreier Body',
+    svgType: 'bodysuit-offshoulder',
     price: 15.99, badge: 'new',
-    desc: 'Romantischer schulterfreier Body in zartem Dusty-Rose. Breites elastisches Band, körpernah. Kombiniert mit Mom-Jeans für lässige Summer-Vibes.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Dusty Rose','Mauve','Blush'],
-    colorDots: ['#d4a0a8','#b88090','#f0c0c0'], rating: 4.8, reviews: 567
+    desc: 'Romantischer schulterfreier Body. Breites elastisches Band, körpernah. Kombiniert mit Mom-Jeans für lässige Summer-Vibes.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('dustyrose','mauve','blush','schwarz','weiss','creme','lavendel','flieder','mintgruen','sage','babyblau','turkis','koralle','lachs','gelb','grau','navy','olivgruen'),
+    rating: 4.8, reviews: 567
   },
   {
     id: 116, cat: 'bodys', brand: 'THE DAILY EDIT',
-    name: 'Quadrat Body Olivgrün Strick',
-    svgType: 'bodysuit-square', primaryColor: '#4a6030', svgBg: ['#edf2e8','#e0ecd8'],
+    name: 'Strick-Body Square Neck',
+    svgType: 'bodysuit-square',
     price: 14.99, badge: 'hot',
-    desc: 'Weicher Ripp-Strick-Body mit quadratischem Ausschnitt und breiten Trägern. Herbstlich, warm, fashionable. Dazu ein langer Rock oder weite Jeans.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Olivgrün','Dunkelgrün','Waldgrün'],
-    colorDots: ['#4a6030','#1a4020','#2a5830'], rating: 4.7, reviews: 423
+    desc: 'Weicher Ripp-Strick-Body mit quadratischem Ausschnitt. Herbstlich, warm, fashionable. Dazu ein langer Rock oder weite Jeans.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('olivgruen','waldgruen','sage','schwarz','camel','creme','dunkelbraun','rost','terracotta','navy','grau','lila','burgund','mustard','weinrot','salbei','mintgruen'),
+    rating: 4.7, reviews: 423
   },
   {
     id: 117, cat: 'bodys', brand: 'MIA LABEL',
-    name: 'Gerafft-Body Himmelblau',
-    svgType: 'bodysuit-wrap', primaryColor: '#4a90d4', svgBg: ['#e8f4fd','#d4e8f8'],
+    name: 'Gerafft-Body Sommerlich',
+    svgType: 'bodysuit-wrap',
     price: 16.99, oldPrice: 29.99, badge: 'sale',
-    desc: 'Verspielter geraffter Body in leuchtendem Himmelblau. Spaghetti-Träger, angenehm weicher Stoff. Ideal für sommerliche Outfits – zu kurzen Shorts oder Röcken.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Himmelblau','Cornflower','Taubenblau'],
-    colorDots: ['#4a90d4','#6878d0','#7098b8'], rating: 4.6, reviews: 378
+    desc: 'Verspielter geraffter Body in leuchtenden Sommerfarben. Spaghetti-Träger, angenehm weicher Stoff.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('himmelblau','turkis','mintgruen','koralle','lachs','gelb','buttercup','rosa','pink','weiss','schwarz','lavendel','babyblau','sage','navy','creme','babyrose'),
+    rating: 4.6, reviews: 378
   },
   {
     id: 118, cat: 'bodys', brand: 'NOVA STYLE',
-    name: 'Spitzen-Langarm Body Weiß',
-    svgType: 'bodysuit-lace', primaryColor: '#f0ece4', svgBg: ['#fefcf8','#f8f4ec'],
+    name: 'Spitzen-Langarm Body',
+    svgType: 'bodysuit-lace',
     price: 21.99, badge: 'new',
-    desc: 'Traumhafter Langarm-Body aus feiner Chantilly-Spitze über Viskose-Futter. Elegant und romantic. Perfekt für besondere Anlässe oder festliche Looks.',
-    sizes: ['XS','S','M','L'], colors: ['Ivory','Weiß','Creme'],
-    colorDots: ['#f8f0e0','#f5f5f5','#f0e8d0'], rating: 4.9, reviews: 234
+    desc: 'Traumhafter Langarm-Body aus feiner Chantilly-Spitze über Viskose-Futter. Elegant und romantic.',
+    sizes: ['XS','S','M','L'],
+    variants: v('ivory','weiss','creme','babyrose','altrosa','schwarz','navy','champagne','mintgruen','lavendel','lila','dustyrose','blush','sage','taubenblau','rosegold'),
+    rating: 4.9, reviews: 234
   },
 
   /* ================================================================
@@ -171,75 +268,103 @@ const products = [
      ================================================================ */
   {
     id: 1, cat: 'damen', brand: 'NOVA STYLE',
-    name: 'Sommer Wickelkleid Blumenprint',
-    svgType: 'dress-midi', primaryColor: '#d4789a', svgBg: ['#fce8f0','#f8d8e8'],
+    name: 'Sommer Wickelkleid',
+    svgType: 'dress-midi',
     price: 22.99, oldPrice: 44.99, badge: 'sale',
-    desc: 'Wunderschönes Midi-Kleid im Wickelstil mit romantischem Blumenprint. Fließender Chiffon für leichten Tragekomfort. Für Sommerfeste, Dates oder Spaziergänge.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Rosé/Floral','Blau/Floral','Weiß/Floral'],
-    colorDots: ['#f8b4c8','#a8c8f0','#f5f5f5'], rating: 4.8, reviews: 634
+    desc: 'Wunderschönes Midi-Kleid im Wickelstil mit romantischem Blumenprint. Fließender Chiffon für leichten Tragekomfort.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('rosa','altrosa','dustyrose','himmelblau','mintgruen','gelb','koralle','lavendel','weiss','creme','schwarz','navy','turkis','babyrose','lachs','salbei'),
+    rating: 4.8, reviews: 634
   },
   {
     id: 2, cat: 'damen', brand: 'URBAN BASICS',
-    name: 'Oversized Blazer Damen',
-    svgType: 'blazer', primaryColor: '#c8a870', svgBg: ['#f8f0e8','#f0e4d0'],
+    name: 'Oversized Blazer',
+    svgType: 'blazer',
     price: 34.99, oldPrice: 69.99, badge: 'hot',
-    desc: 'Klassischer Oversized-Blazer in zeitlosem Design. Hochwertige Webqualität mit strukturierter Schulterpartie. Kombinierbar zu Jeans oder Hosen – vom Office bis Abendausgang.',
-    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Camel','Schwarz','Creme','Navy'],
-    colorDots: ['#c8a87a','#222','#f5f0e8','#1a2e5e'], rating: 4.9, reviews: 421
+    desc: 'Klassischer Oversized-Blazer in zeitlosem Design. Hochwertige Webqualität mit strukturierter Schulterpartie.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('camel','schwarz','creme','navy','grau','anthrazit','olivgruen','burgund','taubenblau','beige','mustard','rost','weiss','dunkelbraun','sage','weinrot'),
+    rating: 4.9, reviews: 421
   },
   {
     id: 3, cat: 'damen', brand: 'THE DAILY EDIT',
     name: 'Ripp-Crop-Top 2er Set',
-    svgType: 'top-crop', primaryColor: '#f5f2ec', svgBg: ['#fef5e8','#f8edd8'],
+    svgType: 'top-crop',
     price: 9.99, badge: 'new',
-    desc: 'Zwei hochwertige Ripp-Crop-Tops im Set. Körpernahes Material mit angenehmer Stretchqualität. Ideal für layered Looks oder solo im Sommer.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Weiß+Schwarz','Beige+Braun','Rosa+Lila'],
-    colorDots: ['#f5f5f5','#d4b896','#f0c0d8'], rating: 4.7, reviews: 892
+    desc: 'Zwei hochwertige Ripp-Crop-Tops im Set. Körpernahes Material mit angenehmer Stretchqualität.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('weiss','schwarz','grau','creme','rosa','mintgruen','himmelblau','lavendel','camel','navy','koralle','lachs','gelb','turkis','altrosa','babyblau','sage','mustard'),
+    rating: 4.7, reviews: 892
   },
   {
     id: 4, cat: 'damen', brand: 'MIA LABEL',
-    name: 'Elegant Maxi-Kleid Satin',
-    svgType: 'dress-maxi', primaryColor: '#1a2a4a', svgBg: ['#e0e8f5','#c8d8f0'],
+    name: 'Maxi-Kleid Satin',
+    svgType: 'dress-maxi',
     price: 39.99, oldPrice: 79.99, badge: 'sale',
-    desc: 'Luxuriöses Maxi-Kleid aus satinartigem Viskose-Mix. Fließende Silhouette mit elegantem Ausschnitt. Für Hochzeiten, Galas oder besondere Abende.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Champagne','Mitternachtsblau','Bordeaux'],
-    colorDots: ['#e8d5a0','#1a2a4a','#7a1a2a'], rating: 4.9, reviews: 287
+    desc: 'Luxuriöses Maxi-Kleid aus satinartigem Viskose-Mix. Fließende Silhouette mit elegantem Ausschnitt.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('navy','champagne','burgund','schwarz','olivgruen','mintgruen','himmelblau','rosa','lila','taubenblau','creme','ivory','smaragd','weinrot','camel','pflaume'),
+    rating: 4.9, reviews: 287
   },
   {
     id: 5, cat: 'damen', brand: 'PURE & CO',
     name: 'Highwaist Jeans Wide Leg',
-    svgType: 'pants', primaryColor: '#3a6098', svgBg: ['#e0e8f5','#c8d4e8'],
+    svgType: 'pants',
     price: 27.99, oldPrice: 54.99, badge: 'sale',
-    desc: 'Trendige Wide-Leg-Jeans mit hohem Bund. Klassische Waschung in Blau. Der perfekte Denim für einen modernen, lässigen Look.',
-    sizes: ['34','36','38','40','42','44'], colors: ['Hellblau','Dunkelblau','Black Wash'],
-    colorDots: ['#a0c0e8','#2a4a7a','#1a1a1a'], rating: 4.6, reviews: 543
+    desc: 'Trendige Wide-Leg-Jeans mit hohem Bund. Klassische Waschung in Blau.',
+    sizes: ['34','36','38','40','42','44'],
+    variants: v('jeansblau','denim','navy','schwarz','dunkelblau','hellblau','grau','weiss','khaki','olivgruen'),
+    rating: 4.6, reviews: 543
   },
   {
     id: 6, cat: 'damen', brand: 'NOVA STYLE',
     name: 'Kurzarm Sommerkleid',
-    svgType: 'dress-short', primaryColor: '#e8b030', svgBg: ['#fef8e0','#fef0c0'],
+    svgType: 'dress-short',
     price: 14.99, badge: 'new',
-    desc: 'Leichtes Sommerkleid mit kurzen Ärmeln für den entspannten Alltag. Weicher Jersey-Stoff, körperfreundliche Passform. Ideal für Ausflüge und Shopping.',
-    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Gelb','Hellblau','Mintgrün','Lachs'],
-    colorDots: ['#f0d040','#80b8f0','#80d0b0','#f0906a'], rating: 4.7, reviews: 523
+    desc: 'Leichtes Sommerkleid für den entspannten Alltag. Weicher Jersey-Stoff, körperfreundliche Passform.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('gelb','buttercup','himmelblau','mintgruen','koralle','lachs','rosa','babyrose','lavendel','weiss','schwarz','turkis','babyblau','altrosa','creme','salbei','mustard','flieder'),
+    rating: 4.7, reviews: 523
   },
   {
     id: 7, cat: 'damen', brand: 'THE DAILY EDIT',
-    name: 'Bluse mit Rüschen Kragen',
-    svgType: 'top-shirt', primaryColor: '#f0ede8', svgBg: ['#faf8f5','#f4f0ea'],
+    name: 'Rüschen-Bluse',
+    svgType: 'top-shirt',
     price: 15.99, oldPrice: 29.99, badge: 'sale',
-    desc: 'Romantische Bluse mit Rüschenkragen aus leichtem Viskose-Crêpe. Passt zu Röcken, Hosen und Jeans. Für Büro und Freizeit gleichermaßen.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Weiß','Creme','Schwarz','Altrosa'],
-    colorDots: ['#f5f5f5','#f0e8d0','#222','#c89898'], rating: 4.5, reviews: 267
+    desc: 'Romantische Bluse mit Rüschenkragen aus leichtem Viskose-Crêpe. Für Büro und Freizeit.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('weiss','creme','schwarz','altrosa','mintgruen','himmelblau','lavendel','navy','gelb','koralle','sage','taubenblau','ivory','rosa','babyblau','mustard'),
+    rating: 4.5, reviews: 267
   },
   {
     id: 8, cat: 'damen', brand: 'MIA LABEL',
-    name: 'Trenchcoat Classic Damen',
-    svgType: 'blazer', primaryColor: '#c4a06a', svgBg: ['#f5ece0','#ece0cc'],
+    name: 'Trenchcoat Classic',
+    svgType: 'blazer',
     price: 49.99, oldPrice: 99.99, badge: 'sale',
-    desc: 'Zeitloser Trenchcoat in Klassisch-Beige. Doppelreiher mit Gürtel und Schulterklappen. Das Must-Have für den Übergang und kühle Sommertage.',
-    sizes: ['XS','S','M','L','XL'], colors: ['Classic Beige','Schwarz','Kamel'],
-    colorDots: ['#c8a87a','#222','#d4944a'], rating: 4.8, reviews: 312
+    desc: 'Zeitloser Trenchcoat. Doppelreiher mit Gürtel und Schulterklappen. Das Must-Have für den Übergang.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('camel','schwarz','beige','creme','olivgruen','grau','dunkelbraun','navy','rost','anthrazit'),
+    rating: 4.8, reviews: 312
+  },
+  {
+    id: 9, cat: 'damen', brand: 'THE DAILY EDIT',
+    name: 'Mini-Kleid A-Linie',
+    svgType: 'dress-short',
+    price: 17.99, badge: 'new',
+    desc: 'Niedliches A-Linien Mini-Kleid in fröhlichen Farben. Leichter Jerseytsoff, bequem für den Sommer.',
+    sizes: ['XS','S','M','L','XL'],
+    variants: v('rosa','babyrose','altrosa','koralle','lachs','gelb','mintgruen','himmelblau','lavendel','weiss','schwarz','turkis','creme','orange','flieder','babyblau'),
+    rating: 4.7, reviews: 412
+  },
+  {
+    id: 10, cat: 'damen', brand: 'NOVA STYLE',
+    name: 'Strickcardigan Oversized',
+    svgType: 'blazer',
+    price: 24.99, oldPrice: 49.99, badge: 'hot',
+    desc: 'Kuscheliger Grobstrick-Cardigan mit Reverskragen und Taschen. Perfekt für Herbst und Winter.',
+    sizes: ['XS/S','M/L','XL/XXL'],
+    variants: v('camel','creme','grau','schwarz','olivgruen','burgund','navy','dunkelbraun','lavendel','weiss','rost','sage','mustard','taubenblau','weinrot','schokobraun'),
+    rating: 4.8, reviews: 378
   },
 
   /* ================================================================
@@ -247,66 +372,73 @@ const products = [
      ================================================================ */
   {
     id: 13, cat: 'herren', brand: 'URBAN BASICS',
-    name: 'Premium Hoodie Heavyweight',
-    svgType: 'top-shirt', primaryColor: '#2a2a2a', svgBg: ['#e8e8ea','#dcdce0'],
+    name: 'Premium Hoodie',
+    svgType: 'top-shirt',
     price: 24.99, oldPrice: 54.99, badge: 'hot',
-    desc: 'Schwerer 400g-Baumwoll-Hoodie für maximalen Komfort. Eingenähtes Kragen-Tape, Känguru-Tasche, Metall-Ösen. Der Hoodie, der alles andere ersetzt.',
-    sizes: ['S','M','L','XL','XXL','XXXL'], colors: ['Schwarz','Dunkelgrau','Navy','Ecru'],
-    colorDots: ['#111','#555','#1a3a5a','#f0ecdc'], rating: 4.9, reviews: 1043
+    desc: 'Schwerer 400g-Baumwoll-Hoodie für maximalen Komfort. Känguru-Tasche, Metall-Ösen.',
+    sizes: ['S','M','L','XL','XXL','XXXL'],
+    variants: v('schwarz','anthrazit','grau','graumel','navy','olivgruen','burgund','creme','weiss','dunkelbraun','himmelblau','lila','rost','camel','taubenblau','waldgruen'),
+    rating: 4.9, reviews: 1043
   },
   {
     id: 14, cat: 'herren', brand: 'MIA LABEL',
-    name: 'Slim Fit Anzug 2-teilig',
-    svgType: 'blazer', primaryColor: '#1a3a6a', svgBg: ['#dde8f5','#c8d8f0'],
+    name: 'Slim Fit Anzug',
+    svgType: 'blazer',
     price: 69.99, oldPrice: 149.99, badge: 'sale',
-    desc: 'Edler 2-Teiler-Anzug in schlanker Passform. Hochwertiger Woll-Mix mit leichtem Glanz. Für Business-Meetings, Hochzeiten und festliche Anlässe.',
-    sizes: ['44','46','48','50','52','54','56'], colors: ['Navy','Anthrazit','Mittelgrau','Schwarz'],
-    colorDots: ['#1a3a6a','#404050','#888','#111'], rating: 4.8, reviews: 287
+    desc: 'Edler 2-Teiler-Anzug in schlanker Passform. Hochwertiger Woll-Mix. Für Business und festliche Anlässe.',
+    sizes: ['44','46','48','50','52','54','56'],
+    variants: v('navy','anthrazit','grau','schwarz','taubenblau','camel','olivgruen','burgund','dunkelbraun','creme','beige'),
+    rating: 4.8, reviews: 287
   },
   {
     id: 15, cat: 'herren', brand: 'PURE & CO',
-    name: 'Cargo Hose Relaxed Fit',
-    svgType: 'pants', primaryColor: '#6a7a40', svgBg: ['#e8f0de','#d8e8c8'],
+    name: 'Cargo Hose Relaxed',
+    svgType: 'pants',
     price: 22.99, badge: 'new',
-    desc: 'Bequeme Cargo-Hose im Relaxed-Fit mit 6 Taschen. Robuste Baumwoll-Twill-Qualität. Für Freizeit, Outdoor und lässige Streetwear-Looks.',
-    sizes: ['S','M','L','XL','XXL'], colors: ['Khaki','Schwarz','Olivgrün','Beige'],
-    colorDots: ['#a8986a','#222','#5a6a30','#d4c090'], rating: 4.7, reviews: 612
+    desc: 'Bequeme Cargo-Hose im Relaxed-Fit mit 6 Taschen. Robuste Baumwoll-Twill-Qualität.',
+    sizes: ['S','M','L','XL','XXL'],
+    variants: v('olivgruen','schwarz','khaki','beige','navy','grau','dunkelbraun','rost','waldgruen','anthrazit','sand'),
+    rating: 4.7, reviews: 612
   },
   {
     id: 16, cat: 'herren', brand: 'URBAN BASICS',
     name: 'Oxford Hemd Classic',
-    svgType: 'top-shirt', primaryColor: '#a8c8f0', svgBg: ['#e0eef8','#c8dff0'],
+    svgType: 'top-shirt',
     price: 18.99, oldPrice: 39.99, badge: 'sale',
-    desc: 'Zeitloses Oxford-Hemd aus 100% Baumwolle mit Button-Down-Kragen. Leicht strukturiertes Gewebe, knitterarm. Passt zu Jeans, Chinos oder unter dem Blazer.',
-    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Weiß','Hellblau','Streifenblau','Rosa'],
-    colorDots: ['#f5f5f5','#a8c8f0','#4a7ab0','#f0b8c8'], rating: 4.6, reviews: 438
+    desc: 'Zeitloses Oxford-Hemd aus 100% Baumwolle mit Button-Down-Kragen. Knitterarm.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('weiss','hellblau','babyblau','rosa','lavendel','navy','schwarz','grau','mintgruen','gelb','taubenblau','creme','sage','koralle','himmelblau','olivgruen'),
+    rating: 4.6, reviews: 438
   },
   {
     id: 17, cat: 'herren', brand: 'THE DAILY EDIT',
-    name: 'Slim Chino Herren',
-    svgType: 'pants', primaryColor: '#c8a870', svgBg: ['#f5ede0','#ece0c8'],
+    name: 'Slim Chino',
+    svgType: 'pants',
     price: 19.99, oldPrice: 44.99, badge: 'sale',
-    desc: 'Klassische Slim-Fit-Chino aus elastischem Baumwoll-Mix. Gepflegter Look mit Seitenfalte. Für Büro und Freizeit gleichermaßen geeignet.',
-    sizes: ['30/30','30/32','32/30','32/32','34/32','34/34','36/32'], colors: ['Beige','Marineblau','Olivgrün','Schwarz'],
-    colorDots: ['#d4bc90','#1a3a6a','#5a6a40','#111'], rating: 4.5, reviews: 365
+    desc: 'Klassische Slim-Fit-Chino aus elastischem Baumwoll-Mix. Für Büro und Freizeit.',
+    sizes: ['30/30','30/32','32/30','32/32','34/32','34/34','36/32'],
+    variants: v('beige','navy','olivgruen','schwarz','grau','camel','dunkelbraun','sand','khaki','rost','anthrazit','taubenblau'),
+    rating: 4.5, reviews: 365
   },
   {
     id: 18, cat: 'herren', brand: 'MIA LABEL',
     name: 'Leder-Bomberjacke',
-    svgType: 'blazer', primaryColor: '#1a1a1a', svgBg: ['#dcdcdc','#d0d0d0'],
+    svgType: 'blazer',
     price: 59.99, oldPrice: 129.99, badge: 'hot',
-    desc: 'Echte Schafsleder-Bomberjacke in zeitlosem Design. Gestrickte Bündchen und Stehkragen, Reißverschlüsse in Kupfer. Ein Statement-Stück.',
-    sizes: ['S','M','L','XL','XXL'], colors: ['Schwarz','Braun','Burgund'],
-    colorDots: ['#222','#7a4a28','#7a1a2a'], rating: 4.9, reviews: 198
+    desc: 'Echte Schafsleder-Bomberjacke. Gestrickte Bündchen und Stehkragen. Ein Statement-Stück.',
+    sizes: ['S','M','L','XL','XXL'],
+    variants: v('schwarz','dunkelbraun','burgund','cognac','olivgruen','navy','anthrazit','camel'),
+    rating: 4.9, reviews: 198
   },
   {
     id: 19, cat: 'herren', brand: 'PURE & CO',
     name: 'Basic T-Shirt 5er Pack',
-    svgType: 'top-shirt', primaryColor: '#f0f0f0', svgBg: ['#f8f8fa','#f0f0f4'],
+    svgType: 'top-shirt',
     price: 14.99, oldPrice: 29.99, badge: 'hot',
-    desc: '5 hochwertige T-Shirts aus 100% Premium-Baumwolle im Vorteilspack. Klassische Passform, vorgewaschen für extra Weichheit.',
-    sizes: ['S','M','L','XL','XXL','XXXL'], colors: ['Weiß/Grau/Schwarz/Navy'],
-    colorDots: ['#f5f5f5','#888','#222','#2a4a6a'], rating: 4.8, reviews: 2341
+    desc: '5 hochwertige T-Shirts aus 100% Premium-Baumwolle im Vorteilspack.',
+    sizes: ['S','M','L','XL','XXL','XXXL'],
+    variants: v('weiss','schwarz','grau','navy','creme','olivgruen','dunkelbraun','himmelblau','rosa','lavendel','mintgruen','gelb'),
+    rating: 4.8, reviews: 2341
   },
 
   /* ================================================================
@@ -315,65 +447,72 @@ const products = [
   {
     id: 21, cat: 'schuhe', brand: 'NOVA STYLE',
     name: 'Chunky Sneaker Platform',
-    svgType: 'shoe-sneaker', primaryColor: '#f0ece4', svgBg: ['#f5f2ee','#ece8e0'],
+    svgType: 'shoe-sneaker',
     price: 39.99, oldPrice: 79.99, badge: 'hot',
-    desc: 'Trendige Chunky-Sneaker mit 4cm Plateausohle. Hochwertiges Kunstleder-Obermaterial, gedämpfte Laufsohle. Das Streetwear Statement Piece der Saison.',
-    sizes: ['36','37','38','39','40','41','42','43'], colors: ['Weiß/Silber','Schwarz/Schwarz','Beige/Braun'],
-    colorDots: ['#f5f5f5','#222','#d4bc90'], rating: 4.8, reviews: 723
+    desc: 'Trendige Chunky-Sneaker mit 4cm Plateausohle. Hochwertiges Kunstleder-Obermaterial.',
+    sizes: ['36','37','38','39','40','41','42','43'],
+    variants: v('weiss','schwarz','beige','rosa','mintgruen','himmelblau','grau','navy','lavendel','gelb','koralle','creme'),
+    rating: 4.8, reviews: 723
   },
   {
     id: 22, cat: 'schuhe', brand: 'URBAN BASICS',
     name: 'Klassischer Leder-Sneaker',
-    svgType: 'shoe-sneaker', primaryColor: '#f8f6f0', svgBg: ['#faf8f4','#f2ede4'],
+    svgType: 'shoe-sneaker',
     price: 34.99, oldPrice: 69.99, badge: 'sale',
-    desc: 'Zeitloser weißer Sneaker aus echtem Nappaleder. Klassischer Schnitt mit schmaler Ledersohle. Passt zu allem – von Jeans bis Kleid.',
-    sizes: ['36','37','38','39','40','41','42','43','44','45'], colors: ['Reinweiß','Cremeweiss','Weiß/Schwarz'],
-    colorDots: ['#f8f8f8','#f8f0e0','#e0e0e0'], rating: 4.9, reviews: 1089
+    desc: 'Zeitloser weißer Sneaker aus echtem Nappaleder. Passt zu allem.',
+    sizes: ['36','37','38','39','40','41','42','43','44','45'],
+    variants: v('weiss','creme','schwarz','grau','beige','navy','rosa','mintgruen','himmelblau','camel'),
+    rating: 4.9, reviews: 1089
   },
   {
     id: 23, cat: 'schuhe', brand: 'MIA LABEL',
-    name: 'High Heel Pumps Classic',
-    svgType: 'shoe-heel', primaryColor: '#1a1a1a', svgBg: ['#f0ece8','#e8e4de'],
+    name: 'High Heel Pumps',
+    svgType: 'shoe-heel',
     price: 34.99, oldPrice: 69.99, badge: 'sale',
-    desc: 'Elegante Pumps mit 8cm Stiletto-Absatz aus feinstem Kunstleder. Verstärkte Zehenpartie, Leder-Innensohle für Komfort. Für Büro, Dinner und Galas.',
-    sizes: ['35','36','37','38','39','40','41','42'], colors: ['Schwarz','Nude','Rot','Navy'],
-    colorDots: ['#222','#d4a882','#c02020','#1a2a4a'], rating: 4.6, reviews: 345
+    desc: 'Elegante Pumps mit 8cm Stiletto-Absatz. Verstärkte Zehenpartie, Leder-Innensohle.',
+    sizes: ['35','36','37','38','39','40','41','42'],
+    variants: v('schwarz','nude','rot','navy','burgund','camel','weiss','olivgruen','rosa','champagne','cognac','lila','grau','mintgruen'),
+    rating: 4.6, reviews: 345
   },
   {
     id: 24, cat: 'schuhe', brand: 'PURE & CO',
-    name: 'Chelsea Boots Damen',
-    svgType: 'shoe-boots', primaryColor: '#1a1a1a', svgBg: ['#e0dcd8','#d4d0cc'],
+    name: 'Chelsea Boots',
+    svgType: 'shoe-boots',
     price: 44.99, oldPrice: 89.99, badge: 'hot',
-    desc: 'Klassische Chelsea Boots aus echtem Rindsleder mit Gummizug-Einsatz. Leichte Blockabsatz (3cm), herausnehmbare Innensohle. Stilvoll von Herbst bis Frühling.',
-    sizes: ['36','37','38','39','40','41','42'], colors: ['Schwarz','Cognac','Dunkelbraun'],
-    colorDots: ['#222','#c87840','#6a3a20'], rating: 4.8, reviews: 512
+    desc: 'Klassische Chelsea Boots aus echtem Rindsleder mit Gummizug-Einsatz.',
+    sizes: ['36','37','38','39','40','41','42'],
+    variants: v('schwarz','cognac','dunkelbraun','navy','burgund','olivgruen','camel','grau','anthrazit','weinrot'),
+    rating: 4.8, reviews: 512
   },
   {
     id: 25, cat: 'schuhe', brand: 'THE DAILY EDIT',
-    name: 'Sommer-Sandalen Leder',
-    svgType: 'shoe-heel', primaryColor: '#c8a060', svgBg: ['#fdf0e0','#f8e0c0'],
+    name: 'Sommer-Sandalen',
+    svgType: 'shoe-heel',
     price: 22.99, badge: 'new',
-    desc: 'Handgenähte Flachsandalen aus echtem Leder mit anatomischem Fußbett. Kork-Latex-Sohle, verstellbare Riemen. Tragbar den ganzen Tag.',
-    sizes: ['36','37','38','39','40','41','42'], colors: ['Naturleder','Schwarz','Weiß','Bronzerot'],
-    colorDots: ['#c8a060','#222','#f5f5f0','#b05030'], rating: 4.7, reviews: 389
+    desc: 'Handgenähte Flachsandalen aus echtem Leder mit anatomischem Fußbett.',
+    sizes: ['36','37','38','39','40','41','42'],
+    variants: v('camel','schwarz','weiss','bronzerot','cognac','navy','rosa','beige','olivgruen','mintgruen','koralle'),
+    rating: 4.7, reviews: 389
   },
   {
     id: 27, cat: 'schuhe', brand: 'NOVA STYLE',
-    name: 'Sneaker Herren Laufschuh',
-    svgType: 'shoe-sneaker', primaryColor: '#1a3a6a', svgBg: ['#e0eaf8','#d0dff0'],
+    name: 'Sneaker Herren Running',
+    svgType: 'shoe-sneaker',
     price: 44.99, oldPrice: 89.99, badge: 'sale',
-    desc: 'Sportlicher Laufschuh mit Air-Boost-Sohle und Mesh-Obermaterial. Leicht (280g), atmungsaktiv und energierückkehrend. Für Sport und Alltag.',
-    sizes: ['40','41','42','43','44','45','46','47'], colors: ['Schwarz/Neon','Weiß/Grau','Navy/Weiß'],
-    colorDots: ['#222','#888','#1a3a6a'], rating: 4.7, reviews: 678
+    desc: 'Sportlicher Laufschuh mit Air-Boost-Sohle und Mesh-Obermaterial.',
+    sizes: ['40','41','42','43','44','45','46','47'],
+    variants: v('schwarz','grau','navy','weiss','olivgruen','rot','himmelblau','anthrazit','orange','mintgruen'),
+    rating: 4.7, reviews: 678
   },
   {
     id: 29, cat: 'schuhe', brand: 'PURE & CO',
     name: 'Winter Boots gefüttert',
-    svgType: 'shoe-boots', primaryColor: '#8a6040', svgBg: ['#f0e8d8','#e8dcc8'],
+    svgType: 'shoe-boots',
     price: 29.99, oldPrice: 64.99, badge: 'sale',
-    desc: 'Warm und stylisch: Winterboots mit kuscheligem Innenflausch und wasserabweisender Außenwand. Griffige Profilsohle. Für kalte Tage und Schnee.',
-    sizes: ['36','37','38','39','40','41','42'], colors: ['Sand','Kastanienbraun','Schwarz'],
-    colorDots: ['#d4b888','#7a3a18','#222'], rating: 4.8, reviews: 534
+    desc: 'Winterboots mit kuscheligem Innenflausch und wasserabweisender Außenwand.',
+    sizes: ['36','37','38','39','40','41','42'],
+    variants: v('sand','dunkelbraun','schwarz','camel','cognac','grau','olivgruen','navy','burgund','rost'),
+    rating: 4.8, reviews: 534
   },
 
   /* ================================================================
@@ -381,48 +520,53 @@ const products = [
      ================================================================ */
   {
     id: 30, cat: 'taschen', brand: 'MIA LABEL',
-    name: 'Tote Bag Leder',
-    svgType: 'bag-tote', primaryColor: '#c07840', svgBg: ['#f5ede0','#ece0cc'],
+    name: 'Leder Tote Bag',
+    svgType: 'bag-tote',
     price: 34.99, oldPrice: 79.99, badge: 'sale',
-    desc: 'Großzügige Ledertasche mit Reißverschluss-Hauptfach und Innentaschen. Schultergurt und kurzer Henkel. Rindsleder in handgenähter Qualität.',
-    sizes: ['One Size'], colors: ['Cognac','Schwarz','Creme','Bordeaux'],
-    colorDots: ['#c07840','#222','#f8f5e8','#7a1a2a'], rating: 4.9, reviews: 487
+    desc: 'Großzügige Ledertasche mit Reißverschluss und Innentaschen.',
+    sizes: ['One Size'],
+    variants: v('cognac','schwarz','creme','burgund','navy','camel','olivgruen','dunkelbraun','rosa','taubenblau','beige','weinrot','sage'),
+    rating: 4.9, reviews: 487
   },
   {
     id: 31, cat: 'taschen', brand: 'NOVA STYLE',
     name: 'Crossbody Mini Bag',
-    svgType: 'bag-crossbody', primaryColor: '#222222', svgBg: ['#e8e8e8','#dcdcdc'],
+    svgType: 'bag-crossbody',
     price: 14.99, badge: 'new',
-    desc: 'Kompakte Mini-Umhängetasche mit Kette und Lederriemen. Magnetverschluss, Innenfach mit Spiegel. Passt Handy, Schlüssel und Portemonnaie.',
-    sizes: ['One Size'], colors: ['Schwarz','Altrosa','Creme','Burgund'],
-    colorDots: ['#222','#d4a0a8','#f5f0e8','#7a2030'], rating: 4.7, reviews: 623
+    desc: 'Kompakte Mini-Umhängetasche mit Kette und Lederriemen. Magnetverschluss.',
+    sizes: ['One Size'],
+    variants: v('schwarz','altrosa','creme','burgund','navy','olivgruen','camel','lila','mintgruen','weiss','himmelblau','cognac','dustyrose','gelb','turkis'),
+    rating: 4.7, reviews: 623
   },
   {
     id: 33, cat: 'taschen', brand: 'MIA LABEL',
-    name: 'Structured Satchel Business',
-    svgType: 'bag-tote', primaryColor: '#1a1a1a', svgBg: ['#e0e0e4','#d4d4d8'],
+    name: 'Business Satchel',
+    svgType: 'bag-tote',
     price: 44.99, oldPrice: 99.99, badge: 'hot',
-    desc: 'Formschöne Arbeitstasche aus strukturiertem Kunstleder. Platz für 14" Laptop, Tablet und Dokumente. Metall-Beschläge, verstellbarer Schultergurt.',
-    sizes: ['One Size'], colors: ['Schwarz','Navy','Dunkelgrau','Kamel'],
-    colorDots: ['#222','#1a3a6a','#555','#c89850'], rating: 4.8, reviews: 234
+    desc: 'Formschöne Arbeitstasche aus strukturiertem Kunstleder. Platz für 14" Laptop.',
+    sizes: ['One Size'],
+    variants: v('schwarz','navy','grau','camel','olivgruen','burgund','cognac','anthrazit','taubenblau','dunkelbraun'),
+    rating: 4.8, reviews: 234
   },
   {
     id: 34, cat: 'taschen', brand: 'THE DAILY EDIT',
     name: 'Quilted Umhängetasche',
-    svgType: 'bag-crossbody', primaryColor: '#c07840', svgBg: ['#f5ece0','#ede0cc'],
+    svgType: 'bag-crossbody',
     price: 19.99, badge: 'new',
-    desc: 'Trendige gesteppte Umhängetasche mit Kettenhenkel. Classic-Quilting-Muster, Magnetverschluss. Elegant für Abende und Ausflüge.',
-    sizes: ['One Size'], colors: ['Cognac','Schwarz','Nude','Burgund'],
-    colorDots: ['#c07840','#222','#d4b090','#7a2030'], rating: 4.8, reviews: 356
+    desc: 'Trendige gesteppte Umhängetasche mit Kettenhenkel. Classic-Quilting-Muster.',
+    sizes: ['One Size'],
+    variants: v('schwarz','cognac','altrosa','navy','beige','weiss','lila','olivgruen','burgund','mintgruen','camel','taubenblau','rosa','champagne'),
+    rating: 4.8, reviews: 356
   },
   {
     id: 35, cat: 'taschen', brand: 'NOVA STYLE',
     name: 'Canvas Shopper XL',
-    svgType: 'bag-tote', primaryColor: '#4a6030', svgBg: ['#e8eee0','#dce8cc'],
+    svgType: 'bag-tote',
     price: 12.99, oldPrice: 29.99, badge: 'sale',
-    desc: 'Geräumiger Canvas-Shopper mit Lederhenkel und Innenreißverschluss. Verstärkter Boden, wasserabweisende Beschichtung. Für Shopping, Büro und Reisen.',
-    sizes: ['One Size'], colors: ['Naturbeige/Tan','Schwarz/Schwarz','Olivgrün/Braun'],
-    colorDots: ['#d8c498','#222','#6a7840'], rating: 4.6, reviews: 312
+    desc: 'Geräumiger Canvas-Shopper mit Lederhenkel. Verstärkter Boden.',
+    sizes: ['One Size'],
+    variants: v('beige','schwarz','olivgruen','navy','creme','grau','rosa','mintgruen','burgundrot','weiss','camel','taubenblau'),
+    rating: 4.6, reviews: 312
   },
 
   /* ================================================================
@@ -431,47 +575,52 @@ const products = [
   {
     id: 37, cat: 'accessoires', brand: 'MIA LABEL',
     name: 'Cat-Eye Sonnenbrille',
-    svgType: 'bag-crossbody', primaryColor: '#8a6040', svgBg: ['#f8f0e0','#f0e4c8'],
+    svgType: 'bag-crossbody',
     price: 9.99, oldPrice: 24.99, badge: 'sale',
-    desc: 'Retro Cat-Eye-Sonnenbrille mit polarisierten Gläsern (UV400). Acetat-Rahmen, federnde Bügel. Der Vintage-Sommer-Look.',
-    sizes: ['One Size'], colors: ['Schildpatt','Schwarz','Transparent','Creme'],
-    colorDots: ['#8a6040','#222','#e8e0d8','#f5f0e0'], rating: 4.7, reviews: 534
+    desc: 'Retro Cat-Eye-Sonnenbrille mit polarisierten Gläsern (UV400).',
+    sizes: ['One Size'],
+    variants: v('schokobraun','schwarz','weiss','creme','rosa','navy','olivgruen','lila','camel','koralle'),
+    rating: 4.7, reviews: 534
   },
   {
     id: 38, cat: 'accessoires', brand: 'NOVA STYLE',
     name: 'Goldkette Layered 3-fach',
-    svgType: 'bag-crossbody', primaryColor: '#d4a030', svgBg: ['#fef8e8','#f8edd0'],
+    svgType: 'bag-crossbody',
     price: 7.99, badge: 'new',
-    desc: 'Schimmernde 3-lagige Goldkette im Layered-Look. Hochwertig vergoldet, allergikerfreundlich, nickelfrei. Für Alltag und besondere Abende.',
-    sizes: ['One Size'], colors: ['Gold','Silber','Roségold'],
-    colorDots: ['#d4a030','#c8c8c8','#d4887a'], rating: 4.8, reviews: 789
+    desc: 'Schimmernde 3-lagige Goldkette im Layered-Look. Allergiker-freundlich.',
+    sizes: ['One Size'],
+    variants: v('gold','champagne','rosegold','schwarz','weiss','camel'),
+    rating: 4.8, reviews: 789
   },
   {
     id: 40, cat: 'accessoires', brand: 'THE DAILY EDIT',
     name: 'Armband Stack Set 7-teilig',
-    svgType: 'bag-crossbody', primaryColor: '#c8a030', svgBg: ['#f8f4e8','#f0ecd0'],
+    svgType: 'bag-crossbody',
     price: 6.99, badge: 'hot',
-    desc: '7 verschiedene Armbänder zum Stapeln: Goldkette, Perlenkette, Leder, Perlen, Anhänger und mehr. Perfekt kombinierbar, verstellbar.',
-    sizes: ['One Size'], colors: ['Gold-Mix','Silber-Mix','Roségold-Mix'],
-    colorDots: ['#c8a030','#b0b0b0','#c48070'], rating: 4.8, reviews: 1023
+    desc: '7 verschiedene Armbänder zum Stapeln. Perfekt kombinierbar, verstellbar.',
+    sizes: ['One Size'],
+    variants: v('gold','champagne','rosegold','schwarz','weiss','silber'),
+    rating: 4.8, reviews: 1023
   },
   {
     id: 41, cat: 'accessoires', brand: 'MIA LABEL',
     name: 'Leder Armbanduhr Classic',
-    svgType: 'bag-crossbody', primaryColor: '#2a2a2a', svgBg: ['#e8e0d8','#dcd8cc'],
+    svgType: 'bag-crossbody',
     price: 29.99, oldPrice: 69.99, badge: 'sale',
-    desc: 'Klassische Quarzuhr mit Mineralglasfenster und echtem Kalbslederarmband. Datumsfunktion, wasserdicht bis 30m.',
-    sizes: ['One Size'], colors: ['Schwarz/Silber','Braun/Gold','Schwarz/Gold'],
-    colorDots: ['#222','#8a6030','#c8a030'], rating: 4.7, reviews: 312
+    desc: 'Klassische Quarzuhr mit Mineralglasfenster und echtem Kalbslederarmband.',
+    sizes: ['One Size'],
+    variants: v('schwarz','dunkelbraun','cognac','navy','olivgruen','burgund'),
+    rating: 4.7, reviews: 312
   },
   {
     id: 44, cat: 'accessoires', brand: 'THE DAILY EDIT',
     name: 'Cashmere-Mix Mütze',
-    svgType: 'bag-crossbody', primaryColor: '#c8a070', svgBg: ['#f5f0e8','#ede8d8'],
+    svgType: 'bag-crossbody',
     price: 9.99, badge: 'new',
-    desc: 'Weiche Beanie-Mütze aus Cashmere-Woll-Mix. Umschlagbündchen, angenehm warm ohne zu kratzen. Für Winter, Herbst und kühle Abende.',
-    sizes: ['One Size'], colors: ['Camel','Dunkelgrün','Grau Melange','Schwarz'],
-    colorDots: ['#c8a070','#3a6030','#a8a8a0','#222'], rating: 4.7, reviews: 389
+    desc: 'Weiche Beanie-Mütze aus Cashmere-Woll-Mix. Angenehm warm.',
+    sizes: ['One Size'],
+    variants: v('camel','olivgruen','grau','schwarz','navy','burgundrot','creme','rosa','himmelblau','lavendel','weiss','mustard','mintgruen','rost'),
+    rating: 4.7, reviews: 389
   },
 
   /* ================================================================
@@ -480,46 +629,51 @@ const products = [
   {
     id: 46, cat: 'sale', brand: 'URBAN BASICS',
     name: 'Puffer Jacke Ultralight',
-    svgType: 'blazer', primaryColor: '#1a3a6a', svgBg: ['#e0eaf8','#d0dff0'],
+    svgType: 'blazer',
     price: 19.99, oldPrice: 79.99, badge: 'sale',
-    desc: 'Ultra-leichte Daunen-Jacke, packbar auf Faustgröße. Wasserdichte Außenschicht, hochwertiger Daunenersatz. Für Reisen und Outdoor.',
-    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Schwarz','Khaki','Marinblau','Koralle'],
-    colorDots: ['#222','#8a7840','#1a3a6a','#e06050'], rating: 4.7, reviews: 623
+    desc: 'Ultra-leichte Daunen-Jacke, packbar auf Faustgröße. Wasserdichte Außenschicht.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('schwarz','navy','olivgruen','koralle','grau','burgund','mintgruen','gelb','creme','anthrazit','lila','camel','himmelblau'),
+    rating: 4.7, reviews: 623
   },
   {
     id: 47, cat: 'sale', brand: 'THE DAILY EDIT',
     name: 'Jogger Set 2-teilig',
-    svgType: 'top-shirt', primaryColor: '#7858b0', svgBg: ['#f0e8f8','#e4d4f0'],
+    svgType: 'top-shirt',
     price: 12.99, oldPrice: 49.99, badge: 'sale',
-    desc: 'Matching Jogger-Set aus softem French-Terry. Hoodie mit Kapuze und Jogginghose mit Gummizug. Ideal für Zuhause, Gym und entspannte Tage.',
-    sizes: ['XS','S','M','L','XL','XXL'], colors: ['Lila/Lila','Grau/Grau','Schwarz/Schwarz'],
-    colorDots: ['#a070c8','#888','#222'], rating: 4.8, reviews: 891
+    desc: 'Matching Jogger-Set aus softem French-Terry. Ideal für Zuhause, Gym und entspannte Tage.',
+    sizes: ['XS','S','M','L','XL','XXL'],
+    variants: v('lila','grau','schwarz','navy','olivgruen','rosa','mintgruen','himmelblau','burgund','weiss','creme','camel','lavendel','rost','mustard'),
+    rating: 4.8, reviews: 891
   },
   {
     id: 48, cat: 'sale', brand: 'MIA LABEL',
     name: 'Schmuck-Set Premium 5-tlg',
-    svgType: 'bag-crossbody', primaryColor: '#d4a030', svgBg: ['#fef8e0','#feecc8'],
+    svgType: 'bag-crossbody',
     price: 9.99, oldPrice: 59.99, badge: 'sale',
-    desc: 'Premium Schmuck-Geschenkset: Kette, Armband, 2 Ohrringe und Ring. Vergoldet, in luxuriöser Geschenkschachtel.',
-    sizes: ['One Size'], colors: ['Gold-Set','Silber-Set','Roségold-Set'],
-    colorDots: ['#d4a030','#b0b0b0','#c48070'], rating: 4.9, reviews: 1234
+    desc: 'Premium Schmuck-Geschenkset: Kette, Armband, 2 Ohrringe und Ring. In luxuriöser Geschenkschachtel.',
+    sizes: ['One Size'],
+    variants: v('gold','champagne','rosegold','weiss','schwarz'),
+    rating: 4.9, reviews: 1234
   },
   {
     id: 49, cat: 'sale', brand: 'PURE & CO',
     name: 'Slip-On Sneaker Damen',
-    svgType: 'shoe-sneaker', primaryColor: '#f0f0f0', svgBg: ['#f5f5f5','#ebebeb'],
+    svgType: 'shoe-sneaker',
     price: 14.99, oldPrice: 44.99, badge: 'sale',
-    desc: 'Bequeme Slip-On-Sneaker ohne Schnürung. Gestricktes Mesh-Obermaterial, Memory-Foam-Einlegesohle. Ultraleicht für den ganzen Tag.',
-    sizes: ['36','37','38','39','40','41'], colors: ['Weiß','Schwarz','Rose'],
-    colorDots: ['#f5f5f5','#222','#f0b0c0'], rating: 4.6, reviews: 445
+    desc: 'Bequeme Slip-On-Sneaker ohne Schnürung. Memory-Foam-Einlegesohle.',
+    sizes: ['36','37','38','39','40','41'],
+    variants: v('weiss','schwarz','rosa','mintgruen','navy','grau','beige','himmelblau','lavendel','gelb'),
+    rating: 4.6, reviews: 445
   },
   {
     id: 51, cat: 'sale', brand: 'URBAN BASICS',
     name: 'Winterstiefel warm gefüttert',
-    svgType: 'shoe-boots', primaryColor: '#2a2a2a', svgBg: ['#e0e0e4','#d4d4d8'],
+    svgType: 'shoe-boots',
     price: 24.99, oldPrice: 79.99, badge: 'sale',
-    desc: 'Kniehoher Winterstiefel mit Warmfutter bis -20°C. Wasserdichtes Obermaterial, griffige Profilsohle, Reißverschluss innen. Für Schnee und Kälte.',
-    sizes: ['36','37','38','39','40','41','42'], colors: ['Schwarz','Dunkelbraun','Grau'],
-    colorDots: ['#222','#5a3a20','#888'], rating: 4.8, reviews: 534
+    desc: 'Kniehoher Winterstiefel mit Warmfutter bis -20°C. Wasserdichtes Obermaterial.',
+    sizes: ['36','37','38','39','40','41','42'],
+    variants: v('schwarz','dunkelbraun','grau','camel','olivgruen','navy','cognac','burgund','sand','anthrazit'),
+    rating: 4.8, reviews: 534
   },
 ];

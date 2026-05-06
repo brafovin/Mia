@@ -8,6 +8,8 @@ let currentCat = 'all';
 let currentSort = 'default';
 let visibleCount = 12;
 let filteredList = [];
+// tracks which variant index is selected per product
+let selectedVariant = {};
 
 // ===== COUPON STATE =====
 let activeCoupons = {};       // code → value (€)
@@ -110,28 +112,43 @@ function renderProductGrid() {
   loadWrap.style.display = filteredList.length > visibleCount ? 'block' : 'none';
 }
 
+function getActiveVariant(p) {
+  const idx = selectedVariant[p.id] || 0;
+  return (p.variants || [])[idx] || { name: '', hex: p.primaryColor || '#555' };
+}
+
 function cardHTML(p) {
   const discount = p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
   const badgeMap = { new: 'badge-new', sale: 'badge-sale', hot: 'badge-hot', top: 'badge-top' };
   const badgeLbl = { new: 'NEU', sale: `-${discount}%`, hot: 'TOP', top: '⭐ BELIEBT' };
   const isWished = wishlist.has(p.id);
+  const activeIdx = selectedVariant[p.id] || 0;
+  const activeV = getActiveVariant(p);
 
-  const colorDots = (p.colorDots || []).slice(0, 4).map((c, i) =>
-    `<span class="color-dot" style="background:${c}" title="${(p.colors||[])[i]||''}"></span>`
+  // Color dots – show up to 10, rest as +N
+  const vars = p.variants || [];
+  const MAX_DOTS = 10;
+  const dotsHTML = vars.slice(0, MAX_DOTS).map((v, i) =>
+    `<button class="color-dot${i === activeIdx ? ' active' : ''}"
+      style="background:${v.hex}"
+      title="${v.name}"
+      onclick="event.stopPropagation();switchColor(${p.id},${i},this)"
+    ></button>`
   ).join('');
-  const extraColors = (p.colorDots || []).length > 4
-    ? `<span class="p-colors-more">+${p.colorDots.length - 4}</span>` : '';
+  const extraColors = vars.length > MAX_DOTS
+    ? `<span class="p-colors-more">+${vars.length - MAX_DOTS} weitere</span>` : '';
 
   const sizePills = (p.sizes || []).slice(0, 4).map(s =>
     `<button class="size-pill" onclick="event.stopPropagation();quickAddToCart(${p.id},'${s}')">${s}</button>`
   ).join('');
 
-  const svgImg = (typeof getProductSVG === 'function') ? getProductSVG(p) : `<span style="font-size:5rem">${p.emoji||'👗'}</span>`;
+  const pWithColor = { ...p, primaryColor: activeV.hex };
+  const svgImg = (typeof getProductSVG === 'function') ? getProductSVG(pWithColor) : '';
 
   return `
-    <div class="product-card" onclick="openModal(${p.id})">
+    <div class="product-card" data-pid="${p.id}" onclick="openModal(${p.id})">
       <div class="p-img-wrap">
-        <div class="p-svg-wrap">${svgImg}</div>
+        <div class="p-svg-wrap" id="svg-${p.id}">${svgImg}</div>
         ${p.badge ? `<span class="p-badge ${badgeMap[p.badge]}">${badgeLbl[p.badge]}</span>` : ''}
         <button class="p-wishlist ${isWished ? 'active' : ''}" onclick="event.stopPropagation();toggleWishlist(${p.id},this)" title="Wunschliste">
           ${isWished ? '❤️' : '🤍'}
@@ -145,7 +162,8 @@ function cardHTML(p) {
       <div class="p-info">
         <div class="p-brand">${p.brand}</div>
         <div class="p-name">${p.name}</div>
-        <div class="p-colors">${colorDots}${extraColors}</div>
+        <div class="p-color-name" id="cname-${p.id}">${activeV.name}</div>
+        <div class="p-colors" id="dots-${p.id}">${dotsHTML}${extraColors}</div>
         <div class="p-rating">
           <span class="stars">${renderStars(p.rating)}</span>
           <span class="rating-val">${p.rating}</span>
@@ -301,6 +319,46 @@ function checkout() {
   toast(msg, 'success');
 }
 
+/* ===== COLOR SWITCHING ===== */
+function switchColor(productId, variantIdx, dotEl) {
+  selectedVariant[productId] = variantIdx;
+  const p = products.find(x => x.id === productId);
+  if (!p) return;
+  const v = (p.variants || [])[variantIdx];
+  if (!v) return;
+
+  // Update color dots active state
+  const dotsWrap = document.getElementById(`dots-${productId}`);
+  if (dotsWrap) {
+    dotsWrap.querySelectorAll('.color-dot').forEach((d, i) =>
+      d.classList.toggle('active', i === variantIdx)
+    );
+  }
+
+  // Update color name label
+  const nameEl = document.getElementById(`cname-${productId}`);
+  if (nameEl) nameEl.textContent = v.name;
+
+  // Re-render SVG with new color
+  const svgWrap = document.getElementById(`svg-${productId}`);
+  if (svgWrap && typeof getProductSVG === 'function') {
+    svgWrap.innerHTML = getProductSVG({ ...p, primaryColor: v.hex });
+  }
+
+  // If modal is open for this product – update modal SVG too
+  const modal = document.getElementById('productModal');
+  if (modal && modal.classList.contains('open')) {
+    const modalImg = modal.querySelector('.modal-img');
+    if (modalImg && modal.dataset.pid == productId) {
+      modalImg.innerHTML = getProductSVG({ ...p, primaryColor: v.hex });
+    }
+    // update active color button in modal
+    modal.querySelectorAll('.modal-color').forEach((b, i) =>
+      b.classList.toggle('active', i === variantIdx)
+    );
+  }
+}
+
 /* ===== WISHLIST ===== */
 function toggleWishlist(id, btn) {
   const p = products.find(x => x.id === id);
@@ -326,11 +384,20 @@ function openModal(id) {
   const sizeBtns = (p.sizes || []).map((s, i) =>
     `<button class="modal-size${i === 0 ? ' active' : ''}" onclick="selectSize(this)">${s}</button>`
   ).join('');
-  const colorBtns = (p.colors || []).map((c, i) =>
-    `<button class="modal-color${i === 0 ? ' active' : ''}" onclick="selectColor(this)">${c}</button>`
+  const colorBtns = (p.variants || []).map((v, i) =>
+    `<button class="modal-color-dot${i === activeIdx ? ' active' : ''}"
+       style="background:${v.hex}"
+       title="${v.name}"
+       onclick="modalSwitchColor(${p.id},${i},this)"
+     ></button>`
   ).join('');
 
-  const modalSvg = (typeof getProductSVG === 'function') ? getProductSVG(p) : `<span style="font-size:8rem">${p.emoji||'👗'}</span>`;
+  const activeIdx = selectedVariant[p.id] || 0;
+  const activeV = (p.variants || [])[activeIdx] || { name: '', hex: p.primaryColor || '#555' };
+  const modalSvg = (typeof getProductSVG === 'function')
+    ? getProductSVG({ ...p, primaryColor: activeV.hex })
+    : `<span style="font-size:8rem">${p.emoji||'👗'}</span>`;
+  document.getElementById('productModal').dataset.pid = p.id;
   document.getElementById('modalContent').innerHTML = `
     <div class="modal-layout">
       <div class="modal-img" style="padding:0;overflow:hidden">${modalSvg}</div>
@@ -347,7 +414,7 @@ function openModal(id) {
           ${p.oldPrice ? `<span class="modal-price-old">${fmtPrice(p.oldPrice)}</span>` : ''}
           ${discount ? `<span class="modal-discount">−${discount}% RABATT</span>` : ''}
         </div>
-        ${colorBtns ? `<div class="modal-section-label">Farbe</div><div class="modal-colors">${colorBtns}</div>` : ''}
+        ${colorBtns ? `<div class="modal-section-label">Farbe &nbsp;<span id="modal-cname" style="font-weight:400;color:#888;letter-spacing:0">${activeV.name}</span></div><div class="modal-colors">${colorBtns}</div>` : ''}
         ${sizeBtns ? `<div class="modal-section-label">Größe</div><div class="modal-sizes">${sizeBtns}</div>` : ''}
         <button class="modal-add-btn" onclick="modalAddToCart(${p.id})">In den Warenkorb</button>
         <div class="modal-desc">${p.desc}</div>
@@ -371,9 +438,12 @@ function selectSize(btn) {
   btn.classList.add('active');
 }
 
-function selectColor(btn) {
-  btn.closest('.modal-colors').querySelectorAll('.modal-color').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
+function modalSwitchColor(productId, variantIdx, btn) {
+  switchColor(productId, variantIdx, btn);
+  const nameEl = document.getElementById('modal-cname');
+  const p = products.find(x => x.id === productId);
+  const v = (p?.variants || [])[variantIdx];
+  if (nameEl && v) nameEl.textContent = v.name;
 }
 
 function modalAddToCart(id) {
